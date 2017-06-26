@@ -1,0 +1,27 @@
+.cadastro {
+text-align: center;
+margin: 30px;
+}
+.cadastro-pessoa a, .cadastro-instituicao a {
+  text-decoration: none;
+  color: black;
+}
+.cadastro-pessoa:hover, .cadastro-instituicao:hover{
+  background-color: rgb(77,173,169);
+  color: white;
+}
+
+.cadastro-pessoa , .cadastro-instituicao {
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px;
+  border: 10px solid rgb(77,173,169);
+  border-radius: 20px;
+  padding: 10px;
+}
+.cadastro-pessoa *, .cadastro-instituicao *{
+  margin: 10px;
+}
+.cadastro li{
+text-align: left;
+}

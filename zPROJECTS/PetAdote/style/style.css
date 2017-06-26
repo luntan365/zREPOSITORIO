@@ -1,0 +1,62 @@
+
+
+/*Style font css*/
+@font-face{font-family: Pacifico; src: url("font/GloriaHallelujah.ttf")}
+*{padding: 0px; margin: 0px; font-family: Arial, Helvetica, sans-serif}
+
+#div1 { padding-top: 92px; min-height: 400px;}
+
+/*Style Class do site*/
+.class-header{width: 100%; height: 50px;background-color: rgb(255,255,255);}
+.class-header img{margin-left: 13%; margin-top: 8px;}
+.class-header-acesso{float: right;}
+.class-header-acesso a button{background-color: rgb(77,173,169); border: 0px; height: 50px; padding: 0px 50px; color: rgb(255,255,255)}
+.class-nav{widows: 100%;height: 40px; background-color: rgb(77,173,169);}
+.class-nav nav{width: 100%; margin-left: 13%;}
+.class-nav nav ul li{display: inline-block;}
+.class-nav nav ul li a{text-decoration: none; color: rgb(255,255,255); padding: 12px 20px; font-size: 13px;}
+.class-nav nav ul li a img{position: relative; top: 5px;}
+.class-nav-social{width: 156px; height: 40px; background-color: rgb(53,153,143); float: right; margin-top: -28px; padding-left: 40px;}
+.class-nav-social a img{ padding: 4px 5px;}
+.class-section{width: 100%; background-image: url("../img/imagens-fundo.jpg"); height: 460px; background-size: 100% 100%;position: relative; z-index: 1;}
+.class-section-distaque{width: 500px; position: relative; left: 13%; }
+.class-section-distaque h1{font-family: 'Gloria Hallelujah', cursive; font-size: 42px; color: rgb(238,76,53);}
+.class-section-distaque h2{font-size: 31px;}
+.class-section-distaque p{font-size: 20px; margin-top: 10px;}
+.class-section-distaque h2, .class-section-distaque p{color: rgb(77,173,169);}
+.class-section-distaque button{width: 400px; margin-top: 20px; font-size: 20px;padding: 13px 0px; background-color: rgb(53,153,143); border: 0px; color: rgb(255,255,255);}
+.class-coezinhas-title, .class-parceiros-title, .class-lista-title, .class-coezinhas-cont, .class-lista-animal{width: 960px; margin: auto;text-align: center;}
+.class-coezinhas, .class-lista, .class-parceiros,.class-dados, .class-footer{width: 100%; position: relative; }
+.class-coezinhas-title h1, .class-parceiros-title h1, .class-coezinhas-cont div h2,.class-lista-title h1, .class-dados-pateadote div h2{font-family: 'Gloria Hallelujah', cursive;}
+.class-coezinhas-title h1, .class-parceiros-title h1, .class-lista h1{ font-size: 35px; }
+.class-coezinhas-title P, .class-lista-title p, .class-parceiros-title p{font-family: 'Gloria Hallelujah', cursive; font-size: 20px;}
+.class-coezinhas-cont div{display: inline-table; width: 360px; margin-top: 60px; padding: 0px 30px 70px 30px}
+.class-coezinhas-cont div h2{margin-top: 20px; font-size: 30px;}
+.class-coezinhas-cont div h3{margin-top: 3px; font-size: 16px;}
+.class-coezinhas-cont div p{margin-top: 10px; font-size: 17px;}
+.class-lista{background-color: rgb(53,153,143); padding-top: 50px ;}
+.class-lista-title h1, .class-lista-title p{color: rgb(255,255,255);}
+.class-lista-title button{margin-top: 20px;background-color: rgb(53,153,143); border: 2px solid rgb(255,255,255); width: 200px; padding: 10px 0px; border-radius: 20px;margin-left: 20px; color: rgb(255,255,255); font-size: 17px;}
+.class-lista-animal{padding-top: 50px; padding-bottom: 100px;}
+.class-lista-animal img{margin: 5px 5px; border: 2px solid rgb(255,255,255);}
+.class-parceiros-title{padding-top: 50px;}
+.class-parceiros-logo{width: 400px; margin: auto; text-align: center;}
+.class-dados{background-color: rgb(77,173,169)}
+.class-dados-pateadote{width: 960px; margin: auto; padding-top: 70px; padding-bottom: 50px;}
+.class-dados-pateadote div{ display: inline-table; width: 310px;text-align: center;}
+.class-dados-pateadote div h2{font-size: 18px; color: rgb(255,255,255); margin-top: 10px;}
+.class-dados-pateadote div p{color: rgb(255,255,255); font-size: 30px;margin-top: 10px;}
+.class-footer{background-color: rgb(53,153,143); width: 100%; height: 40px;}
+.class-footer p {float: right; color: rgb(255,255,255); margin-top: 10px; margin-right: 20px;}
+
+/*Style ID do site*/
+#entrar{background-color: rgb(238,76,53); position: relative; left: 4px;}
+#home{background-color: rgb(53,153,143)}
+#header{position: fixed; width: 100%; border-bottom: 2px solid rgb(255,255,255); z-index: 5}
+#listaCachorro{color: rgb(53,153,143); background-color: rgb(255,255,255);}
+
+/*Style Hover do site*/
+.class-nav nav ul li a:hover{background-color: rgb(53,153,143)}
+.class-header-acesso a button:hover, .class-section-distaque button:hover,.class-lista-title button:hover{background-color: rgb(129,205,201); cursor:pointer;}
+.class-lista-animal img:hover{opacity:0.65;-moz-opacity: 0.65;filter: alpha(opacity=65);}
+#entrar:hover{background-color: rgb(238,50,50);}

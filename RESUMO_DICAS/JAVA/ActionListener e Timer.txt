@@ -1,0 +1,36 @@
+// ActioListener é classe verificação de eventos
+// Timer usado para verificação desses eventos num intervalo de tempo.
+
+//===EXEMPLO================================================================
+public static void main(String[] args) {
+
+		ClasseDeEventos nomeEvento = new ClasseDeEventos();		
+		//timer executa codgo dentro do metodo actionPerformed da Classe que implements ActionListener .
+		Timer t = new Timer(1000, nomeEvento);
+		t.start();	
+	}
+	
+class ClasseDeEventos implements ActionListener {
+
+	public void actionPerformed(ActionEvent arg0) {
+	
+		//eventos q vao ser verificados.
+		//codigo q vai ser repetido e verificado com uso do timer.		
+	}
+	
+//======FIM EXEMPLO=========================================================
+
+//========Timer======TimerTask====================================================================================
+
+	public static void main(String[] args) {
+		Timer timer = new Timer();
+		
+		TimerTask task = new TimerTask() {  
+			public void run() {  
+				System.out.println((new SimpleDateFormat("hh:mm:ss").format(new Date(System.currentTimeMillis()))));  
+		    }  
+		 }; 
+		 
+		    timer.schedule(task, 0,1000);  //  (task, tempoPrimeiraInicialização, IntervaloEntreExecuçoes);
+		}
+//===============================================================================================================

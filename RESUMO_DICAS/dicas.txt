@@ -1,0 +1,9 @@
+﻿=> quando criar campo de data no DB:  escolha CURRENT_TIMESTAMP, editer o campo attribute para ficar com a data de quando foi criado, ou deixe update CURRENT_TIMESTAMP para modificar a data sempre quele or alterado.
+
+=> IMAGEM WEB: SVG
+
+=> SERVIDOR REST: servidor lida apenas com troca de dados rapido
+
+=> NOSQL: banco gerencia grande quantidade de dados rapido e facil
+
+=> curl.haxx.se : programa de interação http servidor

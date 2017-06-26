@@ -1,0 +1,24 @@
+
+.add-pets {
+  display: inline-block;
+  width: 350px;
+  padding: 30px;
+  border: 10px solid rgb(77,173,169);
+  border-radius: 10px;
+  margin: 10px;
+}
+.add-pets input, .add-pets select, .add-pets textarea {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.add-pets input, .add-pets select {
+  padding: 5px;
+}
+.meus-pets {
+  display: inline-block;
+  width: 200px;
+  padding: 10px;
+  border: 10px solid rgb(77,173,169);
+  border-radius: 10px;
+  margin: 10px;
+}

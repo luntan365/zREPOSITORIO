@@ -1,0 +1,43 @@
+//===============modificadores de acesso=====================
+
+		package 	 //acessado mesmo package, padão, sem especificar é ele.
+		public		//pode ser acessado por todos
+		private	   //so pode ser acessado no mesma class
+		protected //so pode ser acessado no mesmo package e atraves de herança
+		static	 //nao precisa de abjeto pra acesso e o valor e complartilhada pra todo mundo
+		void	//nao retorna nada
+		final  //variavel q nao muda seu valor, ou classe que nao pode ser herdada.
+//Herança
+//so pode estender de uma classe.
+class nomeDaClasse extends nomeDaClasseExtendida{ //corpo }
+//pode implementas varias interface.
+class nomeDaClasse implements  nomeDaClasseImplementada { //corpo }
+
+//classe e tipo de objeto com caracteristicas (atributos) e acões (metodos)		
+//tipos classes
+
+		abstract class
+		interface
+		enum
+		
+//===Classes Abstratas===========================================
+abstract class
+
+//classe abstracta nao pode ser instanciada
+//nao representa objeto fisico
+//todas q herdarem delas sao obrigadas a implementar suas caracteristicas e ações
+//metodos abstratos sem corpo
+// nao existe variaveis abstratas
+
+//===Interface===================================================
+interface
+
+//variaveis sao estaticas e é obrigatorio inicilas com valor
+//metodos sao abstatros
+//metodos podem ser estaticos ou defaoult
+//metodos com ou sem corpo
+
+//===Enum=========================================================
+Classe que restringo o uso das varias ou intervalo defionido em seu corpo
+
+//=======================================

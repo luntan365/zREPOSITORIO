@@ -1,0 +1,21 @@
+private Connection conector;	
+	
+	public Connection getConnection(){
+		
+		if (conector==null) {
+			try {
+				Class.forName("org.gjt.mm.mysql.Driver");
+				conector = DriverManager.getConnection(
+						"jdbc:mysql://localhost:3306/concessionaria?autoReconnect=true&useSSL=false",
+						"root", "root");
+				
+				System.out.println("Conectado ao banco de dados.");
+			} catch (SQLException e) {
+				System.out.println("Erro ao conectar ao sevidor. " + e.getMessage());				
+			} catch (ClassNotFoundException e) {
+				System.out.println("Erro ao carregar o Driver. " + e.getMessage());
+				e.printStackTrace();
+			}			
+		}	
+		return conector;
+	}

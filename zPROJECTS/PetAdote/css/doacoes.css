@@ -1,0 +1,51 @@
+.minhas-doacoes, .minhas-doacoes * {
+  overflow: hidden;
+}
+.minhas-doacoes {
+  text-align: center;
+  padding: 10px;
+}
+.minhas-doacoes p {
+  display: block;
+}
+.minhas-doacoes a {
+  text-decoration: none;
+  color: black;
+}
+.caixa {
+    border: 20px solid rgb(77,173,169);
+    border-radius: 10px;
+    margin: 20px;
+    display: inline-block;
+}
+.doacoesconcluida {
+    border: 20px solid #2ecc71;
+    border-radius: 10px;
+    margin: 20px;
+    display: inline-block;
+}
+.minhas-doacoes .caixa-pet {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  padding: 20px;
+}
+
+ .minhas-doacoes .caixa-adotante {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  padding: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.minhas-doacoes .caixa .comfirmar-adocao a {
+  background: #2ecc71;
+  color: white;
+  line-height: 2;
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 10px;
+  width: 90%;
+}

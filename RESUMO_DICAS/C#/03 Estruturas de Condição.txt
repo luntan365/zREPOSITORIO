@@ -1,0 +1,44 @@
+//=====================================================================
+
+//==========SE for verdadeiro faça isso================
+
+		if (condition) {
+			//codigo
+		}
+//==========SE for verdadeiro faça isso SENAO faça isso================
+
+		if (condition) {
+			
+		} else {
+
+		}
+
+//==========SE for verdadeiro faça isso SENAO SE faça isso SENAO faça isso ================
+
+		if (condition) {
+			//codigo
+		}else if (condition){
+			//codigo
+		}else if (condition){
+			//codigo
+		} else {
+			//codigo
+		}
+
+
+//========== ? : ==============
+
+	(condition ? seVerdadeiroFaçaIsso : seFalsoFaçaIsso)
+	
+	int x = 0;
+	(x > 1 ? x = 0 : x = 1) //saida x == 1
+	
+//=======Switch=======================
+		int numero_case = 1;
+		switch (numero_case) {
+		case 1:		//codigo	break; //vai executar esse trecho de codigo.
+		case 2:		//codigo	break;
+		case 3:		//codigo	break;
+		default:
+		break;
+		}

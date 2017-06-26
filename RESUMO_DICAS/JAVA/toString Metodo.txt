@@ -1,0 +1,33 @@
+//=================toString Exemplo=========================
+
+
+public class ToStringMetodoMain {
+
+	public static void main(String[] args) {
+		
+	new ToStringMetodo().hora(80, 4,500);
+	
+	}
+
+}
+
+ class ToStringMetodo {
+	int d;
+	int h;
+	int m;
+	int s;
+	
+	public void hora (int h, int m, int s){
+	
+		this.h = h;
+		this.m = m;
+		this.s = s;
+		
+		System.out.println(this); //this se refere ao formato q a string vai sair pelo metodo toString.
+	}
+	
+	public String toString(){
+		return String.format("%02d Dias %02d:%02d:%02d Horas", d, h, m, s);
+	}
+
+}

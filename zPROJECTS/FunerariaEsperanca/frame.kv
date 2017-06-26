@@ -1,0 +1,150 @@
+#:import data datetime
+
+<Tela@FloatLayout>:
+    Label:
+        text: 'Data'
+        # text_size: self.size
+        # halign: 'right'
+        # valign: 'middle
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":1}
+    Label:
+        text: 'Tipo Plano'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.94}
+    Label:
+        text: 'Numero do Contrato'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.88}
+    Label:
+        text: 'Valor'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.82}
+    Label:
+        text: 'Numero Parcelas'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.76}
+    Label:
+        text: 'Porcentagem de Juros'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.70}
+    Label:
+        text: 'Valor da Parcela'
+        readonly: True
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.64}
+    Label:
+        text: 'Nome'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.58}
+    Label:
+        text: 'Rua'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.52}
+    Label:
+        text: 'Numero'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.46}
+    Label:
+        text: 'Bairro'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.40}
+    Label:
+        text: 'CEP'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.34}
+    Label:
+        text: 'Municipio'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.28}
+    Label:
+        text: 'UF'
+        size_hint: .5, .06
+        pos_hint: {"x":0, "top":0.22}
+    Button:
+        text: 'GERAR PDF'
+        size_hint: 1, .16
+        pos_hint: {"x":0, "top":0.16}
+        on_release: root.gerar_pdf()
+
+    TextInput:
+        id: data
+        text: data.date.today().strftime("%d-%m-%Y")
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":1}
+        padding: 10
+    TextInput:
+        id: plano
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.94}
+        padding: 10
+    TextInput:
+        id: numero_contrato
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.88}
+        padding: 10
+    TextInput:
+        id: valor
+        on_text:root.calc_parc()
+        text: '0'
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.82}
+        padding: 10
+    TextInput:
+        id: numero_parcelas
+        on_text:root.calc_parc()
+        text: '12'
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.76}
+        padding: 10
+    TextInput:
+        id: juros
+        on_text:root.calc_parc()
+        text: '0'
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.70}
+        padding: 10
+    Label:
+        id: valor_parcela
+        text: '0'
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.64}
+    TextInput:
+        id: nome
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.58}
+        padding: 10
+    TextInput:
+        id: rua
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.52}
+        padding: 10
+    TextInput:
+        id: numero
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.46}
+        padding: 10
+    TextInput:
+        id: bairro
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.40}
+        padding: 10
+    TextInput:
+        id: cep
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.34}
+        padding: 10
+    TextInput:
+        id: municipio
+        text: 'Quixada'
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.28}
+        padding: 10
+    TextInput:
+        id: uf
+        text: 'CE'
+        size_hint: .5, .06
+        pos_hint: {"x":.5, "top":0.22}
+        padding: 10
+
+Tela:

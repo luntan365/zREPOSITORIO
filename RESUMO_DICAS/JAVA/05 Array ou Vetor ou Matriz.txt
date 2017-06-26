@@ -1,0 +1,79 @@
+//=============================================================
+
+//Array ou Vetor
+	int [] nome_Matriz  = new int [tamanho];
+//percorrer Array ou Vetor
+	for (int i = 0; i < nome_Matriz.length; i++) {
+			nome_Matriz[i] = 0;
+		}
+
+//Array Bidiensional ou matriz
+	int [][] nome_Matriz  = new int [Linhas][Colunas];
+//percorrer matriz
+	for (int i = 0; i < linhas; i++) {
+		for (int j = 0; j < colunas; j++) {
+			nome_Matriz[i][j] = 0;
+		}
+	}
+
+
+//===============Array List==============
+
+//Sem especificar tipo e colocar qualquer coisa dentro
+	ArrayList <> nomeDoArray =  new ArrayList<> ();
+
+//especificando tipo variavelNome
+	ArrayList <tipo_varialvel> nomeDoArray =  new ArrayList<tipo_varialvel> ();
+
+//percorer array list com foreach
+	for (tipo_varialvel variavelNome : nomeDoArray) {
+		//código
+	}
+
+//add item num loop e comparando o recebido com a condicao do loop
+
+	String varavelNome = null;
+	while (!"FIM".equalsIgnoreCase(variavelNome = s.nextLine())){
+		nomeDoArray.add(variavelNome);
+		}
+
+//imprimir array list
+	System.out.println(produtos.toString());
+
+//================Exemplo Desafio da Piramide=======================
+
+	int t = Integer.parseInt(JOptionPane.showInputDialog("Insira o tamnho da matriz quadrada"));
+	int pyr [][] = new int[t][t];
+	int x = 0;
+	int y = 1;		
+	int z = 1;
+		
+	while (pyr [(t-1)/2][(t-1)/2] == 0) {		
+			
+		for (int i = 0; i < t; i++) {
+		for (int j = 0; j < t; j++) {				
+			if (pyr [i][j] == 0) {				
+			if(i == (0+x) || j == (0+x) || i == (t-y) || j == (t-y) ){					
+				pyr [i][j] = z;				
+				}				
+			}				
+		}	
+	}
+		x++;
+		y++;
+		z++;
+	} 
+				
+	for (int i = 0; i < t; i++) {
+	for (int j = 0; j < t; j++) {
+	pyr [i][j] = pyr [i][j] -1;
+	}
+	}
+	
+	for (int i = 0; i < t; i++) {
+	for (int j = 0; j < t; j++) {
+	System.out.print(pyr [i][j] + " ");
+	}
+	System.out.println();
+	}
+//====================================================================

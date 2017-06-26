@@ -1,0 +1,35 @@
+//=========================================================================================================\\
+//Todo Metodo deve ter apenas uma funçao unica para q possa ser reutilado se necessario.
+//caracteriza-se por executar uma ação caracteristica de sua classe petencente.
+
+//=========método=================
+
+	modificador tipo_Retorno Nome_metodo (Parametros_A_Serem_Recebidos){
+		Corpo_do_Metodo; //código
+		retuno tipo_Retorno;
+	}
+
+//===========metodo recebe numeros em array no parametros e soma todos===============
+
+ static double soma (double ... numeros){
+	double total = 0;
+	for (double n: numeros) {
+		total += n;
+	}
+	return total;
+	}
+
+System.out.println(soma(2,3,5,200)); // saida: 210
+
+//=================Metodo Recussivo====================================================
+
+		//metodo retorna fatorial
+		long fatorial(long x){
+			if (x<=1) {
+				//codigo base, onde deve parar
+				return 1;
+			} else {
+				//x*(x-1)*((x-1)-1)...*(1)
+				return x * fatorial(x-1);
+			}
+		}

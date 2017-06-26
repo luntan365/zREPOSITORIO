@@ -1,0 +1,2 @@
+//Emitir beep
+Toolkit.getDefaultToolkit().beep();

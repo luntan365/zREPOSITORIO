@@ -1,0 +1,72 @@
+//=====extends JFrame=============
+
+	super("titulo da janela"); //Nome da janela
+	setTitle("titulo da janela");//Nome da janela
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fechar quando clica no X
+	setSize(700,600);//Dimensoes
+	this.setResizable(false); // false: nao pode ser maximizada.
+	setVisible(true);//tornar visivel
+	setLocationRelativeTo(null);//centralizar
+	setExtendedState(Frame.MAXIMIZED_BOTH);//maximizado
+	
+	pack(); //faz componentes utilizarem menor espaço possivel
+	
+	// add icone	
+	Image imagem = Toolkit.getDefaultToolkit().getImage("src/package/nomeImagem.png");
+	setIconImage(imagem);
+	
+	
+	
+	
+//=======Container=============================	
+
+		//criar container
+		Container n = new JPanel();
+		
+		//criar layout de grade de 4 por 4 com espaçamenrto de 5 milimetros
+		n.setLayout(new GridLayout(4,4,5,5));
+		n.add(new Button("7"));
+		n.add(new Button("8"));
+		n.add(new Button("9"));
+		n.add(new Button("/"));
+		n.add(new Button("4"));
+		n.add(new Button("5"));
+		n.add(new Button("6"));
+		n.add(new Button("*"));
+		n.add(new Button("1"));
+		n.add(new Button("2"));
+		n.add(new Button("3"));
+		n.add(new Button("-"));
+		n.add(new Button("0"));
+		n.add(new Button("."));
+		n.add(new Button("="));
+		n.add(new Button("+"));	
+		
+		//campo de texto
+		JTextField display = new JTextField();
+		display.setFont(new Font("serif", Font.PLAIN, 30));
+		
+		//adicionando itens criado ao container
+		Container c = getContentPane();
+		c.add(BorderLayout.NORTH, display);
+		c.add(BorderLayout.CENTER, n);
+	
+//===================================================================	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

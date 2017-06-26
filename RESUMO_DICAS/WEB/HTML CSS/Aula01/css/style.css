@@ -1,0 +1,155 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+
+#site{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+body{
+	background-color: #D0D0D0;
+	color: white;
+}
+
+#toptop {
+	border: 1px;
+	height: 106px;
+}
+
+#top {
+	border: 1px solid red;
+	height: 106px;
+	width: 100%;
+	background-color: black;
+	position: fixed;
+}
+
+img {
+	margin-top: 0px;
+	float: left;
+}
+
+nav {
+	text-decoration: none;
+	list-style: none;
+	margin-top: 23px;
+	margin-bottom: 23px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	color: black;
+}
+
+nav ul {
+
+	text-align: center;
+	font-family: Arial;
+}
+
+nav ul li {
+	display: inline-block;
+	padding: 10px;
+	font-size: 30px;
+	border-radius: 10px;
+}
+
+nav ul li:hover {
+	background-color: white;
+}
+
+
+h1 {
+	padding: 20px;
+	text-align: center;
+}
+
+p{
+	font-size: 20px;
+	padding: 10px; 
+}
+
+hr {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+
+#mid {
+	margin-top: 10px;
+	border: 1px solid red;
+}
+
+#mid01 {
+	width: 49.8%;
+	border: 1px;
+	float: right;
+}
+
+#mid11 {
+	background-color: black;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+
+#mid12 {
+	width: 49.8%;
+	background-color: black;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	float: right;
+}
+
+#mid13 {
+	width: 49.8%;
+	background-color: black;
+	margin-top: 10px;
+	border-radius: 10px;
+}
+
+#mid02 {
+	width: 49.8%;
+	border: 1px;
+}
+
+#mid21 {
+	width: 49.5%;
+	background-color: black;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	float: right;
+}
+
+#mid22 {
+	width: 49.8%;
+	background-color: black;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+
+#mid23 {
+	background-color: black;
+	border-radius: 10px;
+}
+
+
+#bot{
+	margin-top: 30px;
+	margin: 1px solid black;
+	height: auto;
+	background-color: black;
+	border-radius: 10px;
+}
+
+.nomeRodape {
+	text-align: right;
+}
+

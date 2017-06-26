@@ -1,0 +1,99 @@
+.alterar-foto {
+  border: 20px solid rgb(77,173,169);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.alterar-foto * {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+}
+
+.alterar-email {
+  border: 20px solid rgb(77,173,169);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.alterar-email * {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+}
+
+
+.alterar-senha {
+  border: 20px solid rgb(77,173,169);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.alterar-senha * {
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 4px;
+  width: 200px;
+}
+
+.alterar-pessoa {
+  border: 20px solid rgb(77,173,169);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.alterar-pessoa * {
+  padding: 4px;
+  display: block;
+}
+.alterar-pessoa input[type="text"], .alterar-pessoa input[type="submit"] {
+  width: 200px;
+}
+.alterar-pessoa select  {
+  width: 210px;
+}
+.alterar-pessoa .aterar-sexo * {
+  display: inline;
+}
+.alterar-instituicao {
+  border: 20px solid rgb(77,173,169);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.alterar-instituicao * {
+  padding: 4px;
+  display: block;
+}
+.alterar-instituicao input[type="text"], .alterar-instituicao input[type="submit"] {
+  width: 200px;
+}
+.alterar-instituicao select  {
+  width: 210px;
+}

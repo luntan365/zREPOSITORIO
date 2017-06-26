@@ -1,0 +1,20 @@
+.class-form h2{font-family: 'Gloria Hallelujah', cursive; font-size: 30px; padding-bottom: 10px;padding-top: 30px;}
+.class-form div h2{font-size: 20px;padding-bottom: 20px;}
+.class-form div ul{border: 1px solid rgb(77,173,169); padding: 10px 10px 10px 40px;}
+.class-form div ul li{font-family: 'Gloria Hallelujah', cursive; font-size: 18px;}
+.class-form div button{width: 430px; height: 40px;border: 0px; background-color: rgb(238,76,53); color: rgb(255,255,255); margin-top: 10px;}
+
+/*.class-form-pessoa form{padding-top: 30px;}
+.class-form-pessoa form label{font-size: 20px; font-family: 'Gloria Hallelujah', cursive;}
+.class-form-pessoa form input{width: 350px; font-size: 20px; padding: 5px 10px; position: relative; top: 5px; }
+.class-form-pessoa span{font-family: 'Gloria Hallelujah', cursive;}
+.class-form-pessoa span a{font-family: 'Gloria Hallelujah', cursive; color: rgb(0,0,255); text-decoration: none;}*/
+
+/*#pesssoaFisica:hover, #instituicao:hover{background-color: rgb(238,50,50);cursor:pointer;}
+#carrega{width: 100px; position: relative; left: 25px;}
+#numero, #estado{width: 70px;}
+#complemento, #telefone{width: 230px;}
+#aceito {width: 20px; margin-top: 20px;}
+#cadastra,#carrega{background-color: rgb(77,173,169); border: 0px; color: rgb(255,255,255); height: 37px; cursor:pointer;}
+#cadastra{width: 200px;}
+#cadastra:hover ,#carrega:hover{background-color: rgb(53,153,143);}*/

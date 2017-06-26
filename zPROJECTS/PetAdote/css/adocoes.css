@@ -1,0 +1,55 @@
+.minhas-adocoes, .minhas-adocoes * {
+  overflow: hidden;
+}
+.minhas-adocoes {
+  text-align: center;
+  padding: 10px;
+}
+.minhas-adocoes p {
+  display: block;
+}
+.minhas-adocoes .Aguardando {
+    border: 20px solid rgb(77,173,169);
+    border-radius: 10px;
+    width: 490px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.minhas-adocoes .Aceito {
+    border: 20px solid #2ecc71;
+    border-radius: 10px;
+        width: 490px;
+        margin: 20px;
+        display: inline-block;
+}
+
+.minhas-adocoes .Rejeitado {
+    border: 20px solid #e74c3c;
+    border-radius: 10px;
+      width: 490px;
+      margin: 20px;
+      display: inline-block;
+}
+
+.caixa-pet {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  padding: 20px;
+}
+
+.caixa-adotante {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  padding: 20px;
+}
+
+.caixa-status {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  padding: 20px;
+  width: 100%;
+}

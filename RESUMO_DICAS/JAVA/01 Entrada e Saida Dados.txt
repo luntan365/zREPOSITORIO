@@ -1,0 +1,31 @@
+//=========================================================================================================\\
+//===============entrada Dados========================================
+
+		String s = JOptionPane.showInputDialog("texto");
+
+		//Converter de dados
+		int i  = Integer.parseInt("5");
+		double d  = Double.parseDouble("2.25");
+
+//=====================================================
+
+		Scanner s = new Scanner (System.in);
+		s.NextLine(); // string
+		s.NextInt(); // inteiro
+		s.NextDouble(); //double
+
+//============Saida Dados=============================================
+		int variavel = 0;
+		System.out.println("texto"+variavel);
+		System.out.printf("texto %d", variavel);
+
+//======saidas formatadas printf================
+		double num = 1.54856564;
+		System.out.printf("%1.1f",num ); //saida: 1.5
+		System.out.printf("%1.3f",num ); //saida: 1.548
+		int num2 = 9;
+		System.out.printf("%02d",num2 ); //saida: 09
+		System.out.printf("%03d",num2 ); //saida: 009
+
+
+

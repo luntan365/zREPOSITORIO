@@ -1,0 +1,30 @@
+.cadastro-instituicao {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 20px solid rgb(77,173,169);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+  width: 500px;
+}
+
+.cadastro-instituicao * {
+  padding: 4px;
+  display: block;
+}
+.cadastro-instituicao div {
+  padding: 4px;
+  display: inline-block;
+}
+.cadastro-instituicao input[type="text"], .alterar-instituicao input[type="submit"], .cadastro-instituicao input[type="password"] {
+  width: 200px;
+}
+.cadastro-instituicao select  {
+  width: 210px;
+}
+.cadastro-instituicao .cadastro-inline * {
+  display: inline;
+}

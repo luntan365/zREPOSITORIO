@@ -1,0 +1,62 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	background-color: black;
+	color: white;
+	
+}
+
+#corpo {
+	width: 612px;
+	height: auto;
+	margin: auto;
+}
+
+#navegador nav ul li{
+	margin-top: 30px;
+	color: black;
+	background-color: red;
+	text-decoration: none;
+    list-style: none;
+	display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 3px;
+}
+
+#corpo h1{
+	text-align: center;
+	color: red;
+	margin: 10px;
+}
+
+#topo {
+	height: 150px;
+	width: auto;
+	border: 3px solid #ff0000;
+}
+
+#conteudo1 {
+	width: 260px;
+	height: 300px;
+	border: 3px solid #ff0000;
+	padding: 10px;
+	margin: 10px;
+}
+
+#conteudo2 {
+	width: 260px;
+	height: 300px;
+	border: 3px solid #ff0000;
+	padding: 10px;
+	margin: 10px;
+	float: right;
+}
+
+#conteudo3 {
+	width: 260px;
+	height: 300px;
+	border: 3px solid #ff0000;
+	padding: 10px;
+	margin: 10px;
+}

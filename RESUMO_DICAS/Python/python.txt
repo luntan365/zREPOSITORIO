@@ -1,0 +1,54 @@
+# -*- coding: utf-8 -*-
+
+idade = raw_input("Digite sia idade")
+idade = int(idade)
+if type(idade) is int:
+    print("sua idade e um inteiro")
+else:
+    print("Sua variavel não é inteiro")
+
+//metodo========================================
+# -*- coding: utf-8 -*-
+
+def imorimir(idade):
+    if type(idade) is int:
+        print("sua idade e um inteiro")
+    else:
+        print("Sua variavel não é inteiro")
+
+idade = raw_input("Digite sia idade")
+idade = int(idade)
+
+//arary=======================================================
+
+# -*- coding: utf-8 -*-
+#=================metodo verirficar capacidade=====================================
+def ta_cheio(kombi, capacidade):
+    if len(kombi) >= capacidade:
+        return True
+    else:
+        return False
+        
+#=============metodo preencher=========================================
+def senta_na_combi(pessao, kombi, capacidade):
+    if not ta_cheio(kombi, capacidade):
+        kombi += [pessoa]
+
+#============preencher lista==========================================
+komby_do_iron = []
+capacidade_da_combe = 3
+
+while not ta_cheio(komby_do_iron, capacidade_da_combe):
+    pessoa = raw_input("Digite o nome do convidade: ")
+    senta_na_combi(pessoa, komby_do_iron, capacidade_da_combe)
+
+for pessoa in komby_do_iron:
+    print(pessoa)
+
+
+
+
+
+
+
+

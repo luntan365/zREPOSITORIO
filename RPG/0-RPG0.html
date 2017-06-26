@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+    *{
+      padding: 0px;
+      margin: 0px;
+      outline: none;
+      list-style: none;
+      background: #34495e;
+      color: white;
+      font-family:'Roboto',sans-serif;
+      font-size: 19px;
+    }
+    div {
+      float: left;
+      margin: 20px 0px 10px 40px;
+    }
+    span {
+    font-size: 22px;
+    color: #e67e22;
+    }
+    </style>
+
+    <script type="text/javascript">
+
+      var Char = function(nivelp, nivelFinal, tipo) {
+
+        var random = function(num) {
+          return Math.round((Math.random()*(num-1))+1);
+        }
+
+        var nome = "CHAR";
+        var nivel = nivelp;
+        if (!nivelp)
+          nivel = random(20);
+
+        if (nivelFinal)
+          nivel = nivel+(random(nivelFinal-nivel+1)-1);
+
+        var xp = 0;
+
+        var str = 0;
+        var vit = 0;
+        var dex = 0;
+        var agi = 0;
+        var con = 0;
+        var esp = 0;
+
+        var vida = 0;
+        var mana = 0;
+        var precisao = 0;
+        var deflexo = 0;
+        var velAtak = 0;
+        var velConj = 0;
+        var deslocamento = 0;
+        var carga = 0;
+
+        var fsc1m = 0;
+        var fsc2m = 0;
+        var mgc1m = 0;
+        var mgc2m = 0;
+
+        var fsc1mf = 0;
+        var fsc2mf = 0;
+        var mgc1mf = 0;
+        var mgc2mf = 0;
+
+
+        var distStatus = function(a){
+          switch (a) {
+            case 1:  str += 1;  break;
+            case 2:  vit += 1;  break;
+            case 3:  dex += 1;  break;
+            case 4:  agi += 1;  break;
+            case 5:  esp += 1;  break;
+            case 6:  esp += 1;  break;
+          }
+        }
+
+
+        var buildChar = function(t){
+          var pa = 5 + nivel;
+          var x = t;
+          if (!t)
+            x = random(8);
+          switch (x) {
+            case 1:
+              nome = "RANDOM";
+              var status = [1, 2, 3, 4, 5, 6];
+              for (var i = 0; i < pa; i++)
+              distStatus(status[random(6)-1]);
+            break;
+            case 2:
+              nome = "GUERREIRO";
+              var status = [1, 1, 1, 2, 2, 3];
+              for (var i = 0; i < pa; i++)
+              distStatus(status[random(6)-1]);
+            break;
+            case 3:
+              nome = "GLADIADOR";
+              var status = [1, 1, 2, 2, 3, 4];
+              for (var i = 0; i < pa; i++)
+              distStatus(status[random(6)-1]);
+            break;
+            case 4:
+              nome = "TANKER";
+              var status = [2, 2, 2, 4, 4, 4];
+              for (var i = 0; i < pa; i++)
+              distStatus(status[random(6)-1]);
+            break;
+            case 5:
+              nome = "ARQUEIRO";
+              var status = [2, 2, 3, 3, 3, 4];
+              for (var i = 0; i < pa; i++)
+              distStatus(status[random(6)-1]);
+            break;
+            case 6:
+              nome = "LADRAO";
+              var status = [2, 3, 3, 4, 4, 4];
+              for (var i = 0; i < pa; i++)
+              distStatus(status[random(6)-1]);
+            break;
+            case 7:
+              nome = "MAGO";
+              var status = [2, 2, 3, 5, 6, 6];
+              for (var i = 0; i < pa; i++)
+              distStatus(status[random(6)-1]);
+            break;
+            case 8:
+              nome = "BRUXO";
+              var status = [2, 2, 3, 5, 5, 6];
+              for (var i = 0; i < pa; i++)
+              distStatus(status[random(6)-1]);
+            break;
+            case 9:
+              nome = "SACERDOTE";
+              var status = [2, 2, 2, 6, 6, 6];
+              for (var i = 0; i < pa; i++)
+              distStatus(status[random(6)-1]);
+            break;
+            default: document.writeln("tipo invalido de personagem: "+ tipo); break;
+          }
+        }
+
+        var XP = function(NivelMaximo) {
+          var total = 0;
+          var nivel = 0;
+           for (var i = 1; nivel < NivelMaximo; i++) {
+            for (var j = 0; j < i && nivel < NivelMaximo; j++) {
+              total += i;
+              nivel++;
+            }
+          }
+          return total*10;
+        }
+
+        var calcularAtributos = function() {
+          xp = XP(nivel);
+          vida = 10 + vit*4 + str*1;
+          mana = 10 + esp*4 + con*1;
+          precisao = dex; // rolar 20 no dado = sempre acerta e ignora defesa, rejoga se critico maximiza, rejoga e adiciona um fator multiplicador
+          deflexo = agi; //rola 1 no dado = recebe ataque estantaneo do alvo
+          velAtak = agi;
+          velConj = con;
+          deslocamento = 2 + Math.floor(agi/4);
+          carga = 3 + vit; //carga maxima = carga + for;
+
+          fsc1m = str/2;    fsc1mf = dex/3;
+          fsc2m = str;      fsc2mf = dex/2; //ARCOS não recebem bonus voluvel força
+          mgc1m = esp/2;    mgc1mf = con/3;
+          mgc2m = esp;      mgc2mf = con/2;
+
+          fsc1m = Math.floor(fsc1m);
+          fsc2m = Math.floor(fsc2m);
+          mgc1m = Math.floor(mgc1m);
+          mgc2m = Math.floor(mgc2m);
+          fsc1mf = Math.floor(fsc1mf);
+          fsc2mf = Math.floor(fsc2mf);
+          mgc1mf = Math.floor(mgc1mf);
+          mgc2mf = Math.floor(mgc2mf);
+        }
+
+        var imprimir = function() {
+          document.writeln(
+            "<div>"+
+            "<span>"+ nome + "</span>"+ "<br>"+
+            "Nivel: "+ nivel +"<br>"+
+            "XP: "+ xp +"<br>"+
+            "<br>"+
+            "VIDA: "+ vida + "<br>"+
+            "MANA: "+ mana + "<br>"+
+            "Acerto: "+ precisao + "<br>"+
+            "Deflexo: "+ deflexo + "<br>"+
+            "Vel.Atak: "+ velAtak +  "<br>"+
+            "Vel.Conj: "+ velConj +  "<br>"+
+            "Desloc: "+ deslocamento + "<br>"+
+            "Carga: "+ carga + "<br>"+
+            "<br>"+
+            "FSC1M: "+ fsc1m +"+"+ fsc1mf +"<br>"+
+            "FSC2M: "+ fsc2m +"+"+ fsc2mf +"<br>"+
+            "MGC1M: "+ mgc1m +"+"+ mgc1mf +"<br>"+
+            "MGC2M: "+ mgc2m +"+"+ mgc2mf +"<br>"+
+            "<br>"+
+            "STR: "+ str +"<br>"+
+            "VIT: "+ vit +"<br>"+
+            "DEX: "+ dex +"<br>"+
+            "AGI: "+ agi +"<br>"+
+            "CON: "+ con +"<br>"+
+            "ESP: "+ esp +"<br>"+
+            "</div>"
+          );
+        }
+
+        buildChar(tipo);
+        calcularAtributos();
+        imprimir();
+      }
+
+
+      var x = 1;
+      new Char(x, x, 2);
+      new Char(x, x, 3);
+      new Char(x, x, 4);
+      new Char(x, x, 5);
+      new Char(x, x, 6);
+      new Char(x, x, 7);
+      new Char(x, x, 8);
+      new Char(x, x, 9);
+
+	  var x = 2;
+      new Char(x, x, 2);
+      new Char(x, x, 3);
+      new Char(x, x, 4);
+      new Char(x, x, 5);
+      new Char(x, x, 6);
+      new Char(x, x, 7);
+      new Char(x, x, 8);
+      new Char(x, x, 9);
+
+	  var x = 3;
+      new Char(x, x, 2);
+      new Char(x, x, 3);
+      new Char(x, x, 4);
+      new Char(x, x, 5);
+      new Char(x, x, 6);
+      new Char(x, x, 7);
+      new Char(x, x, 8);
+      new Char(x, x, 9);
+
+	  var x = 4;
+      new Char(x, x, 2);
+      new Char(x, x, 3);
+      new Char(x, x, 4);
+      new Char(x, x, 5);
+      new Char(x, x, 6);
+      new Char(x, x, 7);
+      new Char(x, x, 8);
+      new Char(x, x, 9);
+
+	  var x = 5;
+      new Char(x, x, 2);
+      new Char(x, x, 3);
+      new Char(x, x, 4);
+      new Char(x, x, 5);
+      new Char(x, x, 6);
+      new Char(x, x, 7);
+      new Char(x, x, 8);
+      new Char(x, x, 9);
+
+	  var x = 6;
+      new Char(x, x, 2);
+      new Char(x, x, 3);
+      new Char(x, x, 4);
+      new Char(x, x, 5);
+      new Char(x, x, 6);
+      new Char(x, x, 7);
+      new Char(x, x, 8);
+      new Char(x, x, 9);
+
+
+    </script>
+
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+
+</html>

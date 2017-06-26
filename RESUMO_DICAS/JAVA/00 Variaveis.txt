@@ -1,0 +1,70 @@
+//=========================================================================================================\\
+	//======Variaveis============
+
+	// caracteres // 2 Byte de Memoria // char c = ' ';
+	char c;
+	
+	// textos : array de caracteres (char)
+	String str;
+	
+	// condicional true ou false.//inicialmente falsa
+	boolean bl;
+	
+	// decimais
+	// -128 a 127 // 1 Byte de Memoria.
+	byte b;
+	
+	// +-32,768 // 2 Byte de Memoria.
+	short s;
+	
+	// +-2147483648 //4 Byte de Memoria.
+	int i;
+	
+	// +-922372036854775808 //8 Byte de Memoria.
+	long l;
+	
+	// flotuante
+	// 4 Byte de Memoria.
+	float f;
+	
+	// 8 Byte de Memoria.
+	double d;
+	
+	//=======codigo===========
+
+	System.out.println("String = " + str);
+	System.out.println("char = " + c);
+	System.out.println("boolean = " + bl);
+	System.out.println("byte = " + b);
+	System.out.println("short = " + s);
+	System.out.println("int = " + i);
+	System.out.println("long = " + l);
+	System.out.println("float = " + f);
+	System.out.println("double = " + d);
+
+	//=======Saida====Valor padrão de inicialização=======
+	String = null
+	char = 
+	boolean = false
+	byte = 0
+	short = 0
+	int = 0
+	long = 0
+	float = 0.0
+	double = 0.0
+	
+	//==============Constantes=================
+	//modificador final toran contrante, usa nome variavel toda em mauscula.
+	final double PI = 3.148484848; 
+	
+	//=========================especicar tipo variavel para nao ocorrer erros================================
+	
+	float x1 = 1/2; //resultado incorreto.
+	System.out.println(x1); //saida: 0.0
+		
+	float x = 1f/2; // resultado correto.
+	System.out.println(x); //Saida: 0.5
+		
+	// float x = 1f/2; 
+	// double x = 1d/2;
+	// long x = 1000000l;

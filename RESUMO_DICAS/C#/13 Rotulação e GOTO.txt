@@ -1,0 +1,21 @@
+//Rotulando e GOTO
+{
+	inicio: //rotulo
+
+	//trexo de codigo
+	//trexo de codigo
+	//trexo de codigo
+
+	if(condição == true)
+		goto inicio; //vai pro inicio
+	else
+		goto fim;
+		
+	//trexo de codigo
+	//trexo de codigo
+	//trexo de codigo
+
+	fim: // rotulo
+	//fim programa
+
+}

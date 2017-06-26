@@ -1,0 +1,45 @@
+//===============modificadores de acesso=====================
+
+internal	 //acessado mesmo Assembly
+public		//pode ser acessado por todos
+private	   //so pode ser acessado no mesma class
+protected //so pode ser acessado atraves de herança
+protected internal //so pode ser acessado no mesmo Assembly e atraves de herança
+		
+//======Metodo Construtor=======================================
+ public nomeDaClasse (){ }
+
+//===Enum=========================================================
+Classe que restringo o uso das varias ou intervalo defionido em seu corpo
+enum nomeEnum {enum01, enum02, enum03};
+nomeEnum nomeVariavel = nomeEnum.enum01;
+
+enum nomeEnum: byte {enum01, enum02, enum03}; //padrao int
+nomeEnum enumVar = nomeEnum.enum02;
+Console.WriteLine(enumVar);
+++enumVar;
+Console.WriteLine(enumVar);
+
+//=========Struc==============================
+//é uma versao simples das classes, gasta menos memoria, exemplo: int, nyte, long e etc.
+// possui metodo contrutor	
+	struct nomeStruct {
+	public int hora, minuto, segundo;
+	}
+	
+	main{
+	NomeStruct varStruct;
+	varStruct.hora = 10;
+	varStruct.minuto = 50;
+	varStruct.segundo = 35;
+	}
+
+//===========Herança===========================================
+class nomeDaClasse : nomeDaClasseExtendida{ //corpo }
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+private Connection conector;
+	
+	
+	public Connection getConnection(){
+		
+		if (conector==null) {
+			try {
+				Class.forName("org.postgresql.Driver");
+				conector = DriverManager.getConnection(
+						"jdbc:postgresql://localhost:5432/dwp", "postgres", "0123");
+				System.out.println("Conectado ao banco de dados.");
+			} catch (SQLException e) {
+				System.out.println("Erro ao conectar ao sevidor. " + e.getMessage());				
+			} catch (ClassNotFoundException e) {
+				System.out.println("Erro ao carregar o Driver. " + e.getMessage());
+				e.printStackTrace();
+			}			
+		} else {
+			return conector;
+		}		
+		return conector;
+	}

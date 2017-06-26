@@ -1,0 +1,26 @@
+//WPF //salvando a pratria....thread rodando dentro da thread da interface. 
+//.Dispatcher.BeginInvoke((Action)(() => {  }));
+janelaCombateObj.lbl_danoJogador01Combate.Dispatcher.BeginInvoke((Action)(() => { janelaCombateObj.lbl_danoJogador01Combate.Content = danoVariavelLocal; }));
+
+
+//perguntar se quer fechar realmente a janela Clcando no X, usando evendo de fechamento de janela.
+public void Form1_FormClosing(object sender, FormClosingEventArgs e)
+	if(MessageBox.Show("Deseja fechar a execução do programa.", "Aviso",MessageBoxButtons.YesNo,MessageBoxIcon.Information,MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+	{
+		e.Cancel = true;
+	}
+
+
+//perguntar se quer fechar realmente a janela, botao personalizado fechar
+	if(MessageBox.Show("Deseja fechar a execução do programa.", "Aviso",MessageBoxButtons.YesNo,MessageBoxIcon.Information,MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+	{
+		Close();
+	}
+
+
+
+
+
+
+
+

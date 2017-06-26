@@ -1,0 +1,4 @@
+pyinstaller main.py
+pyinstaller main.spec
+pyinstaller --onefile main.spec
+pyinstaller --name main --icon icon.ico main.py

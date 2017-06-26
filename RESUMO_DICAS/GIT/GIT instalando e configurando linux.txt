@@ -1,0 +1,109 @@
+//instalando
+sudo apt-get install git
+//configurando nome
+git config --global user.nome "DejotaFreitas"
+//configurando email
+git config --global user.email "djxpgs@hotmail.com"
+//mosta nome e email
+git config --list
+
+//criar repositorio dentro da pasta do projeto que vai ser versoionada
+git init
+
+//adcionar a lista de comite
+git add .
+
+//remover do git add
+git rm --cached arquivo.txt
+
+//arquivos q nao devem ser comitados
+//criar arquivo chamado .gitignore
+nano .gitignore
+//adcioana no arquivo os nomes com extensa do arquivos, pastas ou extenções ignoradas
+arquivo.txt
+
+//criar versao do git dos arquivos adicionados (git add)
+git commit - m "titulo da commit"
+
+//informaçoes do commit
+git log
+
+//mostrar as alteraçoes dos 2 ultimos commit
+git show
+
+//recuperar arquivo do ultimo commit
+git checkout arquivo.txt
+//recuperar arquivo de um commit especifico,coloca id do commit depois
+git checkout arquivo.txt 8b3bd5f85710602f02a32f644e215091869a4774
+
+//mostrar ID e comentario dos commit
+git log --pretty=oneline
+
+//reverter comite
+git revert 8b3bd5f85710602f02a32f644e215091869a4774
+
+//=========================================================================================
+
+//criar senha de criptografia para repositorio
+ssh-keygen -C "lembrete da chave de criptografia"
+//ver a chave de criptografia
+car ~/.ssh/id_rsa.pub
+//conectar se ao site GITHUB
+ssh -T git@git.com
+
+//=========================================================================================
+//adicionando git ao repositorio github
+git remote add nomeRepositorio endereçoDoGitHubRepository
+git remote add origin https://github.com/DejotaFreitas/xHtmlCssJavaScript.git
+
+//pegar arquivo do github que nao tenho e traser pro computador
+git pull nomerepository(origen) brannch(master)
+git clone https://github.com/DejotaFreitas/xHtmlCssJavaScript.git
+
+
+//enviar pro github
+git push -u nomeRepository brach
+git push -u origin master
+
+
+//=========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

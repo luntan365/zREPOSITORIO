@@ -1,0 +1,23 @@
+.usuario-view {
+  height: 500px;
+  padding: 30px;
+}
+
+.usuario-view img {
+  width: 20%;
+  float: left;
+}
+
+.usuario-view p {
+  width: 70%;
+  float: left;
+  padding: 6px;
+  margin: 3.5px;
+}
+
+.usuario-view a {
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  background-color: rgb(77,173,169);
+}

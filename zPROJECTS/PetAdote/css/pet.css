@@ -1,0 +1,29 @@
+.pet-view {
+  height: 500px;
+  padding: 30px;
+}
+
+.pet-view img {
+  width: 20%;
+  float: left;
+}
+
+.pet-view p {
+  width: 70%;
+  float: left;
+  padding: 6px;
+  margin: 3.5px;
+}
+
+.pet-view a {
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  background-color: rgb(77,173,169);
+}
+.pet-view  .entrar-lista-adocao {
+  background-color: #2ecc71;
+}
+.pet-view  .sair-lista-adocao{
+  background-color: #e74c3c;
+}

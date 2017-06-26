@@ -1,0 +1,57 @@
+//================Operadores Matematicos=======================
+// mais +
+5 + 3 == 8
+// menos -
+5-3 == 2
+// divisão /
+9/3 == 3
+//multiplicação
+5*3 == 15
+//resto da divisão %
+5%3 == 1
+
+
+//================Operadores Condicionais=======================
+
+//igual
+	10 == 10 //saida true
+	
+//Diferente
+	10 != 10 // saida false
+	
+// Maior e Menor
+	9 > 10 //saida false
+	9 < 10 //saida true
+	
+// Maior Igual e Menor Igual
+	10 >= 10 //saida true
+	10 <= 10 //saida true
+
+	
+//Comparar Tipos classe: instaceof
+	Integer x = 0;
+	x instanceof Integer; //saida true
+		
+//Comparando String	
+	"String".equals("String"); //saida true
+	"String".equalsIgnoreCase("sTrInG"); //saida true , nao importa maiuscula ou menuscula.
+
+//===================Operadores Logicos=============================
+// &&, ||, !, ^
+// and, e, &&, toda expressão tem ser verdadeira para condição ser verdadeira.
+	10 == 10 && 9 == 9 // saida true
+
+// or, ou, ||, se uma for verdadeira toda expressão é verdadeira.
+	10 == 10 || 8 == 9 // saida true
+
+//Negar condição: ! ou ~ , nega ou inverte o resultado da expressão.
+	!(10 == 10) //saida false
+	~(10 == 10) //saida false
+	
+// ^ , ou um ou outro, so uma das condições pode ser verdadeira para expressão ser verdadeira.
+	10 == 10 ^ 8 == 9 // saida true
+	10 == 10 ^ 9 == 9 // saida false
+
+
+
+

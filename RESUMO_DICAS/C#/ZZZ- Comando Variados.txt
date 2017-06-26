@@ -1,0 +1,18 @@
+//Tempo Percorrido
+DateTime tempoInicial = DateTime.Now;
+DateTime tempoFinal = DateTime.Now;
+Console.WriteLine(tempoFinal - tempoInicial);
+
+//Converter em String 2 Formas
+Convert.ToString(conteudoi a ser convertido);
+(conteudoi a ser convertido).ToString();
+
+//Ramdom
+Random r = new Random();
+
+//espera tempo
+System.Threading.Thread.Sleep(2000);
+
+
+
+

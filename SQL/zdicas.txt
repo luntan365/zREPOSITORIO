@@ -1,0 +1,4 @@
+﻿=> quando criar campo de data no DB:  escolha CURRENT_TIMESTAMP,
+ editer o campo attribute para ficar com a data de quando foi criado, 
+ou deixe update CURRENT_TIMESTAMP para modificar a data sempre quele or alterado.
+

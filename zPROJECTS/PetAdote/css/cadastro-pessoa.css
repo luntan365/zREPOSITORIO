@@ -1,0 +1,30 @@
+.cadastro-pessoa {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 20px solid rgb(77,173,169);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+  width: 500px;
+}
+
+.cadastro-pessoa * {
+  padding: 4px;
+  display: block;
+}
+.cadastro-pessoa div {
+  padding: 4px;
+  display: inline-block;
+}
+.cadastro-pessoa input[type="text"], .alterar-pessoa input[type="submit"], .cadastro-pessoa input[type="password"] {
+  width: 200px;
+}
+.cadastro-pessoa select  {
+  width: 210px;
+}
+.cadastro-pessoa .cadastro-inline * {
+  display: inline;
+}

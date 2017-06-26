@@ -1,0 +1,63 @@
+.pets-conteiner {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 10px solid rgb(77,173,169);
+}
+.pets-conteiner * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pets-pesquisa {
+  width: 100%;
+  border: 10px solid rgb(77,173,169);
+  font-size: 20px;
+}
+.pets-pesquisa * {
+  margin: 4px;
+}
+.select {
+  width: 230px;
+  font-size: 20px;
+}
+
+.pets-navegacao {
+  width: 100%;
+  border: 10px solid rgb(77,173,169);
+  text-align: center;
+}
+.pets-navegacao a button{
+  font-size: 20px;
+  margin: 10px;
+}
+
+.pet-lista-pets {
+  width: 100%;
+  border: 10px solid rgb(77,173,169);
+  padding: 2px;
+}
+.pet-lista-pets a {
+  color: black;
+  text-decoration: none;
+
+}
+.pet-lista-pets figure {
+  position: relative;
+  width: 19.7%;
+  overflow: hidden;
+  display: inline-block;
+  padding: 10px;
+}
+.pet-lista-pets figure figcaption {
+  text-align: center;
+}
+.pet-lista-pets figure img {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pet-lista-pets a:hover figure{
+  background-color: rgb(77,173,169);
+  color: white;
+}

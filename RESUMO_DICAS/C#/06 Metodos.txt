@@ -1,0 +1,105 @@
+//============Metodos=============================================================================================\\
+//Todo Metodo deve ter apenas uma funçao unica para q possa ser reutilado se necessario.
+//caracteriza-se por executar uma ação caracteristica de sua classe petencente.
+//=========método=================
+	modificador tipo_Retorno Nome_metodo (Parametros_A_Serem_Recebidos){
+	Corpo_do_Metodo; //código
+	retuno tipo_Retorno;}
+//=========Modificador=================
+public	// livre acesso ao metdo
+Static 	// pode ser chamado sem criar um objeto
+
+//=========tipo_Retorno=================
+Void // nao retorna nada
+byte,int,double,char,String e etc //retorna o valor do tipo explissito.
+
+//=========Parametros de valor=================
+//e feito uma copia do valor inserido para execução dos argumentos,sem modoficar os valores originais.
+	int soma (int i, int j){
+	int x = i+j; //argumentos
+	return x; }
+//=========Parametros de Referencia (ref)=================
+//ultlisa os valores passados e que sifreram todas as mudanças feito pelo metodo
+	int soma (ref int i, ref int j){
+	int x = i+j; //argumentos
+	return x; }
+//usando...
+soma(ref variavelInserida);
+
+//=========Parametros de Opcional=================
+//parametro ja tem valor padrão, inicializana no metodo.
+//parametros normais (obrigatorios) vem sempre antes dos opcionais
+	int soma (int i, int j = 0){
+	int x = i+j; //argumentos
+	return x; }
+//usando....
+soma(5); // retorn 5+0 = 5
+
+//=========Parametros Argumentoos nomeados=================
+//ao usar metodo mostre qual variavel aquele parametro vai receber (:)
+//pode passar os argumentos em quaçuqer ordem
+//usando....
+	int var1 = 0;
+	int var2 = 5
+	soma(par2: var1, par1: var2);
+	
+	int soma (int par1, int par2){
+	int x = i+j; //argumentos
+	return x; }
+
+//===========metodo recebe numeros em array no parametros e soma todos===============
+
+        public static void soma(params double [] numeros)
+        {
+            double total = 0;
+            foreach (double n in numeros)
+                 total += n;
+            Console.WriteLine(total);
+		}
+
+System.out.println(soma(2,3,5,200)); // saida: 210
+
+//=================Metodo Recussivo====================================================
+
+		//metodo retorna fatorial
+		long fatorial(long x){
+			if (x<=1) {
+				//codigo base, onde deve parar
+				return 1;
+			} else {
+				//x*(x-1)*((x-1)-1)...*(1)
+				return x * fatorial(x-1);
+			}
+		}
+		
+//=========Sobrecarga de metodo===========
+//dois metodos com ecrituras iguas que podem fazer coisas diferente
+//dependo do numero de parametros
+
+//eleva ao quadrado
+	int potencia(int x){
+	return x*x; }
+	
+//eleva o primeiro a segundo parametro
+	int potencia(int x, int y){
+	return Math.pow(x,y); }
+	
+//=========metodo virtual e override=================
+//é tipo de metodo que pode ser sobrescrita pelas suas classes derivadas.
+//metodo override sobrescreve metodo referente da classe mae;
+
+class superClass{
+	public void virtual metodo(){ //argumentos }
+}
+
+class classFilha : superClass{
+	public void override metodo(){ //argumentos Diferentes }
+}
+
+
+
+
+
+
+
+

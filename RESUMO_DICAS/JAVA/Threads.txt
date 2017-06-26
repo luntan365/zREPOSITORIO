@@ -1,0 +1,71 @@
+//=============Threads=======================
+
+
+
+public static void main(String[] args) throws InterruptedException {
+	//criar thread
+		ClasseThread t = new ClasseThread();
+		t.start(); //iniciar threar.
+		
+
+	//criar thread a partir da interface runnable
+		ClasseRunnable r = new ClasseRunnable();
+		Thread tr = new Thread(r);
+		tr.start();
+	
+		
+		System.out.println("Primeira a ser Executado");
+		t.join(); //so executa resto do codigo quando a thead especificada for finalizada.
+		System.out.println("Executado depois do termino da Thread t");
+		tr.join();
+		System.out.println("Executado depois do termino da Thread tr");
+		t.join();
+		tr.join();
+		System.out.println("Executado depois do termino da Thread t e tr");
+		
+		
+		//metodos 
+		//join() //so executa resto do codigo quando a thead especificada for finalizada.
+		//isAlive() //volta true se a thread está sendo executada e ainda não terminou.
+		//currentThread() - é um método estático da classe Thread que volta qual a thread que está sendo executada.
+		//setPriority() //define ordem prioridade da Thred, o padrão é 5.
+		//what(1000) ou sleep(1000) //pausa thread para q possa ser interrumpda ou se comunicar, 1000 milisegundos = 1 segundo.
+		//notify() ou notifyAll() //threads se comunicam para que uma nao fique esperando pela outram, causando em travamento.
+		//interrupt(); //interrompe thread
+		//
+		
+		
+	}
+}	
+
+		//======Herdando da Classe Super Thread==============
+class ClasseThread extends Thread {
+
+	public void run() {	
+		try {
+			for (int i = 0; i < 10; i++) {
+				Thread.sleep(1000);
+				System.out.println("Thread = "+i);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+
+//=======Herdando da Interface com mesma função da Thread========
+//interface e bom caso a classe ja tenha extenditada de outra classe
+class ClasseRunnable implements Runnable {
+
+	public void run() {
+		try {
+			for (int i = 0; i < 10; i++) {
+				Thread.sleep(1500);
+				System.out.println("Runable = "+i);
+			}
+
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}		
+	}

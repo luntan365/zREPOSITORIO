@@ -1,0 +1,28 @@
+
+//Saida de Dados
+Console.Write("Texto de saida");
+Console.Write("Saida com variavel {0}", var0);
+Console.Write("Saida com variavel {0} {1}", var0, var1);
+Console.Write(" {2} variavel {1} espalahadas {0} ", var0, var1,var2);
+
+
+//Entrada de Dados
+Console.ReadLine();
+Console.Read();
+
+//Recebanedo Key Teclado
+ConsoleKeyInfo v = Console.ReadKey();
+if (v.Key == ConsoleKey.Enter)
+
+//Conversão de dados
+int t = int.Parse(Console.ReadLine());
+//se não for possível converter retorna um resultado Falso.
+var v = int.TryParse(dadoASerConvertido, out variavelRecebeNumeroConvertido);
+
+//Conversao implicida Local
+int i = (int)5.3;
+String s = (String)5;
+float [] i = (float [])vetorInteiro;
+
+
+
