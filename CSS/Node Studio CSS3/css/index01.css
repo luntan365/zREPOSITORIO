@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #34495e;
+  color: white;
+}
+
+fieldset {
+  /*margem externa*/
+  margin: 10px;
+  /*margen interna*/
+  padding: 10px;
+  /*arrendondar as pontas*/
+  border-radius: 10px;
+}
+
+.cadastro, legend, input{
+  font-size: 20px;
+  font-family: ‘Lucida Console’, Monaco, 'Ubuntu Monospace', monospace;
+  border-radius: 3px;
+}
+
+.cadastro input, label{
+  padding: 3px 10px;
+}
+
+.componentes > input{
+  margin: 5px;
+}

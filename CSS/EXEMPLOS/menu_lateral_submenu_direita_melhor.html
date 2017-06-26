@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #ecf0f1;
+    }
+
+    .menu-icon {
+      position: fixed;
+      font-size: 25px;
+      font-weight: bold;
+      padding: 5px;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      background-color: #2c3e50;
+      color: #fff;
+      cursor: pointer;
+      transition: all .4s;
+      right: 0;
+      top: 0;
+    }
+    .menu-icon:hover {
+      background-color: #ecf0f1;
+      color: #34495e;
+    }
+    #ckb-menu-principal, #ckb-submenu-cursos, #ckb-submenu-contatos {
+      display: none;
+    }
+    .menu {
+      width: 300px;
+      right: -300px;
+      height: 100%;
+      position: fixed;
+      background-color: #2c3e50;
+      top: 0;
+      overflow: hidden;
+      transition: all .2s;
+    }
+
+    .sobmenu {
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+    }
+    ul li a, .sobmenu{
+      height: 30px;
+      display: block;
+      font-size: 20px;
+      font-family: 'Arial';
+      padding: 10px;
+      border-bottom: solid 2px #bdc3c7;
+      color: #fff;
+      text-decoration: none;
+      transition: all .2s;
+      text-align: center;
+    }
+    ul li:hover{
+      background-color: #c0392b;
+    }
+
+    #ckb-menu-principal:checked ~  #menu-principal {
+      transform: translateX(-300px);
+      box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5);
+    }
+    #ckb-submenu-cursos:checked ~ #submenu-cursos {
+      transform: translateX(-300px);
+      box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5);
+    }
+    #ckb-submenu-contatos:checked ~ #submenu-contatos {
+      transform: translateX(-300px);
+      box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    </style>
+    <title></title>
+  </head>
+  <body>
+
+
+    <input type="checkbox" id="ckb-menu-principal" >
+    <label for="ckb-menu-principal" class="menu-icon">&#9776;</label>
+
+    <input type="checkbox" id="ckb-submenu-cursos" >
+    <input type="checkbox" id="ckb-submenu-contatos" >
+
+    <div class="bg"></div>
+
+      <nav class="menu" id="menu-principal">
+        <ul>
+          <li><label for="ckb-menu-principal" class="sobmenu">Voltar</label></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Forum</a></li>
+          <li><label for="ckb-submenu-cursos" class="sobmenu">Cursos</label></li>
+          <li><a href="#">Sobre</a></li>
+          <li><label for="ckb-submenu-contatos" class="sobmenu">Contatos</label></li>
+        </ul>
+      </nav>
+
+      <nav class="menu" id="submenu-cursos">
+        <ul>
+          <li><label for="ckb-submenu-cursos" class="sobmenu">Voltar</label></li>
+          <li><a href="#">PHP</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">HTML</a></li>
+        </ul>
+      </nav>
+
+      <nav class="menu" id="submenu-contatos">
+        <ul>
+          <li><label for="ckb-submenu-contatos" class="sobmenu">Voltar</label></li>
+          <li><a href="#">E-mail</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Telefone</a></li>
+        </ul>
+      </nav>
+
+
+  </body>
+</html>

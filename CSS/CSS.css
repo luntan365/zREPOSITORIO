@@ -1,0 +1,259 @@
+*{
+/*FUNDO*/
+background-color: black;/*cor de fundo de um elemento*/
+background-image: url("paper.gif");/*imagem para usar como plano de fundo de um elemento*/
+background-repeat: repeat-x; /*imagem repete na horizontal*/
+background-repeat: repeat-y; /*imagem repete na vertical*/
+background-repeat: no-repeat;/*imagem não repete*/
+background-position: right top; /*escole onde a imagem vai se alocar*/
+background-attachment: fixed; /*imagem fixa ignorando barra de rolagem*/
+background: #ffffff url("img_tree.png") no-repeat right top fixed; /*acessar todas configuraçoes de uma vez*/
+
+/*LINHA EXTERNA - vem depois da borda, parte mais externo do elemento*/
+outline-width: 3px;
+outline-color: red;
+outline-style: double;
+outline: 5px dotted red;
+
+/*BORDA INTERNA*/
+border-left: 6px solid red; /*define boder solida vermelha*/
+border-radius: 4px; /*arrendodnado borda*/
+
+/*ESPAÇAMENTO EXTERNA*/
+margin-left: inherit; /*herda a mesma margem do seu elemento pai*/
+margin: auto; /*navegador calcula, centraliza horizontamente*/
+margin: 5%;
+margin-top: 5px;
+margin-right: 5px;
+margin-bottom: 5px;
+margin-left: 5px;
+margin: 100px; /*margin: todos os lados */
+margin: 100px 150px; /*margin: topo e baixo, direita e esquerda */
+margin: 100px 150px 100px; /*margin: topo, direita e esquerda, baixo */
+margin: 100px 150px 100px 80px; /*margin: topo, direita, baixo esquerda */
+
+/*ESPAÇAMENTO INTERNO*/
+padding: 50px; /*auta o margin interna do elemento*/
+padding-top: 5px;
+padding-right: 5px;
+padding-bottom: 5px;
+padding-left: 5px;
+padding: 100px; /*margin: todos os lados */
+padding: 100px 150px; /*margin: topo e baixo, direita e esquerda */
+padding: 100px 150px 100px; /*margin: topo, direita e esquerda, baixo */
+padding: 100px 150px 100px 80px; /*margin: topo, direita, baixo esquerda */
+
+/*ALTURA e LARGURA*/
+height: 200px;
+width: 50%;
+max-width: 50%; /*largura maxima*/
+max-height: 500px; /*altura maxima*/
+min-width: 50%; /*largura minima*/
+min-height: 500px; /*altura minima*/
+
+/*TEXTO*/
+ /*cor do texto*/
+ color: blue;
+/*alinhamento do texto*/
+text-align: center;
+text-align: left;
+text-align: right;
+/*alinhamento vertival
+baseline|length|sub|super|top|text-top|
+middle|bottom|text-bottom|initial|inherit;*/
+vertical-align: text-top;
+/*texto justificado*/
+text-align: justify;
+/*decoraçoes do texto*/
+text-decoration: none; /*remover decoraçoes*/
+text-decoration: overline; /*traço em cima*/
+text-decoration: line-through; /*traço no meio*/
+text-decoration: underline; /*sublinhado*/
+/*Transformação de texto*/
+text-transform: uppercase; /*tudo maiusculo*/
+text-transform: lowercase; /*tudo minusculo*/
+text-transform: capitalize; /*a primeira letra maiuscula*/
+/*indentação - espaçamento antes do paragrafo*/
+text-indent: 50px;
+/*espaçamento entre os caracteres*/
+letter-spacing: 3px;
+letter-spacing: -3px;
+/*espaçamento entre as palavras*/
+word-spacing: 10px;
+word-spacing: -5px;
+/*espaçamento entre linhas*/
+line-height: 1.2;
+/*diração que texto é preenchido*/
+direction: rtl; /*texto da direita para a esquerda*/
+/*sombra do texto*/
+text-shadow: 3px 2px red;
+
+/*FONTE*/
+/*familia da fonte, se navegador nao encontrar a primeira ele tenta a segunda*/
+font-family: "Times New Roman", Times, serif;
+/*fonte normal*/
+font-style: normal;
+/*fonte italica*/
+font-style: italic;
+/*fonte oblica*/
+font-style: oblique;
+/*tamanho da fonte */
+/*tamanho padrão para texto normal, como parágrafos, é 16px (16px = 1em).*/
+font-size: 20px;
+/*espeçora do caracteres*/
+font-weight: 900;
+font-weight: bold; /*negrito*/
+font-weight: lighter; /*fonte mais fina*/
+/*caps luck*/
+font-variant: small-caps; /*fonte toda em maiuscula*/
+
+/*LINKS*/
+color: hotpink; /*definicor cor, normal é azul RGB*/
+/*
+a:link {color: red;} - Um, ligação não visitado normais
+a:visited {color: green;} - Um link que o usuário visitou
+a:hover {color: hotpink;} - Um link quando o usuário mouses sobre ele
+a:active {color: blue;} - Um link no momento em que for clicado
+*/
+text-decoration: none; /*link sem sublinhado*/
+/*LINK MASSA PARECENDO UM BOTAO
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+a:hover, a:active {  background-color: red;}
+*/
+
+/*LISTAS*/
+/*icons desenhos da lista*/
+list-style: none; /*remove estilo da lista*/
+list-style-type: circle;
+list-style-type: square;
+list-style-type: upper-roman;
+list-style-type: lower-alpha;
+list-style-image: url('sqpurple.gif'); /*usando imagem*/
+list-style-position:inside; /*longe do icone*/
+list-style-position:outside; /*perto do icone*/
+
+/*TABELAS*/
+border-bottom: 1px solid #ddd; /*borda somente em baixo*/
+/*tr:hover {background-color: #f5f5f5} passar mause em cima muda de cor */
+/*tr:nth-child(even) {background-color: #f2f2f2} lista ZEBRA, cor sim, cor nao*/
+border: 1px solid black; /*borda em celulas*/
+border-collapse: collapse; /*borda em linhas*/
+text-align: left; /*alinhando texto*/
+vertical-align: bottom /*alinhamento vertical*/
+padding: 15px; /*espaçamento interno da celulas*/
+/*TABELA RESPONSIVA - adiciona barra de rolagem
+<div style="overflow-x:auto;">
+<table>conteudo</table>
+</div>
+*/
+
+/*DISPLAY - EXIBIÇÃO*/
+display: none; /*oculta o elemento e libera o espaço usado por ele*/
+visibility:hidden; /*oculta o elemento mas continua ocupando o espaço*/
+visibility: visible; /*visivel*/
+/*uma vez ocultado vc pode mostrar usando display block ou inline-block*/
+display: inline; /*adiciona elmento ao lado*/
+display: block; /*adiciona o elemento a baixo*/
+display: inline-block; /*em linha ate encher e vai outra linha*/
+/*
+Inline-table = O elemento é exibido como uma tabela em nível de linha
+list-item Deixe o elemento se comportar como um elemento <li> Reproduza-o »
+Run-in Exibe um elemento como bloco ou inline, dependendo do contexto
+Table Deixe o elemento se comportar como um elemento <table>
+Table-caption Deixe o elemento se comportar como um elemento <caption>
+Table-column-group Deixe o elemento se comportar como um elemento <colgroup>
+Table-header-group Deixe o elemento se comportar como um elemento <thead>
+Table-footer-group Deixe o elemento se comportar como um elemento <tfoot>
+Table-row-group Deixe o elemento se comportar como um elemento <tbody>
+Table-cell Deixe que o elemento se comporte como um elemento <td>
+Table-column Deixe o elemento se comportar como um elemento <col>
+Table-row Deixe o elemento se comportar como um elemento <tr>
+None O elemento não será exibido em todos (não tem efeito no layout) Play it »
+Initial Define esta propriedade como seu valor padrão. Leia sobre o jogo inicial »
+Inherit Herdar essa propriedade de seu elemento pai. Leia sobre herdar
+*/
+
+/*POSICAO*/
+position: fixed; /* permanece sempre no mesmo lugar, mesmo que a página é rolada.*/
+position: absolute; /*está posicionado em relação ao PAI*/
+z-index: -1; /*resto do conteudo sobrebiem esse elemento*/
+/*visible|hidden|scroll|auto|initial|inherit;*/
+overflow: scroll; /*adicionar um scroll caso nao caiba*/
+overflow: auto; /*cria scroll caso nao caiba*/
+overflow: hidden; /*esconde o que resta do elemento*/
+/*defina altura do bloco e adicione o overflow hidden e scroll ou auto*/
+
+/*FLOAT*/
+float: right; /*ELEMTO FLUTUA PARA A DIREITA*/
+float: left; /*ELEMENTO FLUTUA PARA A ESQUERDA*/
+clear: both; /*MANTEM ELMENTE FLUTUANTE SER SER SOBREPOSTO*/
+
+
+/*CENTRALIZAR
+.center{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+*/
+
+/*TRANSPARENTE*/
+opacity: 0.5; /*ELLEMENTO MEIO TRANSPARENTE*/
+/*img:hover { opacity: 0.5;} IMAGEM COM MAUSE EM CIMA */
+
+
+
+
+/*
+
+seletor descendente (espaço)
+seletor filho (>)
+seletor irmão adjacente (+)
+selector irmão em geral (~)
+ELEMENTO.CLASSE ELEMENTO {...}
+*/
+
+/*input[type="text"] {} seleciona por typo*/
+
+/*Pseudo-classe
+div:hover { background-color: blue;} PASSAR MAUSE EM CIMA
+p i:first-child { color: blue;} SELECIONAR PRIMEIRO FILHO
+input:focus { background-color: yellow;} QUANDO INPUT E SELECIONADO
+input:required { background-color: yellow;} SELECIONA ELMENTO OBRIGATORIO
+p::first-line { color: #ff0000; } SELECIONA PRIMEIRA LINHA
+p::first-letter { color: #ff0000;} SELECIONA PRIMEIRA LETRA
+h1::before { content: url(smiley.gif);} ADICIONAR ELEMENTO ANTES
+h1::after  { content: url(smiley.gif);} ADICIONAR ELEMENTO DEPOIS
+div::selection { color: red;  background: yellow;} QUADO ELEMENTO É SELECIONADO
+*/
+
+/*CURSOR MOUSE ALTERADO*/
+/*<span style="cursor:auto">auto</span><br>
+<span style="cursor:crosshair">crosshair</span><br>
+<span style="cursor:default">default</span><br>
+<span style="cursor:e-resize">e-resize</span><br>
+<span style="cursor:help">help</span><br>
+<span style="cursor:move">move</span><br>
+<span style="cursor:n-resize">n-resize</span><br>
+<span style="cursor:ne-resize">ne-resize</span><br>
+<span style="cursor:nw-resize">nw-resize</span><br>
+<span style="cursor:pointer">pointer</span><br>
+<span style="cursor:progress">progress</span><br>
+<span style="cursor:s-resize">s-resize</span><br>
+<span style="cursor:se-resize">se-resize</span><br>
+<span style="cursor:sw-resize">sw-resize</span><br>
+<span style="cursor:text">text</span><br>
+<span style="cursor:w-resize">w-resize</span><br>
+<span style="cursor:wait">wait</span><br>*/
+
+}

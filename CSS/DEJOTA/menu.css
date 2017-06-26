@@ -1,0 +1,29 @@
+/*=========================MENU=========================*/
+/*
+<ul class="menu">
+  <li><a href="">Home</a></li>
+  <li class="submenu">
+    <a href="javascript:void(0)">Dropdown</a>
+    <div class="submenu-itens">
+      <a href="">Link 3</a>
+    </div>
+  </li>
+</ul>
+*/
+.menu,  .menu .submenu-itens{
+    list-style: none;
+    overflow: hidden;
+    background-color: black; /*COR DE FUNDO*/
+}
+.menu li { float: left; }
+.menu li a {
+    color: white; /*COR DA FONTE*/
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.menu li a:hover { background-color: red; } /*COR DE HOVER*/
+.menu .submenu-itens { display: none; position: absolute; }
+.menu .submenu-itens a { display: block; }
+.menu .submenu:hover .submenu-itens { display: block; }

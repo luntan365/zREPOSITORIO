@@ -1,0 +1,64 @@
+/*seleciona rodo mundo*/
+* { margin: 0; padding: 0;}
+
+/* todos elemento que for filho de uma div com um id container*/
+#container * {border: 1px solid black; }
+
+/*seleciona elemento com id*/
+#container {width: 960px; margin: auto;}
+
+/*seleciona todos elemento com a classe erro*/
+.error {color: red;}
+
+/*seleciona todos elemento <a> filhos da classe links*/
+.links a { text-decoration: none; }
+
+/*selecionas apenas o ul filhos direto da div#container*/
+div#container > ul { border: 1px solid black; }
+
+/*seleciona o primeriro <p> que venha depois da <ul>*/
+ul + p { color: red; }
+
+/*seleciona todos <p> que venha depois da <ul>*/
+ul + p { color: red; }
+
+/*seleciona todos ancoiras que tenha atributo title*/
+a[title] { color: green;}
+
+/*seleciona todos a que atributo href seja http://net.tutsplus.com*/
+a[href="http://net.tutsplus.com"] {color: #1f6053;}
+
+/*seleciona todass as ancoras que tenha algum atributo com valor tuts*/
+a[href*="tuts"] {color: #1f6053;}
+
+
+/*selecionar todas as âncoras que tem um atributo href que começam com http*/
+a[href^="http"] {
+ background: url(path/to/external/icon.png) no-repeat;
+ padding-left: 10px;
+}
+
+/*seleciona todos a que atributo href termine com .jpg*/
+a[href$=".jpg"] {
+ color: red;
+}
+
+/*selecionado um botão radio ou checkbox*/
+input[type=radio]:checked { border: 1px solid black; }
+
+
+/*quando passa mause em cima*/
+div:hover {background: #e3e3e3;}
+
+/*seleciona todas div que naop tenha nome container*/
+div:not(#container) { color: blue;}
+
+/*seleciona o teceiro elemento da lista*/
+li:nth-child(3) { color: red;}
+
+/*seleciona o penultimo elmento começando do fim*/
+li:nth-last-child(2) { color: red;}
+
+/*tira borda do primeiro e ultimo elemento de uma lista*/
+li:first-child {  border-top: none; }
+li:last-child { border-bottom: none; }

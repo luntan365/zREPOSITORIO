@@ -1,0 +1,97 @@
+*{
+
+/*
+CHROME  -webkit-
+MOZILA  -moz-
+*/
+
+/*CAIXA SOMBRA - USADO EM BOTOES*/
+/*box-shadow: none|h-shadow v-shadow blur spread color |inset|initial|inherit;*/
+box-shadow: 10px 10px;
+box-shadow: 10px 10px grey;
+box-shadow: 10px 10px 5px grey;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*IMAGEM*/
+
+/*o largura e altura original incluido os magins externe internas*/
+-webkit-box-sizing: border-box; /*chrome*/
+-moz-box-sizing: border-box; /*mozila*/
+box-sizing: content-box
+box-sizing: border-box
+box-sizing: padding-box
+box-sizing: inherit
+
+/*IMAGENS*/
+border-radius: 8px;
+border-radius: 50%;
+max-width: 100%; height: auto; /*imagem responsiva*/
+/**/
+
+/*ROTACIONAR ELMENTO*/
+-ms-transform: translate(50px, 100px); /* IE 9 */
+-webkit-transform: translate(50px, 100px); /* Safari */
+transform: translate(50px, 100px);
+
+/*tempo da transição de feito*/
+transition: width 2s;
+transition: width 10s, height 10s;
+transition-delay: 1s;
+
+/*SOMBRAS DE TEXTO*/
+text-shadow: 2px 2px;
+text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+ext-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+
+border-radius: 15px 50px 30px 5px; /*topo esquerda, topo direita, baixo direita, baixo esquerda*/
+border-radius: 15px 50px 30px; /*topo esquerda, topo direita e baixo esquerda , baixo direita*/
+border-radius: 15px 50px; /*topo esquerda e baixo direita, topo direita e baixo esquerda*/
+border-radius: 15px; /*todos lados*/
+
+border-image: url(border.png) 30 round; /*usar imagem como borda*/
+border-image: url(border.png) 30 stretch; /*usar imagem como borda*/
+}
+
+/*
+IMAGEM DE FUNDO COM TMANHO DETERMINADO
+#div1 {
+    background: url(img_flower.jpg);
+    background-size: 100px 80px;
+    background-repeat: no-repeat;
+}*/
+
+/*CORES*/
+background-color: rgba(255, 0, 0, 0,2); /*OPACIDADE*/
+background-color: HSL (0, 100%, 90%); /*HSL (matiz, saturação, luminosidade).*/
+background-color: hsla(120, 100%, 75%, 0.3); /*matiz, saturação, luminosidade, OPACIDADE*/
+
+
+/*TRANSICAO DE CORES HORIZONTAL*/
+background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
+background: linear-gradient(red, yellow);
+/*TRANSICAO DE CORES VERTICAL*/
+background: -moz-linear-gradient(right, red, yellow); /* For Firefox 3.6 to 15 */
+background: linear-gradient(to right, red , yellow);
+/*TRANSICAO DE CORES DIAGONAL*/
+background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+background: linear-gradient(to bottom right, red, yellow);
+/*linear-gradient(angle, color-stop1, color-stop2);*/
+background: -moz-linear-gradient(-90deg, red, yellow); /* For Firefox 3.6 to 15 */
+background: linear-gradient(-90deg, red, yellow);
+/*VARIAS CORES*/
+background: -moz-linear-gradient(left,red,orange,yellow,green,blue,indigo,violet);
+/* Standard syntax */
+background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+/*TRANCIÇAO PARA TRANSPARENCIA*/
+background: -moz-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,1)); /*Fx 3.6-15*/
+background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+/*TRANSCIÇÃO RADIAL*/
+background: -moz-radial-gradient(red, yellow, green); /* For Firefox 3.6 to 15 */
+background: radial-gradient(red, yellow, green);
+background: -moz-radial-gradient(red 5%, yellow 15%, green 60%); /* For Firefox 3.6-15 */
+background: radial-gradient(red 5%, yellow 15%, green 60%);
+
+
+
+
+
+
+}

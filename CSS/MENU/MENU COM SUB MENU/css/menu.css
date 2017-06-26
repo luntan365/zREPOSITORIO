@@ -1,0 +1,73 @@
+*, *:before, *:after {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  border-style: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+#menu {
+  width: 180px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #101010;
+}
+#menu > img {
+  width: 100%;
+  padding: 10px;
+}
+#menu ul a li:hover {
+  background-color: #199EC7;
+  color: white;
+}
+#menu a li {
+  color: white;
+  font-size: 15px;
+}
+#menu ul a li {
+  padding: 10px;
+  color: #CCC;
+}
+#menu a li img {
+  width: 16px;
+  height: 14px;
+  margin: 0px 5px;
+}
+#menu .submenu {
+  display: none;
+  background-color: #202020;
+}
+#menu .submenu a li {
+  font-size: 14px;
+  color: #999;
+  border-left: 15px solid #101010;
+  border-right: 0px solid #101010;
+}
+#menu .submenu a li img {
+  width: 14px;
+  height: 12px;
+  /*margin-left: 20px;*/
+}
+#menu .submenu a li {
+  padding: 6px;
+}
+/*#menu .submenu a li:hover {
+  background-color: #303030;
+  color: white;
+}*/
+#menu ul .ativo + ul {
+  display: block;
+}
+#menu ul ul .subativo {
+  color: white;
+  /*background-color: #1abc9c;*/
+}
+#menu .superativo {
+  color: white;
+  /*background-color: #16a085;*/
+}

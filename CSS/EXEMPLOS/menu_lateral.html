@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #f9f9f9
+    }
+    #check {
+      display: none;
+    }
+    #icon {
+      cursor: pointer;
+      padding: 15px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    #barra {
+      background-color: #333;
+      height: 100%;
+      width: 300px;
+      position: absolute;
+      transition: all .2s linear;
+      left: -300px;
+    }
+
+    nav{
+      width: 100%;
+      position: absolute;
+      top: 60px;
+    }
+
+    nav a{
+      text-decoration: none;
+    }
+
+    .link {
+      background-color: #494949;
+      padding: 20px;
+      font-family: Arial;
+      font-size: 16px;
+      transition: all .2s linear;
+      color: #f4f4f9;
+      border-bottom: 2px solid #222;
+    }
+
+    .link:hover {
+      background-color: #7f8c8d;
+    }
+
+    #check:checked ~ #barra {
+      transform: translateX(300px);
+    }
+
+    </style>
+    <title></title>
+  </head>
+  <body>
+
+    <input type="checkbox" id="check" name="" value="">
+    <label for="check" id="icon"><img src="https://lh4.googleusercontent.com/3ht8Bhoy-DNhJ5XnEw_uGpX-fziJXF2_SegIdGjt2Wnq8anpTicXXtZooggOLGTVGVjEoADlw4LN3-M=w1366-h638" alt=""></label>
+
+    <div id="barra">
+      <nav>
+        <a href=""><div class="link">Home</div></a>
+        <a href=""><div class="link">Aluno</div></a>
+        <a href=""><div class="link">Academico</div></a>
+        <a href=""><div class="link">Financeiro</div></a>
+        <a href=""><div class="link">Biblioteca</div></a>
+        <a href=""><div class="link">Informaçoes</div></a>
+        <a href=""><div class="link">Sair</div></a>
+      </nav>
+    </div>
+
+  </body>
+</html>

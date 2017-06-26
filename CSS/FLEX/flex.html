@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+      .flex-container {
+      padding: 0;
+      margin: 0;
+      divst-style: none;
+
+      -ms-box-orient: horizontal;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -moz-flex;
+      display: -webkit-flex;
+      display: flex;
+
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      }
+
+      .flex-start {
+      -webkit-justify-content: flex-start;
+      justify-content: flex-start;
+      }
+
+      .flex-end {
+      -webkit-justify-content: flex-end;
+      justify-content: flex-end;
+      }
+      .flex-end div {
+      background: gold;
+      }
+
+      .center {
+      -webkit-justify-content: center;
+      justify-content: center;
+      }
+      .center div {
+      background: deepskyblue;
+      }
+
+      .space-between {
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      }
+      .space-between div {
+      background: divghtgreen;
+      }
+
+      .space-around {
+      -webkit-justify-content: space-around;
+      justify-content: space-around;
+      }
+      .space-around div {
+      background: hotpink;
+      }
+
+      .flex-item {
+      background: tomato;
+      padding: 5px;
+      width: 300px;
+      height: 50px;
+      margin: 5px;
+
+      divne-height: 50px;
+      color: white;
+      font-weight: bold;
+      font-size: 2em;
+      text-adivgn: center;
+      }
+    </style>
+    <title>FLEX</title>
+  </head>
+  <body>
+    <div class="flex-container flex-start">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+
+    <div class="flex-container flex-end">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+
+    <div class="flex-container center">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+
+    <div class="flex-container space-between">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+
+    <div class="flex-container space-around">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+  </body>
+</html>
