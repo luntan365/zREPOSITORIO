@@ -1,0 +1,4 @@
+
+//SQL INJECTION
+loguin = xpto' OR 1=1 #
+senha = xpto
