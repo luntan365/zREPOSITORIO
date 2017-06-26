@@ -1,0 +1,47 @@
+#:import HEX kivy.utils.get_color_from_hex
+
+<TelaFloat@BoxLayout>:
+    canvas.before:
+        Color:
+            rgba: HEX("#9b59b6")
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+    Button:
+        text: '1'
+        size_hint: 1, .2
+        background_normal: ""
+        background_color: HEX("#3498db")
+    Button:
+        text: '2'
+        size_hint: 1, .2
+        background_normal: ""
+        background_color: HEX("#d35400")
+    Button:
+        text: '3'
+        size_hint: 1, .2
+        background_normal: ""
+        background_color: HEX("#2ecc71")
+
+<TelaBox@BoxLayout>:
+    orientation: "vertical"
+    padding: 20
+    spacing: 20
+    Button:
+        text: 'Top Left'
+        size_hint: 1, 1
+        background_normal: ""
+        color: 0,0,0,1
+    Button:
+        text: 'Top Right'
+        size_hint: 1, 1
+
+<Tela@BoxLayout>:
+    TelaBox:
+    TelaFloat:
+
+Tela:
