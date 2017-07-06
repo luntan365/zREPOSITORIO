@@ -1,0 +1,28 @@
+<MyButton@Button>:
+    size_hint: None, None
+    size: 100, 100
+  
+<Ex12>:
+    cols: 2
+    canvas:
+        Color:
+            rgb: 0,1,0
+        Rectangle:
+            pos: 0,0
+            size: root.size[0]/2,root.size[1]
+        Color:
+            rgb: 0,0,1
+        Rectangle:
+            pos: root.size[0]/2,0
+            size: root.size[0]/2,root.size[1]
+    FloatLayout:
+        MyButton:
+            text: 'B1'
+            pos: 0,0
+    RelativeLayout:
+        MyButton:
+            text: 'B2a'
+            pos: 100,0
+        MyButton:
+            text: 'B2b'
+            pos: root.size[0]/2-100,100

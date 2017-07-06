@@ -1,0 +1,30 @@
+<Ex19>:
+    canvas:
+        Color:
+            rgb: .9,.9,.9
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        Color:
+            rgb: .5, 0, .5
+        Mesh:
+            mode: 'triangle_fan'
+            vertices: root.vert
+            indices: list(range(len(root.vert)//4))
+        Color:
+            rgb: 1, 0, 0
+        Point:
+            points: root.pts
+            pointsize: 5
+    Button:
+        text: 'Add a point'
+        size_hint: None,None
+        size: 100,100
+        pos: 0,0
+        on_press: root.num += 1
+    Button:
+        text: 'Remove a point'
+        size_hint: None,None
+        size: 150,100
+        pos: 650,0
+        on_press: root.num -= 1

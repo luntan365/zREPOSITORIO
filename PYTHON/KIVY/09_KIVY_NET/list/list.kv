@@ -1,0 +1,13 @@
+#:import la kivy.adapters.listadapter
+#:import listview kivy.uix.listview
+
+<MyList>:
+    adapter: la.ListAdapter(
+        data=[],
+        args_converter=self.list_item_args_converter,
+        cls=listview.ListItemButton)
+    
+<MyScreen>:
+    my_list: my_list
+    MyList:
+        id: my_list

@@ -1,0 +1,17 @@
+
+<Tela@BoxLayout>:
+    orientation: 'vertical'
+
+    Button:
+        text: 'SELF! - ESCOPO GLOBAL DA APLICACAO'
+        on_press: self.func_self()
+
+    Button:
+        text: 'ROOT! - ESCOPO DA CLASSE'
+        on_press: root.func_root()
+
+    Button:
+        text: 'APP! - ESCOPO DA CLASSE PRINCIPAL'
+        on_press: app.func_app()
+
+Tela:
