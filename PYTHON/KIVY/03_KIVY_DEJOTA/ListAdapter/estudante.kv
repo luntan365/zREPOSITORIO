@@ -1,0 +1,48 @@
+#: import main main
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
+
+<EstudanteDB>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+    nome_input_text: nome
+    sobrenome_input_text: sobrenome
+    lista_estudante: lista_estudante_view
+    
+    BoxLayout:
+        size_hint_y: None
+        height: '30dp'
+
+        Label:
+            text: 'Nome'            
+        TextInput:
+            id: nome
+            
+        Label:
+            text: 'Sobrenome'            
+        TextInput:
+            id: sobrenome
+
+    BoxLayout:
+        size_hint_y: None
+        height: '30dp'
+        
+        Button:
+            text: 'Adicionar'
+            size_hint_x: 15
+            on_press: root.adicionar_estudante()
+        
+        Button:
+            text: 'Alterar'
+            size_hint_x: 15
+            on_press: root.alterar_estudante()
+
+        Button:
+            text: 'Excluir'
+            size_hint_x: 15
+            on_press: root.excluir_estudante()
+
+    ListView:
+        id: lista_estudante_view
+        adapter: ListAdapter(data=['Dejota Freitas', 'Litt', 'Jasher'], cls=main.EstudanteListButton)

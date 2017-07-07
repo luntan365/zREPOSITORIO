@@ -1,70 +1,80 @@
 # coding: utf-8
 import kivy
-kivy.require('1.10.0')
+kivy.require('1.9.1')
 from kivy.app import App
-from kivy.core.window import Window
+from kivy.uix.listview import ListItemButton, ListItemLabel, CompositeListItem, ListView
 from kivy.uix.floatlayout import FloatLayout
-from kivy.lang import Builder
-from threading import Thread
-import os
-from datetime import date
-import time
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
+from kivy.adapters.dictadapter import DictAdapter
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.uix.label import Label
+from kivy.core.window import Window
+from kivy.graphics import Color, Rectangle
+
 
 Window.size = 350, 550
+lista_pagantes = ['monique', 'jannarynna']
+lista_pendentes = ['Dejota Freitas', 'Amanda Raquel', 'Diego Alef', 'Diego', 'Rodrigo','Monique Amarela', 'jannarynna de Rodrigo','Amigo de Diego', 'Magrinha Alta', 'Amanda Raquel', 'Diego Alef', 'Diego', 'Rodrigo','Monique Amarela', 'jannarynna de Rodrigo','Amigo de Diego', 'Magrinha Alta']
 
-Builder.load_string("""
-<Tela>:
-    Button:
-        text: 'Lista'
-        size_hint: 1, .8
-        pos_hint: {"x":0, "y":.2}
-    TextInput:
-        id: caixa_texto
-        font_size: 33
-        font_name: "consola"
-        write_tab: False
-        multiline: False
-        size_hint: .6, .1
-        pos_hint: {"x":.2, "y":0}
-        padding: 10
-    Button:
-        text: '+'
-        font_size: 50
-        size_hint: .2, .1
-        pos_hint: {"x":0, "y":0}
-        on_release: root.add_pessoa()
-    Button:
-        text: 'X'
-        font_size: 33
-        size_hint: .2, .1
-        pos_hint: {"x":.8, "y":0}
-        on_release: root.cacnelar_pesquisa()
-    Button:
-        text: 'Pendentes'
-        font_size: 20
-        size_hint: .4, .1
-        pos_hint: {"x":0, "y":.1}
-        on_release: root.listar_pendentes()
-    Button:
-        text: 'Pagantes'
-        font_size: 20
-        size_hint: .4, .1
-        pos_hint: {"x":.4, "y":.1}
-        on_release: root.listar_pagantes()
-    Button:
-        text: '---'
-        font_size: 50
-        size_hint: .2, .1
-        pos_hint: {"x":.8, "y":.1}
-        on_release: root.relatorio()
-""")
+integers_dict = {str(index): {'text': str(valor), 'is_selected': False} for index, valor in enumerate(lista_pendentes)}
+lista_ativa_tipo = False
 
+class LabelLista(ListItemLabel):
+    def __init__(self, **kwargs):
+        super(LabelLista, self).__init__(**kwargs)
+        self.halign="left"
+        self.valign="middle"
+        self.bind(size=self.setter('text_size'))
+    pass 
+        
+class ListaAtiva(FloatLayout):
+    def __init__(self, **kwargs):
+        kwargs['cols'] = 2
+        super(ListaAtiva, self).__init__(**kwargs)
+
+        args_converter = lambda row_index, rec: {
+            'text': rec['text'],            
+            'size_hint_y': None,
+            'height': 50,
+            'cls_dicts': [{
+                           'cls': LabelLista,
+                           'kwargs': {
+                               'text': rec['text'],
+                               'is_representing_cls': True,
+                               'font_size': '20sp',      
+                               'size_hint_x': '2'}},
+                           {
+                           'cls': ListItemButton,
+                           'kwargs': {'text': 'Pagou',
+                                       'deselected_color':[.5,.5,.5,1],
+                                       'selected_color':[1.,1.,1.,1]
+                                       }}] 
+                            }
+
+    
+        item_strings = ["{0}".format(index) for index in range(len(integers_dict))]
+
+        dict_adapter = DictAdapter(sorted_keys=item_strings,
+                                   data=integers_dict,
+                                   args_converter=args_converter,
+                                   selection_mode='single',
+                                   allow_empty_selection=False,
+                                   cls=CompositeListItem)
+
+        list_view = ListView(adapter=dict_adapter)
+        list_view.container.padding = 10
+        list_view.container.spacing = 10
+        self.add_widget(list_view)
+    pass
+            
 class Tela(FloatLayout):
-
+        
     def add_pessoa(self):
         self.ids.caixa_texto.text
 
-    def cacnelar_pesquisa(self):
+    def cancelar_pesquisa(self):
         self.ids.caixa_texto.text
 
     def listar_pendentes(self):
@@ -75,15 +85,16 @@ class Tela(FloatLayout):
                 
     def relatorio(self):
         self.ids.caixa_texto.text
-
-
-
-class VoleiApp(App):
-    def build(self):
-        return Tela()
     pass
 
 
+  
+class VoleiApp(App):    
+    def build(self):
+        self.title = "Volei"
+        return Tela()
+    pass
+    
 if __name__ == '__main__':
     VoleiApp().run()
     pass
