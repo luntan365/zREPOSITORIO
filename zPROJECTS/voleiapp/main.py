@@ -12,6 +12,7 @@ from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.core.window import Window
 from kivy.graphics import Color, Rectangle
+from kivy.properties import ObjectProperty
 
 
 Window.size = 350, 550
@@ -20,7 +21,18 @@ lista_pendentes = ['Dejota Freitas', 'Amanda Raquel', 'Diego Alef', 'Diego', 'Ro
 
 integers_dict = {str(index): {'text': str(valor), 'is_selected': False} for index, valor in enumerate(lista_pendentes)}
 lista_ativa_tipo = False
+list_view = None
 
+class BotaoLista(ListItemButton):
+    def __init__(self, indice=-1, **kwargs):
+        super(BotaoLista, self).__init__(**kwargs)
+        self.indice = indice       
+    def on_press(self):        
+        print('INDEX: '+str(self.indice))
+        print(list_view.adapter.data)
+        list_view._trigger_reset_populate()        
+    pass
+    
 class LabelLista(ListItemLabel):
     def __init__(self, **kwargs):
         super(LabelLista, self).__init__(**kwargs)
@@ -46,10 +58,11 @@ class ListaAtiva(FloatLayout):
                                'font_size': '20sp',      
                                'size_hint_x': '2'}},
                            {
-                           'cls': ListItemButton,
-                           'kwargs': {'text': 'Pagou',
+                           'cls': BotaoLista,
+                           'kwargs': {'text':'Pagou '+str(row_index),
                                        'deselected_color':[.5,.5,.5,1],
-                                       'selected_color':[1.,1.,1.,1]
+                                       'selected_color':[1.,1.,1.,1],
+                                       'indice':row_index 
                                        }}] 
                             }
 
@@ -66,7 +79,7 @@ class ListaAtiva(FloatLayout):
         list_view = ListView(adapter=dict_adapter)
         list_view.container.padding = 10
         list_view.container.spacing = 10
-        self.add_widget(list_view)
+        self.add_widget(list_view)        
     pass
             
 class Tela(FloatLayout):

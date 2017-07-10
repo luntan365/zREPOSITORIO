@@ -56,15 +56,6 @@ class ListaAtiva(FloatLayout):
     pass
         
 class Tela(FloatLayout):
-    def __init__(self, **kwargs):
-        super(Tela, self).__init__(**kwargs)
-        lista_widget = ListaAtiva(size_hint=(1,.8), pos_hint={"x":0, "y":.2})      
-        self.add_widget(lista_widget)
-    
-    def atualizar(self):
-        self.remove_widget(self.lista_widget)
-        self.lista_widget = ListaAtiva(size_hint=(1,.8), pos_hint={"x":0, "y":.2})      
-        self.add_widget(lista_widget)
         
     def add_pessoa(self):
         self.ids.caixa_texto.text
