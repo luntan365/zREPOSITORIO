@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from kivy.app import App
 from kivy.uix.settings import Settings
 from kivy.uix.label import Label
@@ -6,9 +8,12 @@ from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 
 class SettingsApp(App):
+    use_kivy_settings = False #desativar configuras padrao do kivy
+    def open_settings(self, *largs): #impedir q painel padrao de configuracoes apareca
+        pass
+
     def build_config(self, config):
         config.setdefaults('configuracoes', {'config1': 'texto', 'config2': '99'})
-
         
     def build(self):
         gl = GridLayout(cols=3)
