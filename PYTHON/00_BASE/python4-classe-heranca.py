@@ -16,7 +16,7 @@ class ObjetoPai(object):
         print(self.nome+" - "+str(self.idade))
         pass
 
-    # metodo estaticonao tem SELF, e é acesssado com NomeDaClasse.metodo_estatico()
+    # metodo estaticonao sem SELF, e é acesssado com NomeDaClasse.metodo_estatico()
     @staticmethod
     def metodo_estatico():
         print("Metodo estático")

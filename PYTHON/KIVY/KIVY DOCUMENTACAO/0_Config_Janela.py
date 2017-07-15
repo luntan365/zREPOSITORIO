@@ -10,7 +10,7 @@ from kivy.config import Config
 Config.set('graphics', 'desktop', '0') # sem borda
 Config.set('graphics', 'borderless', '0') # sem borda
 Config.set('graphics', 'window_state', 'visible') # maximizado
-Config.set('graphics', 'resizable', '0') #janela redimensionavel
+Config.set('graphics', 'resizable', '1') #janela redimensionavel
 Config.set('graphics', 'fullscreen', '0') #tela cheia
 Config.set('graphics', 'show_cursor', '1') #mostrar mouse
 Config.write()

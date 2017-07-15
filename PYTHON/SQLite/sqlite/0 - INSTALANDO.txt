@@ -1,0 +1,5 @@
+1 - Vai na tela de Sistema do Windows
+2 - Configuracao avancada do sistema
+3 - Variaveis de Ambiente
+4 - Adicione ao PATH onde o sqlite3 estar
+5 - C:\sqlite\

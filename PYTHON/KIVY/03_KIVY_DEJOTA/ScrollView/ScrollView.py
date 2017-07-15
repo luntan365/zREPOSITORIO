@@ -18,42 +18,38 @@ lista_pendentes = ['Dejota Freitas', 'Amanda Raquel', 'Diego Alef', 'Diego', 'Ro
 lista_pagantes = ['monique', 'jannarynna']
 lista_ativa = lista_pendentes
 
-class BotaoItemLista(Button):
-    def __init__(self, indice, **kwargs):
-        super(BotaoItemLista, self).__init__(**kwargs)
+class ItemLista(Button):
+    def __init__(self, indice=0,  **kwargs):
+        super(ItemLista, self).__init__(**kwargs)
         self.indice = indice
-        self.font_size = 20        
-    def on_press(self):
-        del(lista_ativa[self.indice])
-        volei.build()
+        self.size_hint=(1, None)
+        self.height=60
+        self.font_size=20
+            
+    def on_release(self):
+        print lista_ativa[self.indice]
+        print self.parent.remove_widget(self)
+        pass
+
     pass
-    
+        
 class ListaAtiva(FloatLayout):
     def __init__(self, **kwargs):
         super(ListaAtiva, self).__init__(**kwargs)
         
-        lista = GridLayout(cols=2, spacing=5, padding=5, orientation='vertical', size_hint=(1, None))
+        lista = GridLayout(cols=1, spacing=5, padding=5, orientation='vertical', size_hint=(1, None))
         lista.bind(minimum_height=lista.setter('height'))
         
         for index, valor in enumerate(lista_ativa):            
-            nome = Label(text=valor, size_hint=(3, None), font_size='20sp', height=50)
-            if index % 2 == 0: 
-                with nome.canvas.before:
-                    Color(0.5, 0.5, 0.5)
-                    nome.rect = Rectangle(pos=nome.pos, size=nome.size)
-                def update_rect(instance, value):
-                    instance.rect.pos = instance.pos
-                    instance.rect.size = instance.size                    
-                nome.bind(pos=update_rect, size=update_rect)               
+            item_lista = ItemLista(index, text=valor)
+            if index % 2 == 0:
+                item_lista.background_color = (0.5, 0.5, 0.5, 1)
                 pass                    
-            pagou = BotaoItemLista(index, text='Pagou', size_hint=(1, None), height=50, background_color=(.1,1,.1,1))
-            lista.add_widget(nome)
-            lista.add_widget(pagou)            
+            lista.add_widget(item_lista)                        
             pass
         root = ScrollView(size_hint=(1, 1))
         root.add_widget(lista)
         self.add_widget(root)
-    pass
         
 class Tela(FloatLayout):
         
