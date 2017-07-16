@@ -14,7 +14,7 @@ def funcao_defeault(nome="Zé", sobrenome="dedal"):
 
 funcao_defeault();
 funcao_defeault("Antonio");
-funcao_defeault("Maria", "Jose")
+funcao_defeault(sobrenome="Jose")
 
 
 print("========== ARGUMENTOS DE ORDEM POSICIONAL ==========")
