@@ -48,9 +48,9 @@ class Crud():
         Thread(target=self.remover_pessoa, args=(id_pessoa,)).start()
 
     def listar(self, pagou):
-        resultado = self.cursor.execute("SELECT id, nome FROM volei WHERE pagou = %d ORDER BY nome ASC" %(pagou))
+        resultado = self.cursor.execute("SELECT id, nome FROM volei WHERE pagou = %d ORDER BY nome COLLATE NOCASE ASC" %(pagou))
         return resultado.fetchall()
 
     def listar_todos(self):
-        resultado = self.cursor.execute("SELECT id, nome FROM volei ORDER BY nome")
+        resultado = self.cursor.execute("SELECT id, nome FROM volei ORDER BY nome COLLATE NOCASE ASC")
         return resultado.fetchall()

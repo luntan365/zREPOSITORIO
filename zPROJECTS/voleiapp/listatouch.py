@@ -8,7 +8,7 @@ class ListaTouch(FloatLayout):
         super(ListaTouch, self).__init__(**kwargs)   
         self.listatouch = listatouch
         self.acao = acao                          
-        self.scrollview = ScrollView(size_hint=(1, 1))
+        self.scrollview = ScrollView(size_hint=(1, 1), scroll_timeout=250, scroll_distance=20)
         self.preencher_lista()       
         self.add_widget(self.scrollview)         
         pass
@@ -38,8 +38,8 @@ class ItemLista(Button):
         self.indice = indice
         self.acao = acao
         self.size_hint=(1, None)
-        self.height=60
-        self.font_size=20
+        self.height=80
+        self.font_size=30
         self.x_inicial = None
 
     def on_touch_move(self, mpos):
@@ -55,6 +55,7 @@ class ItemLista(Button):
                 self.background_color = (1,1,1,1)
         else:
             self.x = 5
+	    self.background_color = (1,1,1,1)
                 
     def on_release(self):
         if(self.x > (self.parent.width/3)):

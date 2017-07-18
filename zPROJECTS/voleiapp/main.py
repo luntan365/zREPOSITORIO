@@ -1,56 +1,40 @@
 #-*- coding: utf-8 -*-
 import kivy
-kivy.require('1.9.1')
+kivy.require('1.9.0')
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
-from kivy.uix.label import Label
-from kivy.core.window import Window
-from dejotalib.listatouch import ListaTouch
-from dejotalib.crud import Crud
-from kivy.core.text import LabelBase
+from listatouch import ListaTouch
+from crud import Crud
 
-# =======================FONT=============================================
-KIVY_FONTS = [
-    {
-        "name": "Roboto",
-        "fn_regular": "data/fonts/Roboto-Regular.ttf",
-        "fn_bold": "data/fonts/Roboto-Bold.ttf",
-        "fn_italic": "data/fonts/Roboto-Italic.ttf",
-        "fn_bolditalic": "data/fonts/Roboto-BoldItalic.ttf"
-    }
-]
-    
-for font in KIVY_FONTS:
-    LabelBase.register(**font)
-# =======================CONFIG=============================================
-Window.size = 350, 550
+# ====================================================================
 crud = Crud()
-# ===================TELA=================================================    
+
+# ===================TELA=================================================
 class Tela(FloatLayout):
-    
+
     def __init__(self, **kwargs):
         super(Tela, self).__init__(**kwargs)
-                
+
         # Tela de Adicionar Pessoa
-        self.bl_add = BoxLayout(orientation='vertical', size_hint = (1, .4), pos_hint = {"x":0, "top":0.9}, spacing = 10, padding = 10)    
-        self.ti_nome = TextInput(text='àncônrá' ,font_size='30sp', multiline=False, font_name='Roboto',  bold=True, italic=True)
+        self.bl_add = BoxLayout(orientation='vertical', size_hint = (1, .4), pos_hint = {"x":0, "top":0.9}, spacing = 10, padding = 10)
+        self.ti_nome = TextInput(font_size='30sp', multiline=False)
         self.bl_add.add_widget(self.ti_nome)
         self.bl_add.add_widget(Button(text='Adicionar', font_size='30sp', on_press=self.add_pessoa_add))
         self.bl_add.add_widget(Button(text='Cancelar', font_size='30sp', on_press=self.cancelar))
 
         # Tela comfirmar resete
-        self.bl_reset = BoxLayout(orientation='vertical', size_hint = (1, .3), pos_hint = {"x":0, "bottom":0.2}, spacing = 10, padding = 10)    
+        self.bl_reset = BoxLayout(orientation='vertical', size_hint = (1, .3), pos_hint = {"x":0, "bottom":0.2}, spacing = 10, padding = 10)
         self.bl_reset.add_widget(Button(text='Resetar', font_size='30sp', on_press=self.resetar_confirma))
         self.bl_reset.add_widget(Button(text='Cancelar', font_size='30sp', on_press=self.cancelar))
 
-        # Tela Inicial - Lista de Pendentes          
-        self.conteiner = BoxLayout(size_hint=(1,.9), pos_hint={'x':0,'y':0})     
+        # Tela Inicial - Lista de Pendentes
+        self.conteiner = BoxLayout(size_hint=(1,.9), pos_hint={'x':0,'y':0})
         self.add_widget(self.conteiner)
         self.conteiner.add_widget(ListaTouch(listatouch=crud.listar(0), acao=self.acao_pagou))
-        
+
     def pendentes(self):
         self.conteiner.clear_widgets()
         self.conteiner.add_widget(ListaTouch(listatouch=crud.listar(0), acao=self.acao_pagou))
@@ -58,25 +42,25 @@ class Tela(FloatLayout):
     def pagou(self):
         self.conteiner.clear_widgets()
         self.conteiner.add_widget(ListaTouch(listatouch=crud.listar(1), acao=self.acao_pedente))
-        
+
     def resetar(self):
         self.conteiner.clear_widgets()
         self.conteiner.add_widget(self.bl_reset)
-                    
+
     def remover_pessoa(self):
         self.conteiner.clear_widgets()
         self.conteiner.add_widget(ListaTouch(listatouch=crud.listar_todos(), acao=self.acao_apagar))
 
     def add_pessoa(self):
         self.conteiner.clear_widgets()
-        self.conteiner.add_widget(self.bl_add) 
-           
+        self.conteiner.add_widget(self.bl_add)
+
     def add_pessoa_add(self, arg):
         nome = self.ti_nome.text.strip()
         if bool(nome):
             crud.add_pessoa(nome)
         self.ti_nome.text = ''
-        
+
     def cancelar(self, arg):
         self.conteiner.clear_widgets()
         self.conteiner.add_widget(ListaTouch(listatouch=crud.listar(0), acao=self.acao_pagou))
@@ -94,11 +78,11 @@ class Tela(FloatLayout):
 
     def acao_apagar(self, indice):
         crud.remover_pessoa_async(indice)
-    
+
     pass
-    
-# ===================APP================================================  
-class VoleiApp(App):    
+
+# ===================APP================================================
+class VoleiApp(App):
     def build(self):
         self.title = "Volei"
         return Tela()

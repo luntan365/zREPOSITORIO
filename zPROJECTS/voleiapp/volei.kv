@@ -1,22 +1,22 @@
 <Tela>:    
     Button:
-        text: 'Resete'
-        font_size: 20
-        size_hint: .2, .1
-        pos_hint: {"x":0, "y":.9}
-        on_release: root.resetar()
-    Button:
         text: 'Pendente'
         font_size: 20
         size_hint: .3, .1
-        pos_hint: {"x":.2, "y":.9}
+        pos_hint: {"x":0, "y":.9}
         on_release: root.pendentes()
     Button:
         text: 'Pagou'
         font_size: 20
         size_hint: .2, .1
-        pos_hint: {"x":.5, "y":.9}
+        pos_hint: {"x":.3, "y":.9}
         on_release: root.pagou()
+    Button:
+        text: 'Resete'
+        font_size: 20
+        size_hint: .2, .1
+        pos_hint: {"x":.5, "y":.9}
+        on_release: root.resetar()
     Button:
         text: '+'
         font_size: 50
