@@ -1,3 +1,6 @@
+# assyncriona imagem
+aimg = AsyncImage(source='http://mywebsite.com/logo.png')
+
 # carregar uma imagem com um nome de um arquivo
 from kivy.core.image import Image
 im = Image("image.png")

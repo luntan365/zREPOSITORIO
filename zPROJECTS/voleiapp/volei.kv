@@ -1,31 +1,42 @@
-<Tela>:    
+<Tela>:
+    canvas:
+        Rectangle:
+            source: 'img/widgets/fundo.jpg'
+            pos: self.pos
+            size: self.size
     Button:
         text: 'Pendente'
         font_size: 20
-        size_hint: .3, .1
-        pos_hint: {"x":0, "y":.9}
+        size_hint: .28, .08
+        pos_hint: {"x":.01, "y":.91}
         on_release: root.pendentes()
+        background_normal: 'img/widgets/but_blue.png'
+        background_down: 'img/widgets/but_blue_down.png'
     Button:
         text: 'Pagou'
         font_size: 20
-        size_hint: .2, .1
-        pos_hint: {"x":.3, "y":.9}
+        size_hint: .19, .08
+        pos_hint: {"x":.3, "y":.91}
         on_release: root.pagou()
+        background_normal: 'img/widgets/but_turq.png'
+        background_down: 'img/widgets/but_turq_down.png'
     Button:
         text: 'Resete'
         font_size: 20
-        size_hint: .2, .1
-        pos_hint: {"x":.5, "y":.9}
+        size_hint: .19, .08
+        pos_hint: {"x":.5, "y":.91}
         on_release: root.resetar()
+        background_normal: 'img/widgets/but_red.png'
+        background_down: 'img/widgets/but_red_down.png'
     Button:
-        text: '+'
-        font_size: 50
-        size_hint: .2, .1
-        pos_hint: {"x":.7, "y":.9}
+        size_hint: .14, .08
+        pos_hint: {"x":.7, "y":.91}
         on_release: root.add_pessoa()
+        background_normal: 'img/widgets/but_new.png'
+        background_down: 'img/widgets/but_new_down.png'
     Button:
-        text: 'X'
-        font_size: 33
-        size_hint: .1, .1
-        pos_hint: {"x":.9, "y":.9}
+        size_hint: .13, .08
+        pos_hint: {"x":.85, "y":.91}
         on_release: root.remover_pessoa()
+        background_normal: 'img/widgets/but_del.png'
+        background_down: 'img/widgets/but_del_down.png'
