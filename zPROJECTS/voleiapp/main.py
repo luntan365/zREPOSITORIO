@@ -10,35 +10,35 @@ from lib.listatouch import ListaTouch
 from lib.crud import Crud
 from lib.dtextinput import DTextInput
 from kivy.graphics import Rectangle, Color
-
+from string import capwords
 from kivy.config import Config
-Config.set('graphics', 'height', '600')
-Config.set('graphics', 'width', '400')
+Config.set('graphics', 'height', '640')
+Config.set('graphics', 'width', '360')
 # ====================================================================
 crud = Crud()
 # ===================TELA=================================================
 class Tela(FloatLayout):
 
     def __init__(self, **kwargs):
-        super(Tela, self).__init__(**kwargs)        
-                    
+        super(Tela, self).__init__(**kwargs)
+
         # Tela de Adicionar Pessoa
         self.bl_add = BoxLayout(orientation='vertical', size_hint = (1, .4), pos_hint = {"x":0, "top":0.9}, spacing = 10, padding = 10)
         self.ti_nome = DTextInput()
         self.bl_add.add_widget(self.ti_nome)
-        self.bl_add.add_widget(Button(text='Adicionar', font_size='30sp', on_press=self.add_pessoa_add, background_normal='img/widgets/but_turq.png', background_down='img/widgets/but_turq_down.png'))
-        self.bl_add.add_widget(Button(text='Cancelar', font_size='30sp', on_press=self.cancelar, background_normal='img/widgets/but_red.png', background_down='img/widgets/but_red_down.png'))
+        self.bl_add.add_widget(Button(text='Adicionar', font_size='30sp', on_release=self.add_pessoa_add, background_normal='img/widgets/but_turq.png', background_down='img/widgets/but_turq_down.png'))
+        self.bl_add.add_widget(Button(text='Cancelar', font_size='30sp', on_release=self.cancelar, background_normal='img/widgets/but_red.png', background_down='img/widgets/but_red_down.png'))
 
         # Tela comfirmar resete
         self.bl_reset = BoxLayout(orientation='vertical', size_hint = (1, .3), pos_hint = {"x":0, "bottom":0.2}, spacing = 10, padding = 10)
-        self.bl_reset.add_widget(Button(text='Resetar', font_size='30sp', on_press=self.resetar_confirma, background_normal='img/widgets/but_turq.png', background_down='img/widgets/but_turq_down.png'))
-        self.bl_reset.add_widget(Button(text='Cancelar', font_size='30sp', on_press=self.cancelar, background_normal='img/widgets/but_red.png', background_down='img/widgets/but_red_down.png'))
+        self.bl_reset.add_widget(Button(text='Resetar', font_size='30sp', on_release=self.resetar_confirma, background_normal='img/widgets/but_turq.png', background_down='img/widgets/but_turq_down.png'))
+        self.bl_reset.add_widget(Button(text='Cancelar', font_size='30sp', on_release=self.cancelar, background_normal='img/widgets/but_red.png', background_down='img/widgets/but_red_down.png'))
 
         # Tela Inicial - Lista de Pendentes
         self.conteiner = BoxLayout(size_hint=(1,.9), pos_hint={'x':0,'y':0})
         self.add_widget(self.conteiner)
         self.conteiner.add_widget(ListaTouch(listatouch=crud.listar(0), acao=self.acao_pagou))
-            
+
     def pendentes(self):
         self.conteiner.clear_widgets()
         self.conteiner.add_widget(ListaTouch(listatouch=crud.listar(0), acao=self.acao_pagou))
@@ -59,12 +59,14 @@ class Tela(FloatLayout):
         self.conteiner.clear_widgets()
         self.conteiner.add_widget(self.bl_add)
         self.ti_nome.focus = True
-        
+
     def add_pessoa_add(self, arg):
         nome = self.ti_nome.text.strip()
         if bool(nome):
+            nome = capwords(nome)
             crud.add_pessoa(nome)
-        self.ti_nome.text = ''        
+        self.ti_nome.text = ''
+        self.ti_nome.focus = True
 
     def cancelar(self, arg):
         self.conteiner.clear_widgets()

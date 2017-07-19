@@ -2,9 +2,9 @@ import sqlite3
 from threading import Thread
 
 class Crud():
-    
+
     def __init__(self):
-        self.conexao = sqlite3.connect('voleidb.db', check_same_thread=False)
+        self.conexao = sqlite3.connect('../voleidb.db', check_same_thread=False)
         self.cursor = self.conexao.cursor()
         self.criar_db()
 
@@ -17,7 +17,7 @@ class Crud():
                 `pagou`	INTEGER);  ''')
         except Exception as e:
             pass
-            
+
     def add_pessoa(self, nome):
         self.cursor.execute("INSERT INTO volei (nome, pagou) VALUES ('%s', %d)" %(nome, 0))
         self.conexao.commit()
@@ -25,14 +25,14 @@ class Crud():
     def pagou(self, id_pessoa):
         self.cursor.execute("UPDATE volei SET pagou = '%d'  WHERE id = %d" %(1, id_pessoa))
         self.conexao.commit()
-        
+
     def pagou_async(self, id_pessoa):
         Thread(target=self.pagou, args=(id_pessoa,)).start()
 
     def pendente(self, id_pessoa):
         self.cursor.execute("UPDATE volei SET pagou = '%d'  WHERE id = %d" %(0, id_pessoa))
         self.conexao.commit()
-        
+
     def pendente_async(self, id_pessoa):
         Thread(target=self.pendente, args=(id_pessoa,)).start()
 
