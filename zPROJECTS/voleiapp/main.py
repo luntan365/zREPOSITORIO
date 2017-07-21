@@ -11,9 +11,10 @@ from lib.crud import Crud
 from lib.dtextinput import DTextInput
 from kivy.graphics import Rectangle, Color
 from string import capwords
-from kivy.config import Config
-Config.set('graphics', 'height', '640')
-Config.set('graphics', 'width', '360')
+from os import system
+#from kivy.config import Config
+#Config.set('graphics', 'height', '640')
+#Config.set('graphics', 'width', '360')
 # ====================================================================
 crud = Crud()
 # ===================TELA=================================================

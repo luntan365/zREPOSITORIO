@@ -38,10 +38,15 @@ class ItemLista(Button):
         super(ItemLista, self).__init__(**kwargs)
         self.indice = indice
         self.acao = acao
-        self.size_hint=(1, None)
-        self.height='60dp'
-        self.font_size='30sp'
-        self.x_inicial = None
+	self.x_inicial = None
+        self.size_hint =(None, None)
+        self.height ='60dp'
+	self.width = '400dp'
+        self.font_size ='30sp'
+	self.text_size = self.size
+	self.padding_x = '15dp'
+	self.halign = 'left'
+	self.valign = 'middle'
         if img_fundo == 'blue':
             self.background_normal = 'img/widgets/b_blue_down.png'
             self.background_down = 'img/widgets/b_blue.png'
@@ -59,7 +64,7 @@ class ItemLista(Button):
             if self.x_inicial  == None:
                 self.x_inicial = x
             self.x = (x - self.x_inicial)
-            if(self.x > (self.parent.width/5)):
+            if(self.x > (self.parent.width/8)):
                 self.background_color = (0,0,0,0)
             else:
                 self.background_color = (1,1,1,1)
@@ -68,11 +73,11 @@ class ItemLista(Button):
 	    self.background_color = (1,1,1,1)
 
     def on_release(self):
-        if(self.x > (self.parent.width/5)):
+        if(self.x > (self.parent.width/8)):
             if self.acao is not None:
                 self.acao(self.indice)
             self.parent.remove_widget(self)
         else:
             self.x = 5
         self.x_inicial = None
-    pass    
+    pass
