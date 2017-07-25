@@ -1,8 +1,14 @@
 #include <stdio.h>
 
-int main() {
+#define constante_mais_rapida 99 // CONSTANTE fora de padrao , mas mais rapida
 
-  //void vazio; // vazio, usado no retorno de funcoes q nao retornam nada
+int main() {
+  printf("%i \n", constante_mais_rapida);
+
+  const int CONSTANTE = 99;
+  printf("%i \n", CONSTANTE);
+  
+  //void vazio; // vazio, usado no retorno de funcoes q nao retornam nada 
   
   char c = 'c';
   printf("%c \n", c);

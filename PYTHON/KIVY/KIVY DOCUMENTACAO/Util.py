@@ -1,4 +1,4 @@
-ivy.utils.intersection(set1, set2) #Retorna a interseção de 2 listas.
+kivy.utils.intersection(set1, set2) #Retorna a interseção de 2 listas.
 kivy.utils.difference(set1, set2) #Retorna a diferença entre 2 listas.
 kivy.utils.strtotuple('(1 , 2, 3)') #converte string em tupla
 kivy.utils.get_color_from_hex(s) #Transforma string cor hexa para Color

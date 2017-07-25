@@ -1,9 +1,7 @@
 #include <stdio.h> 
 #include <stdlib.h> 
-#include <locale.h>
+
 int main() {
-  char *locale;
-    locale = setlocale(LC_ALL, "");
 
   printf("%i\n", 10==10);
   printf("%i\n", 10!=10);
@@ -24,7 +22,7 @@ int main() {
   }
 
   int w = 0;
-  while (w < 10) {
+  while (w < 10) {       
     printf("%i\n", w);
     w += 1;
   }
@@ -33,17 +31,23 @@ int main() {
     printf("Do While, Executa a primeira vez mesmo q condicao seja invalida\n");
   } while(0);
 
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; 1 ; i++) {
+    if (i == 5) { continue; }
+    if (i == 10) { break; } 
     printf("%i\n", i);
+  }
+
+  for (int i = 0, j = 10; i <= 5 && j >= 5; i++, j--) {
+    printf("i=%i e j=%i\n", i, j);
   }
   
   int chave = 1;
   switch (chave) {
     case 0:
-      printf("É 0\n");
+      printf("eh 0\n");
       break;
     case 1:
-      printf("É 1\n");
+      printf("eh 1\n");
       break;
     default:
       printf("noa foi encontrada\n");
