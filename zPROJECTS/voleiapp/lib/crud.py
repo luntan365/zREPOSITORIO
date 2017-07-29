@@ -4,7 +4,7 @@ from threading import Thread
 class Crud():
 
     def __init__(self):
-        self.conexao = sqlite3.connect('../voleidb.db', check_same_thread=False)
+        self.conexao = sqlite3.connect('voleidb.db', check_same_thread=False)
         self.cursor = self.conexao.cursor()
         self.criar_db()
 
