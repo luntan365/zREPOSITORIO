@@ -1,0 +1,33 @@
+#:import HEX kivy.utils.get_color_from_hex
+
+<Snake>:
+    size_hint: None, None
+    size: '150dp', '50dp'
+    canvas:
+        Color:
+            rgb: HEX("#e67e22")
+        Rectangle:
+            pos: self.pos
+            size: self.size        
+
+<SnakeFeed>:
+    size_hint: None, None
+    size: '50dp', '50dp'
+    canvas:
+        Color:
+            rgb: HEX("#2ecc71")
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<SnakeGame>:
+    snake: cobra
+    snakefeed: comida
+
+    Snake:
+        id: cobra
+        pos_hint: {"left":0, "top":1}
+
+    SnakeFeed:
+        id: comida
+        pos_hint: {"center_x":.5, "center_y":.5}

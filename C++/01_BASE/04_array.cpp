@@ -9,8 +9,8 @@ int main() {
     int array_zero[10] = {}; // todas posicoes iniciam com valor 00
 
   int array_ini[] = {1,5,6,5,9,8,7,1,3,10};
-  
-  for (int i = 0; i < 10; i++) {
+  tamanho_array = sizeof(array_ini) / sizeof(array_ini[0])
+  for (int i = 0; i < tamanho_array; i++) {
     cout << i << endl;
   }
 
