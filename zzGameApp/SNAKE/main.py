@@ -13,9 +13,12 @@ from kivy.vector import Vector
 from kivy.clock import Clock
 from kivy.config import Config
 from os import system
+import math
 # ======================CONFIG==============================================
-ALTURA = int(720/1.25)
-LARGURA = int(1280/1.25)
+HEIGHT = int(720/1.25)
+WIDTH = int(1280/1.25)
+coluna = 30
+tileSize = math.max(math.floor(WIDTH/coluna), math.floor(HEIGHT/coluna));
 Config.set('graphics', 'height', ALTURA)
 Config.set('graphics', 'width', LARGURA)
 Config.set('graphics', 'maxfps', '60')
@@ -31,13 +34,49 @@ class SnakeFeed(Widget):
 class Snake(Widget):
     def __init__(self, **kwargs):
         super(Snake, self).__init__(**kwargs)
-        self.velocity_x = NumericProperty(0)
-        self.velocity_y = NumericProperty(0)
-        self.velocity = ReferenceListProperty(self.velocity_x, self.velocity_y)
+        self.x_inicial = 0
+        self.y_inicial = 0
+        self.x_final = 0
+        self.y_final = 0
+        self.body = [[2,0], [1,0], [0,0]]
+        self.direction = [1, 0];
 
-    def move(self):
-        self.pos = Vector(*self.velocity) + self.pos
-    pass
+    def update(self):
+        nextPos = [self.body[0][0] + self.direction[0], self.body[0][1] + self.direction[1]]
+
+        # cobra nao pode volta pra traz
+        if (nextPos[0] == self.body[1][0] and nextPos[1] == self.body[1][1]):
+            if (self.direction[0]==0):
+                self.direction[1] *= -1;
+            else:
+                self.direction[0] *= -1;
+            nextPos = [self.body[0][0] + self.direction[0], self.body[0][1] + self.direction[1]];
+            
+
+        def on_touch_down(self, touch):
+            self.x_inicial = touch.pos[0]
+            self.y_inicial = touch.pos[1]
+    
+        def on_touch_up(self, touch):
+            self.x_final = touch.pos[0]
+            self.y_final = touch.pos[1]
+            self.calcular_direcao()  
+             
+        def calcular_direcao(self):
+            direita_ou_esquerda = self.x_inicial - self.x_final
+            cima_ou_baixo = self.y_inicial - self.y_final    
+            if fabs(direita_ou_esquerda) > fabs(cima_ou_baixo):
+                if self.x_inicial < self.x_final:
+                    self.direction = [1, 0]  #"DIREITA"                
+                else:
+                    self.direction = [-1, 0]  #"ESQUERDA"                              
+            else:
+                if self.y_inicial < self.y_final:
+                    self.direction = [0, -1]  #"TOPO"
+                else:
+                    self.direction = [0, 1]  #"BAIXO"
+                    
+    pass #FIM DA CLASSE SNAKE
     
 # ===================TELA=JOGO=================================================
 class SnakeGame(FloatLayout):
