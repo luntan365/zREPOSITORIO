@@ -27,7 +27,7 @@
          <ul class="left">
             <li><a href="">Inicio</a></li>
             <li><a href="login">Login</a></li>
-            <li><a href="cadastrar">Cadastrar Imóvel</a></li>
+            <li><a href="cadastro">Cadastrar Imóvel</a></li>
             <li><a href="alterar">Alterar Imóvel</a></li>
             <li><a href="excluir">Excluir Imóvel</a></li>           
          </ul>

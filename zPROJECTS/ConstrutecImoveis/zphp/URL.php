@@ -1,12 +1,18 @@
 <?php
 class URL {
   private $rotas = [
-    'home'=>['acao'=>false,'pagina'=>'home.php'],
-    'login'=>['acao'=>false,'pagina'=>'login.php'],
-    'cadastrar'=>['acao'=>false, 'pagina'=>'cadastrar.php'],
-    'alterar'=>['acao'=>false, 'pagina'=>'alterar.php'],
-    'excluir'=>['acao'=>false, 'pagina'=>'excluir.php']
+    'home'=>['acao'=>false,'pagina'=>'home'],
+    'login'=>['acao'=>false,'pagina'=>'login'],
+
+    'cadastro'=>['acao'=>false, 'pagina'=>'cadastro'],
+    'cadastro_cadastrar'=>['acao'=>'cadastro_cadastrar',  'pagina'=>'cadastro'],
+    'cadastro_adicionar'=>['acao'=>'cadastro_adicionar', 'pagina'=>'cadastro'],
+    'cadastro_cancelar'=> ['acao'=>'cadastro_cancelar',  'pagina'=>'cadastro'],
+
+    'alterar'=>['acao'=>false, 'pagina'=>'alterar'],
+    'excluir'=>['acao'=>false, 'pagina'=>'excluir']
   ];
+
   private $rota = '';
   private $vars = [];
   private $diretorio_pagina = '/zpagina/';
@@ -29,7 +35,7 @@ class URL {
 
   public function acao() {
     if (isset($this->rotas[$this->rota]['acao']) && $this->rotas[$this->rota]['acao']) {
-      return DIRETORIO_RAIZ.$this->diretorio_acao.$this->rotas[$this->rota]['acao'];
+      return DIRETORIO_RAIZ.$this->diretorio_acao.$this->rotas[$this->rota]['acao'].'.php';
     } else {
       return false;
     }
@@ -37,7 +43,7 @@ class URL {
 
   public function pagina() {
     if (isset($this->rotas[$this->rota]['pagina'])) {
-      return DIRETORIO_RAIZ.$this->diretorio_pagina.$this->rotas[$this->rota]['pagina'];
+      return DIRETORIO_RAIZ.$this->diretorio_pagina.$this->rotas[$this->rota]['pagina'].'.php';
     } else {
       return DIRETORIO_RAIZ.$this->diretorio_pagina.'404.php';
     }

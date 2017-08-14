@@ -4,22 +4,22 @@
   #botao-adicionar { margin-top: 20px; }
 </style>
 <br>
-<form class="formulario_cadastro" action="logar" method="post" autocomplete="off" enctype="multipart/form-data">
+<form class="formulario_cadastro" action="" method="post" autocomplete="off" enctype="multipart/form-data">
   
   <div class="row">
     
     <div class="input-field col s5">
-      <input id="cd_rua" name="rua" type="text">
+      <input id="cd_rua" name="rua" type="text" required>
       <label for="cd_rua">Rua</label>
     </div>
 
     <div class="input-field col s3 offset-s1">
-      <input id="cd_numero" name="numero" type="number">
+      <input id="cd_numero" name="numero" type="number" required>
       <label for="cd_numero">Número</label>
     </div>
 
     <div class="input-field col s3">
-      <input id="cd_valor" name="valor" type="number">
+      <input id="cd_valor" name="valor" type="number" required>
       <label for="cd_valor">Valor R$</label>
     </div>
     
@@ -27,7 +27,7 @@
   
   <div class="row">
     <div class="input-field col s5">
-      <input id="cd_bairro" name="bairro" type="text">
+      <input id="cd_bairro" name="bairro" type="text" required>
       <label for="cd_bairro">Bairro</label>
     </div>
 
@@ -64,15 +64,15 @@
   <div class="row">
     <div class="col s5">
       <p>
-        <input class="with-gap" name="tipo" type="radio" id="cd_casa" required/>
+        <input type="radio" name="tipo" value="casa" class="with-gap" id="cd_casa" required/>
         <label for="cd_casa">Casa</label>      
       </p>
       <p>
-        <input class="with-gap" name="tipo" type="radio" id="cd_ap" required/>
+        <input type="radio" name="tipo" value="apartamento" class="with-gap" id="cd_ap" required/>
         <label for="cd_ap">Apartamento</label>
       </p>
       <p>
-        <input class="with-gap" name="tipo" type="radio" id="cd_comercial" required/>
+        <input type="radio" name="tipo" value="pontocomercial" class="with-gap" id="cd_comercial" required/>
         <label for="cd_comercial">Ponto Comercial</label>
       </p>    
     </div>    
@@ -93,22 +93,27 @@
     </div>
 
     <div class="input-field col s1 offset-s3" id="botao-adicionar">
-      <button class="btn waves-effect waves-light" type="submit" name="adicionar" >Adicionar</button>
+      <button class="btn waves-effect waves-light" type="submit" name="adicionar" formaction="cadastro_adicionar">Adicionar</button>
     </div>  
       
   </div>
 
+  <!-- LISTA -->
   <div class="row">
-      <div class="card-panel blue white-text">Adicionados</div>
+      <div class="card-panel blue white-text"><?php 
+      if (isset($_SESSION['cadastro'])) {
+        var_dump($_SESSION['cadastro']); 
+      }
+      ?></div>
   </div>
 
 
   <div class="row">
     <div class="input-field col s2 offset-s4">
-      <button class="btn waves-effect waves-light green" type="submit" name="cadastrar" >Cadastrar</button> 
+      <a href="cadastro_cadastrar"><button class="btn waves-effect waves-light green" type="button" name="cadastrar">Cadastrar</button></a>
     </div>
     <div class="input-field col s2">
-      <button class="btn waves-effect waves-light red" type="submit" name="cancelar" >Cancelar</button> 
+      <a href="cadastro_cancelar"><button class="btn waves-effect waves-light red" type="button" name="cancelar" >Cancelar</button></a>
     </div>
   </div>
   
