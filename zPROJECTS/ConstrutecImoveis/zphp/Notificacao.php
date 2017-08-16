@@ -13,24 +13,24 @@ class Notificacao {
   public static function notificacoes() {
 
     if (!empty($_SESSION['notificacao_sucesso'])) {
-      echo '<div class="notificacoes notificacao-sucesso">';
+      echo '<div class="row"> <div class="card-panel green white-text">';
       foreach ($_SESSION['notificacao_sucesso'] as $value) {
-        echo '<p>'.$value.'</p>';
+        echo '<span>'.$value.'</span>';
       }
-      echo'</div>';
+      echo'</div></div>';
       unset($_SESSION['notificacao_sucesso']);
     }
 
     if (!empty($_SESSION['notificacao_erro'])) {
-      echo '<div class="notificacoes notificacao-erro">';
+      echo '<div class="row"> <div class="card-panel red white-text">';
       foreach ($_SESSION['notificacao_erro'] as $value) {
-        echo '<p>'.$value.'</p>';
+        echo '<span>'.$value.'</span>';
       }
-      echo'</div>';
+      echo'</div></div>';
       unset($_SESSION['notificacao_erro']);
     }
 
-    
+
   }
 
 

@@ -2,7 +2,10 @@
 class URL {
   private $rotas = [
     'home'=>['acao'=>false,'pagina'=>'home'],
-    'login'=>['acao'=>false,'pagina'=>'login'],
+
+    'acesso'=>['acao'=>false,                     'pagina'=>'acesso'],
+    'acesso_logar'=>['acao'=>'acesso_logar',      'pagina'=>'home'],
+    'acesso_deslogar'=>['acao'=>'acesso_deslogar', 'pagina'=>'home'],
 
     'cadastro'=>['acao'=>false, 'pagina'=>'cadastro'],
     'cadastro_cadastrar'=>['acao'=>'cadastro_cadastrar',  'pagina'=>'cadastro'],

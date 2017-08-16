@@ -1,4 +1,5 @@
 <?php
+
 $_SESSION['cadastro']['rua'] = $_POST['rua'];
 $_SESSION['cadastro']['bairro'] = $_POST['bairro'];
 $_SESSION['cadastro']['rua'] = $_POST['referencia'];

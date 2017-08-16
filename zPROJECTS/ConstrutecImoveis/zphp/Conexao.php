@@ -14,7 +14,7 @@ class Conexao {
           self::$conexao = new PDO("mysql:dbname=".DATABASE_TESTE."; host=".HOST_TESTE."; charset=utf8", USER_TESTE, PASS_TESTE);
         }
       } catch (PDOException $e) {
-        throw new Exception("CRUD: ".$e->getMessage());
+        throw new Exception("CONEXAO: ".$e->getMessage());
         exit;
       }
     }

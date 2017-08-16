@@ -25,11 +25,17 @@
       <nav class="grey darken-4">
        <div class="nav-wrapper">
          <ul class="left">
-            <li><a href="">Inicio</a></li>
-            <li><a href="login">Login</a></li>
-            <li><a href="cadastro">Cadastrar Imóvel</a></li>
-            <li><a href="alterar">Alterar Imóvel</a></li>
-            <li><a href="excluir">Excluir Imóvel</a></li>           
+           
+            <li><a href="">Inicio</a></li>            
+            <?php if (empty($_SESSION['usuario'])): ?>
+              <li><a href="acesso">Login</a></li>
+            <?php else: ?>
+              <li><a href="cadastro">Cadastrar Imóvel</a></li>
+              <li><a href="alterar">Alterar Imóvel</a></li>
+              <li><a href="excluir">Excluir Imóvel</a></li>
+              <li><a href="acesso_deslogar">Deslogar</a></li>
+            <?php endif; ?>            
+                      
          </ul>
        </div>
      </nav>     
@@ -39,7 +45,8 @@
            
       <!-- CORPO SITE -->
       <div class="col s9 white" id="corpo">
-        <?php include_once($url->pagina()); ?>
+        <?php Notificacao::notificacoes(); ?>
+        <?php require_once($url->pagina()); ?>
       </div>
       
       <!-- MENU LATERAL DIREITA PESQUISA -->

@@ -9,12 +9,12 @@ class CRUD {
     $valores = array_values($array_campos_valores);
     $interrogacoes = substr(str_repeat("?,", $size), 0, $size*2-1);
     $sql = Conexao::conectar()->prepare("INSERT INTO $tabela ($campos) VALUES ($interrogacoes);");
-    $sql->execute($valores);    
+    $sql->execute($valores);
   }
 
   //==============================UPDATE==============================\\
 
-  public static function update($tabela, $array_campos_valores,  $where, ...$parametros) {
+  public static function update($tabela, $array_campos_valores,  $where, $parametros) {
     $campos = implode(' = ? , ', array_keys($array_campos_valores));
     $campos = $campos. ' = ? ';
     $valores = array_values($array_campos_valores);
@@ -25,21 +25,22 @@ class CRUD {
 
   //==============================DELETE==============================\\
 
-  public static function delete($tabela, $where, ...$parametros){
+  public static function delete($tabela, $where, $parametros){
     $sql = Conexao::conectar()->prepare("DELETE FROM $tabela WHERE $where;");
     $sql->execute($parametros);
   }
 
   //==============================SELECT GENERICO==============================\\
 
-  public static function select($tabelas, $campos='*', $where='', ...$parametros) {
-    $sql = Conexao::conectar()->prepare("SELECT $campos FROM $tabelas".($where==''?'':" WHERE ".$where).";");    
+  public static function select($tabelas, $campos='*', $where='', $parametros) {
+    $sql = Conexao::conectar()->prepare("SELECT $campos FROM $tabelas".($where==''?'':" WHERE ".$where).";");
     $sql->execute($parametros);
     return $sql->fetchAll(PDO::FETCH_ASSOC);
   }
 
 }
 // Conexao::conectar()->lastInsertId();
+
 //======================SELECT ESCROTO======================//
 // public static function select_animal_pesquisa_limit($especie, $estado, $cidade, $ini, $qnt) {
 //   $sql = Conexao::conectar()->prepare(
@@ -48,7 +49,6 @@ class CRUD {
 //   $sql->execute(["%".$especie."%", "%".$estado."%", "%".$cidade."%"]);
 //   return $sql->fetchAll(PDO::FETCH_ASSOC);
 // }
-
 
 //======================TRANSAÇÃO======================//
 // public static function update_adocao_confirmada($id_pet, $id_adotante) {
