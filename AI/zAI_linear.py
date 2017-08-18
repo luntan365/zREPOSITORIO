@@ -3,7 +3,6 @@
 import random
 import time
 import timeit
-from thread import start_new_thread
 # ===================================================================
 
 class No(object):
@@ -18,56 +17,25 @@ class No(object):
 
 class AI(object):
     todas_jogadas = []
-    achou = [False]
-    mostrar_tempo = [True]
-    def __init__(self, antigos_filhos=[], raiz=None):
+    achou = False
+    def __init__(self):
         super(AI, self).__init__()
-        # print("=== AI INSTANCIADA ===")
-        self.antigos_filhos = antigos_filhos
-        self.novos_filhos = []
-        if raiz != None:
-            self.exibir(raiz.jogada)
-            self.array_for_number(raiz.jogada)
-            self.antigos_filhos.append(raiz)
-            pass
-        start_new_thread(self.iniciar,())
+        self.antigos_Filhos = []
+        self.novos_Filhos = []
 
-    def __del__ (self):
-        print("=== AI DESTRUIDO ===")
-        pass
-
-    def iniciar(self):
+        jogada_inicial = [1,6,2,7,4,3,5,8,9]
+        # jogada_inicial = self.inserir_numeros_aleatrios()
+        raiz = No(jogada_inicial)
+        self.exibir(jogada_inicial)
+        self.array_for_number(jogada_inicial)
+        self.antigos_Filhos.append(raiz)
         inicio = time.time()
-
-        while not self.achou[0]:
-            tamanho = len(self.antigos_filhos)
-            if tamanho <= 0:
-                break
-            if tamanho >= 100:
-                filhos_extraidos = []
-                for i in range(tamanho//2):
-                    filhos_extraidos.append(self.antigos_filhos.pop())
-                AI(antigos_filhos=filhos_extraidos)
+        while not self.achou:
             self.busca()
+        fim = time.time()
+        segundos = (fim - inicio)
+        self.formatar_tempo(segundos)
 
-        if self.mostrar_tempo[0] and self.achou[0]:
-            self.mostrar_tempo[0] = False
-            fim = time.time()
-            segundos = (fim - inicio)
-            self.formatar_tempo(segundos)
-            pass
-
-        self.__del__()
-        pass
-
-    def busca(self):
-        for filho in self.antigos_filhos:
-            if self.achou[0]:
-                return
-            self.criar_Filhos(filho)
-            self.antigos_filhos = self.novos_filhos
-        self.novos_filhos = []
-        pass
 
     def criar_Filhos(self, no):
         for index_mover in self.movimentos_possiveis(no.jogada):
@@ -88,9 +56,20 @@ class AI(object):
                     print("=============================Achou===========================")
                     self.exibir(novo_no.jogada)
                     print(novo_no.movimentos)
-                    self.achou[0] = True
+                    self.achou = True
                     return
-                self.novos_filhos.append(novo_no)
+                self.novos_Filhos.append(novo_no)
+
+
+    def busca(self):
+        for filho in self.antigos_Filhos:
+            if self.achou:
+                return
+            self.criar_Filhos(filho)
+            self.antigos_Filhos = self.novos_Filhos
+        self.novos_Filhos = []
+        pass
+
 
     def movimentos_possiveis(self, jogo8):
         index_vazio = jogo8.index(9)
@@ -119,6 +98,14 @@ class AI(object):
         print("\n | "+str(a[0] if a[0]!=9 else ' ')+" | "+str(a[1] if a[1]!=9 else ' ')+" | "+str(a[2] if a[2]!=9 else ' ')+" | \n | "+str(a[3] if a[3]!=9 else ' ')+" | "+str(a[4] if a[4]!=9 else ' ')+" | "+str(a[5] if a[5]!=9 else ' ')+" | \n | "+str(a[6] if a[6]!=9 else ' ')+" | "+str(a[7] if a[7]!=9 else ' ')+" | "+str(a[8] if a[8]!=9 else ' ')+" | \n")
         pass
 
+    def inserir_numeros_aleatrios(self):
+        numeros_base = [1,2,3,4,5,6,7,8,9]
+        numeros = []
+        while len(numeros_base) > 0:
+            indice_aleatorio = random.randrange(len(numeros_base))
+            numeros.append(numeros_base.pop(indice_aleatorio))
+        return numeros
+
     def formatar_tempo(self, segundos):
         horas = int(segundos // 360)
         minutos = int((segundos % 360) // 60)
@@ -127,18 +114,6 @@ class AI(object):
 
 
 # ===================================================================
-def inserir_numeros_aleatrios():
-    numeros_base = [1,2,3,4,5,6,7,8,9]
-    numeros = []
-    while len(numeros_base) > 0:
-        indice_aleatorio = random.randrange(len(numeros_base))
-        numeros.append(numeros_base.pop(indice_aleatorio))
-    return numeros
-# ===================================================================
-jogada_inicial = [1,6,2,7,4,9,5,8,3]
-jogada_inicial = inserir_numeros_aleatrios()
-raiz = No(jogada_inicial)
-ai = AI(raiz=raiz)
 
-while True:
-    pass
+ai = AI()
+input()
