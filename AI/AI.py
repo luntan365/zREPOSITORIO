@@ -47,7 +47,7 @@ class AI(object):
                 filhos_extraidos = []
                 for i in range(tamanho//2):
                     filhos_extraidos.append(self.antigos_filhos.pop())
-                AI(antigos_filhos=filhos_extraidos)
+                newai = AI(antigos_filhos=filhos_extraidos)
             self.busca()
 
         if self.mostrar_tempo[0] and self.achou[0]:
