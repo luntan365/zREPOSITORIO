@@ -19,7 +19,9 @@ class No(object):
 class AI(object):
     todas_jogadas = []
     achou = [False]
+    tempo_inicial = []
     mostrar_tempo = [True]
+
     def __init__(self, antigos_filhos=[], raiz=None):
         super(AI, self).__init__()
         # print("=== AI INSTANCIADA ===")
@@ -37,23 +39,27 @@ class AI(object):
         pass
 
     def iniciar(self):
-        inicio = time.time()
+        if len(self.tempo_inicial) < 1:
+            self.tempo_inicial.append(time.time())
+            pass
 
         while not self.achou[0]:
             tamanho = len(self.antigos_filhos)
             if tamanho <= 0:
                 break
-            if tamanho >= 100:
+            if tamanho > 100:
                 filhos_extraidos = []
                 for i in range(tamanho//2):
                     filhos_extraidos.append(self.antigos_filhos.pop())
                 newai = AI(antigos_filhos=filhos_extraidos)
             self.busca()
+            pass
 
         if self.mostrar_tempo[0] and self.achou[0]:
             self.mostrar_tempo[0] = False
+            inicio = self.tempo_inicial[0]
             fim = time.time()
-            segundos = (fim - inicio)
+            segundos = fim - inicio
             self.formatar_tempo(segundos)
             pass
 
@@ -83,9 +89,6 @@ class AI(object):
                 novo_no = No(jogada, movimento, movimentos_pai)
 
                 if self.conseguiu(novo_no.jogada):
-                    print("=============================Achou===========================")
-                    print("=============================Achou===========================")
-                    print("=============================Achou===========================")
                     self.exibir(novo_no.jogada)
                     print(novo_no.movimentos)
                     self.achou[0] = True
@@ -136,7 +139,8 @@ def inserir_numeros_aleatrios():
     return numeros
 # ===================================================================
 jogada_inicial = [1,6,2,7,4,9,5,8,3]
-jogada_inicial = inserir_numeros_aleatrios()
+# jogada_inicial = [9,8,7,6,5,4,3,2,1]
+# jogada_inicial = inserir_numeros_aleatrios()
 raiz = No(jogada_inicial)
 ai = AI(raiz=raiz)
 
