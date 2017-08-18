@@ -30,7 +30,8 @@ class AI(object):
         self.array_for_number(jogada_inicial)
         self.antigos_Filhos.append(raiz)
         inicio = time.time()
-        self.busca()
+        while not self.achou:
+            self.busca()        
         fim = time.time()
         print("Segundo: "+str(fim - inicio))
         print("Minutos: "+str((fim - inicio)/60))
@@ -54,7 +55,7 @@ class AI(object):
                     print("=============================Achou===========================")
                     print("=============================Achou===========================")
                     print("=============================Achou===========================")
-                    print("=============================Achou===========================")
+                    self.exibir(novo_no.jogada)
                     print(novo_no.movimentos)
                     self.achou = True
                     return
@@ -68,7 +69,6 @@ class AI(object):
             self.criar_Filhos(filho)
             self.antigos_Filhos = self.novos_Filhos
         self.novos_Filhos = []
-        self.busca()
         pass
 
 
