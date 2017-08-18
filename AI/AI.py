@@ -33,7 +33,7 @@ class AI(object):
         start_new_thread(self.iniciar,())
 
     def __del__ (self):
-        print("=== AI DESTRUIDO ===")
+        # print("=== AI DESTRUIDO ===")
         pass
 
     def iniciar(self):
