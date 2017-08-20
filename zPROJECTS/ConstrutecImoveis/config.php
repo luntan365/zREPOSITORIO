@@ -21,7 +21,7 @@ define('PASS_TESTE', 'usbw');
 define('DOMINIO',(!empty($_SERVER['HTTPS'])?'https':'http').'://'.$_SERVER['HTTP_HOST'].'/');
 define('DIRETORIO_RAIZ', str_replace('\\', '/', __DIR__));
 
-require_once DIRETORIO_RAIZ.'/zphp/URL.php';
+require_once DIRETORIO_RAIZ.'/URL.php';
 require_once DIRETORIO_RAIZ.'/zphp/Conexao.php';
 require_once DIRETORIO_RAIZ.'/zphp/CRUD.php';
 require_once DIRETORIO_RAIZ.'/zphp/Notificacao.php';

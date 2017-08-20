@@ -1,6 +1,10 @@
 <?php
 class CRUD {
 
+  public static function last_id(){
+    return Conexao::conectar()->lastInsertId();
+  }
+
   //==============================INSERT==============================\\
 
   public static function insert($tabela, $array_campos_valores) {
@@ -14,7 +18,7 @@ class CRUD {
 
   //==============================UPDATE==============================\\
 
-  public static function update($tabela, $array_campos_valores,  $where, $parametros) {
+  public static function update($tabela, $array_campos_valores,  $where, $parametros=[]) {
     $campos = implode(' = ? , ', array_keys($array_campos_valores));
     $campos = $campos. ' = ? ';
     $valores = array_values($array_campos_valores);
@@ -25,21 +29,20 @@ class CRUD {
 
   //==============================DELETE==============================\\
 
-  public static function delete($tabela, $where, $parametros){
+  public static function delete($tabela, $where, $parametros=[]){
     $sql = Conexao::conectar()->prepare("DELETE FROM $tabela WHERE $where;");
     $sql->execute($parametros);
   }
 
   //==============================SELECT GENERICO==============================\\
 
-  public static function select($tabelas, $campos='*', $where='', $parametros) {
+  public static function select($tabelas, $campos='*', $where='', $parametros=[]) {
     $sql = Conexao::conectar()->prepare("SELECT $campos FROM $tabelas".($where==''?'':" WHERE ".$where).";");
     $sql->execute($parametros);
     return $sql->fetchAll(PDO::FETCH_ASSOC);
   }
 
 }
-// Conexao::conectar()->lastInsertId();
 
 //======================SELECT ESCROTO======================//
 // public static function select_animal_pesquisa_limit($especie, $estado, $cidade, $ini, $qnt) {

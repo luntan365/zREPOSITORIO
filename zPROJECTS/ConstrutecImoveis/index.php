@@ -30,10 +30,8 @@
             <?php if (empty($_SESSION['usuario'])): ?>
               <li><a href="acesso">Login</a></li>
             <?php else: ?>
-              <li><a href="cadastro">Cadastrar Imóvel</a></li>
-              <li><a href="alterar">Alterar Imóvel</a></li>
-              <li><a href="excluir">Excluir Imóvel</a></li>
-              <li><a href="acesso_deslogar">Deslogar</a></li>
+              <li><a href="cadastro">Cadastro</a></li>
+              <li><a href="acesso_deslogar">Sair</a></li>
             <?php endif; ?>            
                       
          </ul>
@@ -49,52 +47,7 @@
         <?php require_once($url->pagina()); ?>
       </div>
       
-      <!-- MENU LATERAL DIREITA PESQUISA -->
-      <div class="col s3">
-        
-        <form class="container" action="" method="post" autocomplete="off" enctype="multipart/form-data">
-          <p>
-            <button class="btn waves-effect waves-light" type="submit" name="pesquisar"> Pesquisar </button>   
-          </p>
-          <p>
-            <input type="checkbox" name="casa" class="filled-in" id="casa"/>
-            <label for="casa" class="white-text">Casa</label>
-          </p>
-          <p>
-            <input type="checkbox" name="apartamento" class="filled-in" id="apartamento"/>
-            <label for="apartamento" class="white-text">Apartamento</label>
-          </p>
-          <p>
-            <input type="checkbox" name="pontocormercial" class="filled-in" id="pontocormercial"/>
-            <label for="pontocormercial" class="white-text">Ponto Comercial</label>
-          </p>
-          <div class="input-field">
-            <input type="number" id="quarto" name="quarto" class="white-text">
-            <label for="quarto" class="white-text">Quantidade de Quartos + Suites</label>
-          </div>
-          <div class="input-field">
-            <input type="number" id="suite" name="suite" class="white-text">
-            <label for="suite" class="white-text">Quantidade de Suites</label>
-          </div>
-          <div class="input-field">
-            <input type="number" id="banheiro" name="banheiro" class="white-text">
-            <label for="banheiro" class="white-text">Quantidade de Banheiros Sociais</label>
-          </div>          
-          <div class="input-field">
-            <input type="number" id="suite" name="suite" class="white-text">
-            <label for="suite" class="white-text">Quant. de Carros da Garagem</label>
-          </div>                       
-          <p>
-            <input type="checkbox" name="quintal" class="filled-in" id="quintal"/>
-            <label for="quintal" class="white-text">Quintal</label>
-          </p>
-          <p>
-            <input type="checkbox" name="varanda" class="filled-in" id="varanda"/>
-            <label for="varanda" class="white-text">Varanda</label>
-          </p> 
-        </form>   
-
-      </div>
+      <?php require_once(DIRETORIO_RAIZ.'/menu.php') ?>
 
 
       <!-- FOOTER -->

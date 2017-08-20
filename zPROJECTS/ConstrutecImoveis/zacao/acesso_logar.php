@@ -6,6 +6,5 @@ if (!empty($admin)) {
   $_SESSION['usuario'] = $admin;
 } else {
   Notificacao::notificar_erro("Login ou senha incorreto.");
-  header("Location: ".DOMINIO.'acesso');
-  exit;
+  $url->pagina('acesso');
 }

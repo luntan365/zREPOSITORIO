@@ -140,7 +140,7 @@ def inserir_numeros_aleatrios():
 # ===================================================================
 jogada_inicial = [1,6,2,7,4,9,5,8,3]
 # jogada_inicial = [9,8,7,6,5,4,3,2,1]
-# jogada_inicial = inserir_numeros_aleatrios()
+jogada_inicial = inserir_numeros_aleatrios()
 raiz = No(jogada_inicial)
 ai = AI(raiz=raiz)
 
