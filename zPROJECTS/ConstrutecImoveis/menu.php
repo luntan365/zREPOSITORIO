@@ -39,7 +39,7 @@
     </div>          
     <div class="input-field">
       <input type="number" id="garagem" name="garagem" class="white-text" value="<?php if (isset($_SESSION['pesquisa']['garagem'])) { echo $_SESSION['pesquisa']['garagem']; } ?>">
-      <label for="suite" class="white-text">Quant. de Carros na Garagem</label>
+      <label for="suite" class="white-text">Capacidade da Garagem</label>
     </div>                      
 
   </form>   

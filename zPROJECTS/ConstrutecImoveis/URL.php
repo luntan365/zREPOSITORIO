@@ -14,6 +14,9 @@ class URL {
     'logado_excluir'=>['acao'=>false, 'pagina'=>'logado_excluir'],
     'logado_excluir_confirmado'=>['acao'=>'logado_excluir_confirmado', 'pagina'=>'home'],
 
+    'logado_alterar_dados'=>['acao'=>false, 'pagina'=>'logado_alterar_dados'],
+    'logado_alterar_dados_confirmado'=>['acao'=>'logado_alterar_dados_confirmado', 'pagina'=>'home'],
+
     'cadastro'=>['acao'=>false, 'pagina'=>'cadastro'],
     'cadastro_cadastrar'=>['acao'=>'cadastro_cadastrar',  'pagina'=>'cadastro'],
     'cadastro_adicionar'=>['acao'=>'cadastro_adicionar', 'pagina'=>'cadastro'],

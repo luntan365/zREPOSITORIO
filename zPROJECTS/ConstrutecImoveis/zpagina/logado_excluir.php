@@ -48,7 +48,7 @@ $id = $url->vars()[0];
   <?php endif; ?>
 
   <?php if ($value['garagem']!='0'): ?>
-    <span class="col s3"><span class="blue-text">Carros na Garagem</span>: <?php echo $value['garagem']; ?></span>
+    <span class="col s3"><span class="blue-text">Capacidade da Garagem</span>: <?php echo $value['garagem']; ?></span>
   <?php endif; ?>
 
   <?php if ($value['quintal']!='0'): ?>

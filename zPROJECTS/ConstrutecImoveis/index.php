@@ -43,6 +43,7 @@
            
       <!-- CORPO SITE -->
       <div class="col s9 white" id="corpo">
+        <br>
         <?php Notificacao::notificacoes(); ?>
         <?php require_once($url->pagina()); ?>
       </div>

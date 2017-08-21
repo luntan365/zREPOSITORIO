@@ -1,24 +1,27 @@
 <?php
-// (categoria = casa OR categoria = ap OR categoria = comercial) AND quarto_suite >= ? AND suite >= ? AND banheiro >= ? AND garagem >= ? AND quintal >= 1 AND varanda >= 1
-$where = "";
-
-
-if (empty($_SESSION['usuario'])){
-  $dados = CRUD::select('endereco e, imovel i', '*', 'i.endereco_id = e.id AND status = ? ORDER BY i.valor ASC', ['disponivel']);
+if (isset($_SESSION['pesquisa']['where'])) {
+  $where = $_SESSION['pesquisa']['where'];
+  $where_dados = $_SESSION['pesquisa']['dados'];
 } else {
-  $dados = CRUD::select('endereco e, imovel i', '*', 'i.endereco_id = e.id ORDER BY i.valor ASC');
+  if (empty($_SESSION['usuario'])){
+    $where = 'i.endereco_id = e.id AND status = ? ORDER BY i.valor ASC';
+    $where_dados = ['disponivel'];
+  } else {
+    $where = 'i.endereco_id = e.id ORDER BY i.valor ASC';
+    $where_dados = [];
+  }
 }
+$dados = CRUD::select('endereco e, imovel i', '*', $where, $where_dados);
 ?>
 <style media="screen">
-  .selecionados {padding-top: 5px; padding-bottom: 5px;}
+  .selecionados {padding-top: 10px; padding-bottom: 5px;}
   span { margin-bottom: 4px; }
   .rotulo { font-weight: bold;}
 </style>
-<br>
 
 <?php foreach ($dados as $key => $value): ?>
   
-  <div class="row z-depth-1 selecionados grey lighten-4">
+  <div class="row z-depth-1 selecionados grey lighten-2">
 
     <?php if ($value['categoria']=='casa'): ?>
       <span class="col s3 green-text rotulo">CASA</span>
@@ -28,34 +31,34 @@ if (empty($_SESSION['usuario'])){
       <span class="col s3 pink-text rotulo">PONTO COMERCIAL</span>
     <?php endif; ?>
 
-    <span class="col s3"><span class="blue-text">Valor R$</span>: <?php echo $value['valor']; ?></span>
+    <span class="col s3"><span class="blue-text text-darken-4">Valor R$</span>: <?php echo $value['valor']; ?></span>
 
     <?php if (!empty($value['referencia'])): ?>
-      <span class="col s6"><span class="blue-text">Referência</span>: <?php echo $value['referencia']; ?></span>
+      <span class="col s6"><span class="blue-text text-darken-4">Referência</span>: <?php echo $value['referencia']; ?></span>
     <?php endif; ?> 
 
-    <span class="col s3"><span class="blue-text">Rua</span>: <?php echo $value['rua']; ?></span>
+    <span class="col s3"><span class="blue-text text-darken-4">Rua</span>: <?php echo $value['rua']; ?></span>
     
-    <span class="col s3"><span class="blue-text">Número</span>: <?php echo $value['numero'];
+    <span class="col s3"><span class="blue-text text-darken-4">Número</span>: <?php echo $value['numero'];
      ?></span>
 
-    <span class="col s3"><span class="blue-text">Bairro</span>: <?php echo $value['bairro'];
+    <span class="col s3"><span class="blue-text text-darken-4">Bairro</span>: <?php echo $value['bairro'];
       ?></span>  
 
     <?php if ($value['quarto']!='0'): ?>
-      <span class="col s3"><span class="blue-text">Quarto</span>: <?php echo $value['quarto']; ?></span>
+      <span class="col s3"><span class="blue-text text-darken-4">Quarto</span>: <?php echo $value['quarto']; ?></span>
     <?php endif; ?>
     
     <?php if ($value['suite']!='0'): ?>
-      <span class="col s3"><span class="blue-text">Suite</span>: <?php echo $value['suite']; ?></span>
+      <span class="col s3"><span class="blue-text text-darken-4">Suite</span>: <?php echo $value['suite']; ?></span>
     <?php endif; ?>
 
     <?php if ($value['banheiro']!='0'): ?>
-      <span class="col s3"><span class="blue-text">Banheiro Social</span>: <?php echo $value['banheiro']; ?></span>
+      <span class="col s3"><span class="blue-text text-darken-4">Banheiro Social</span>: <?php echo $value['banheiro']; ?></span>
     <?php endif; ?>
 
     <?php if ($value['garagem']!='0'): ?>
-      <span class="col s3"><span class="blue-text">Carros na Garagem</span>: <?php echo $value['garagem']; ?></span>
+      <span class="col s3"><span class="blue-text text-darken-4">Capacidade da Garagem</span>: <?php echo $value['garagem']; ?></span>
     <?php endif; ?>
 
     <?php if ($value['quintal']!='0'): ?>
@@ -67,7 +70,7 @@ if (empty($_SESSION['usuario'])){
     <?php endif; ?>
 
     <?php if (!empty($value['descricao'])): ?>
-      <span class="col s6"><span class="blue-text">Descrição</span>: <?php echo $value['descricao']; ?></span>
+      <span class="col s6"><span class="blue-text text-darken-4">Descrição</span>: <?php echo $value['descricao']; ?></span>
     <?php endif; ?>
 
     <?php if (!empty($_SESSION['usuario'])): ?>
@@ -83,12 +86,12 @@ if (empty($_SESSION['usuario'])){
           <button type="submit" name="submit" class="btn purple">Alterar Valor</button>      
           
         <a href="logado_excluir/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn red">excluir</button></a>
-        <a href=""><button type="button" name="button" class="btn blue">Alterar Dados</button></a>
+        <a href="logado_alterar_dados/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn blue">Alterar Dados</button></a>
         
         <?php if ($value['status']=='indisponivel'): ?>
-          <a href="logado_alterar_disponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn green">Alterar para Disponivel</button></a>
+          <a href="logado_alterar_disponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn orange">Estar Indisponivel</button></a>
         <?php else: ?>
-          <a href="logado_alterar_indisponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn orange">Alterar para Indisponivel</button></a>
+          <a href="logado_alterar_indisponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn green">Estar Disponivel</button></a>
         <?php endif; ?>
 
         

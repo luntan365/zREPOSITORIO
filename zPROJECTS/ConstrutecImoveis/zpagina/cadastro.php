@@ -82,7 +82,7 @@
 
     <div class="input-field col s2 offset-s1">
       <input id="cd_garagem" name="garagem" type="number"  tabindex="7" oninput="if(this.value.length>3) this.value = this.value.slice(0, 3);">
-      <label for="cd_garagem">Carros na Garagem</label>
+      <label for="cd_garagem">Capacidade Garagem</label>
     </div>
 
     <div class="col s2 caixa_check">
