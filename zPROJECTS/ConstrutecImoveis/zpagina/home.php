@@ -14,9 +14,10 @@ if (isset($_SESSION['pesquisa']['where'])) {
 $dados = CRUD::select('endereco e, imovel i', '*', $where, $where_dados);
 ?>
 <style media="screen">
-  .selecionados {padding-top: 10px; padding-bottom: 5px;}
-  span { margin-bottom: 4px; }
+  .selecionados {padding-top: 15px; padding-bottom: 10px;}
+  span { margin-bottom: 5px; }
   .rotulo { font-weight: bold;}
+  .row { margin-bottom: 10px; }
 </style>
 
 <?php foreach ($dados as $key => $value): ?>
