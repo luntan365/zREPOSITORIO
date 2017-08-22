@@ -13,15 +13,18 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/style.css">
     <style media="screen">
-      #corpo { min-height: 82vh; }
+      #corpo { min-height: 82vh; padding-top: 10px; padding-left: 10px; padding-right: 10px; }
       #corpopesquisa  { margin-bottom: 0px; }
       .input-field { margin-top: 0px; }
     </style>
   </head>
   <body ondragstart='return false'>
-
+    
+  <div class="row col s12 grey darken-4" id="corpopesquisa">
     <!-- CABECALHO -->
-    <div class="col s12 grey darken-4">      
+   
+    <div class="col s9 grey darken-4" >
+           
       <nav class="grey darken-4">
        <div class="nav-wrapper">
          <ul class="left">
@@ -37,18 +40,17 @@
          </ul>
        </div>
      </nav>     
-    </div>
 
-    <div class="row grey darken-4" id="corpopesquisa">
+
+    
            
       <!-- CORPO SITE -->
-      <div class="col s9 white" id="corpo">
-        <br>
+      <div class="col s12 white" id="corpo">
         <?php Notificacao::notificacoes(); ?>
         <?php require_once($url->pagina()); ?>
       </div>
       
-      <?php require_once(DIRETORIO_RAIZ.'/menu.php') ?>
+      
 
 
       <!-- FOOTER -->
@@ -58,6 +60,9 @@
       
     </div>
 
+    <?php require_once(DIRETORIO_RAIZ.'/menu.php') ?>
+
+  </div>
     
     <!-- JAVASCRIPT -->
     <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>

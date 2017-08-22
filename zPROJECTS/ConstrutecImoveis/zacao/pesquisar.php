@@ -19,7 +19,12 @@ if ($_SERVER['REQUEST_METHOD']=='POST'):
   $garagem = trim($_POST['garagem']);
   if (!empty($garagem)) {  $_SESSION['pesquisa']['garagem'] = $garagem; }
 
-  // (categoria = casa OR categoria = ap OR categoria = comercial) AND quarto_suite >= ? AND suite >= ? AND banheiro >= ? AND garagem >= ? AND quintal >= 1 AND varanda >= 1
+  $rua = trim($_POST['rua']);
+  if (!empty($rua)) {  $_SESSION['pesquisa']['rua'] = $rua; }
+  $numero = trim($_POST['numero']);
+  if (!empty($numero)) {  $_SESSION['pesquisa']['numero'] = $numero; }
+  $referencia = trim($_POST['referencia']);
+  if (!empty($referencia)) {  $_SESSION['pesquisa']['referencia'] = $referencia; }
 
   $where_values = [];
   $or = [];
@@ -52,6 +57,19 @@ if ($_SERVER['REQUEST_METHOD']=='POST'):
     $where_values =  array_merge($where_values, $valores);  
   }
 
+  if (isset($_SESSION['pesquisa']['rua'])) {  
+    $where_AND = $where_AND.' AND rua LIKE ?'; 
+    $where_values[] = "%".$_SESSION['pesquisa']['rua']."%";
+  }
+  if (isset($_SESSION['pesquisa']['numero'])) {  
+    $where_AND = $where_AND.' AND numero LIKE ?'; 
+    $where_values[] = "%".$_SESSION['pesquisa']['numero']."%";
+  }
+  if (isset($_SESSION['pesquisa']['referencia'])) {  
+    $where_AND = $where_AND.' AND referencia LIKE ?'; 
+    $where_values[] = "%".$_SESSION['pesquisa']['referencia']."%";
+  }
+  
   $where = $where_OR.' '.$where_AND;
 
   if (empty($_SESSION['usuario'])){
