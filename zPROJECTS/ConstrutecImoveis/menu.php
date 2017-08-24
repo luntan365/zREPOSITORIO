@@ -5,8 +5,10 @@
   
   <form class="container" action="pesquisar" method="post" autocomplete="off" enctype="multipart/form-data">
     
-    <p class="center">
-      <button class="btn waves-effect waves-light" type="submit" name="pesquisar"> Pesquisar </button>   
+    <p class="row center">
+      <a href="pesquisa_mostrar_tudo"><button class="btn waves-effect waves-light blue col s4" type="button" name="todos">Todos</button></a>
+      
+      <button class="btn waves-effect waves-light  col s7 offset-s1" type="submit" name="pesquisar">Pesquisar</button>   
     </p>
     
     <p>

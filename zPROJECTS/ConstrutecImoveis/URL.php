@@ -3,6 +3,7 @@ class URL {
   private $rotas = [
     'home'=>['acao'=>false,'pagina'=>'home'],
     'pesquisar'=>['acao'=>'pesquisar','pagina'=>'home'],
+    'pesquisa_mostrar_tudo'=>['acao'=>'pesquisa_mostrar_tudo','pagina'=>'home'],
 
     'acesso'=>['acao'=>false,                     'pagina'=>'acesso'],
     'acesso_logar'=>['acao'=>'acesso_logar',      'pagina'=>'home'],

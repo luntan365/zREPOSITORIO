@@ -18,7 +18,7 @@
       .input-field { margin-top: 0px; }
     </style>
   </head>
-  <body ondragstart='return false'>
+  <body ondragstart='return false' class="grey darken-4">
     
   <div class="row col s12 grey darken-4" id="corpopesquisa">
     <!-- CABECALHO -->
