@@ -1,30 +1,14 @@
 #! /usr/bin/env python
 # -*- coding:utf-8 -*-
-import random
 import time
-import timeit
-from thread import start_new_thread
-# ===================================================================
-
-class No(object):
-    def __init__(self, jogada, movimento=None, movimentos=[]):
-        super(No, self).__init__()
-        self.jogada = jogada
-        self.movimentos = movimentos
-        if movimento != None:
-            self.movimentos.append(movimento)
-
-# ===================================================================
+from NO import No
 
 class AI(object):
     todas_jogadas = []
-    achou = [False]
-    tempo_inicial = []
-    mostrar_tempo = [True]
+    achou = False
 
     def __init__(self, antigos_filhos=[], raiz=None):
         super(AI, self).__init__()
-        # print("=== AI INSTANCIADA ===")
         self.antigos_filhos = antigos_filhos
         self.novos_filhos = []
         if raiz != None:
@@ -32,43 +16,19 @@ class AI(object):
             self.array_for_number(raiz.jogada)
             self.antigos_filhos.append(raiz)
             pass
-        start_new_thread(self.iniciar,())
+        self.iniciar()
 
-    def __del__ (self):
-        # print("=== AI DESTRUIDO ===")
-        pass
-
-    def iniciar(self):
-        if len(self.tempo_inicial) < 1:
-            self.tempo_inicial.append(time.time())
-            pass
-
-        while not self.achou[0]:
-            tamanho = len(self.antigos_filhos)
-            if tamanho <= 0:
-                break
-            if tamanho > 100:
-                filhos_extraidos = []
-                for i in range(tamanho//2):
-                    filhos_extraidos.append(self.antigos_filhos.pop())
-                newai = AI(antigos_filhos=filhos_extraidos)
+    def iniciar(self):        
+        inicio = time.time()        
+        while not self.achou:
             self.busca()
-            pass
-
-        if self.mostrar_tempo[0] and self.achou[0]:
-            self.mostrar_tempo[0] = False
-            inicio = self.tempo_inicial[0]
-            fim = time.time()
-            segundos = fim - inicio
-            self.formatar_tempo(segundos)
-            pass
-
-        self.__del__()
-        pass
+        fim = time.time()
+        segundos = fim - inicio
+        print(self.formatar_tempo(segundos))
 
     def busca(self):
         for filho in self.antigos_filhos:
-            if self.achou[0]:
+            if self.achou:
                 return
             self.criar_Filhos(filho)
             self.antigos_filhos = self.novos_filhos
@@ -79,8 +39,6 @@ class AI(object):
         for index_mover in self.movimentos_possiveis(no.jogada):
             jogada, movimento = self.mover(no.jogada, index_mover)
             jogada_num = self.array_for_number(jogada)
-            # print((jogada_num not in self.todas_jogadas))
-            # print(self.todas_jogadas)
             if jogada_num not in self.todas_jogadas:
                 # print(no.movimentos)
                 # self.exibir(jogada)
@@ -91,7 +49,7 @@ class AI(object):
                 if self.conseguiu(novo_no.jogada):
                     self.exibir(novo_no.jogada)
                     print(novo_no.movimentos)
-                    self.achou[0] = True
+                    self.achou = True
                     return
                 self.novos_filhos.append(novo_no)
 
@@ -123,26 +81,7 @@ class AI(object):
         pass
 
     def formatar_tempo(self, segundos):
-        horas = int(segundos // 360)
-        minutos = int((segundos % 360) // 60)
-        segundos = int((segundos % 360) % 60)
-        print("Tempo Gasto : "+str(horas)+":"+str(minutos)+":"+str(segundos))
-
-
-# ===================================================================
-def inserir_numeros_aleatrios():
-    numeros_base = [1,2,3,4,5,6,7,8,9]
-    numeros = []
-    while len(numeros_base) > 0:
-        indice_aleatorio = random.randrange(len(numeros_base))
-        numeros.append(numeros_base.pop(indice_aleatorio))
-    return numeros
-# ===================================================================
-jogada_inicial = [1,6,2,7,4,9,5,8,3]
-# jogada_inicial = [9,8,7,6,5,4,3,2,1]
-jogada_inicial = inserir_numeros_aleatrios()
-raiz = No(jogada_inicial)
-ai = AI(raiz=raiz)
-
-while True:
-    pass
+        horas = int(segundos // 3600)
+        minutos = int((segundos % 3600) // 60)
+        segundos = int((segundos % 3600) % 60)
+        return "Tempo Gasto %.2i:%.2i:%.2i" %(horas, minutos, segundos)
