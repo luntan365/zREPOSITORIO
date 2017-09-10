@@ -101,9 +101,9 @@ $dados = CRUD::select('endereco e, imovel i', '*', $where, $where_dados);
         <a href="logado_alterar_dados/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn blue">Alterar Dados</button></a>
 
         <?php if ($value['status']=='indisponivel'): ?>
-          <a href="logado_alterar_disponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn orange">Estar Indisponivel</button></a>
+          <a href="logado_alterar_disponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn orange">Alugada</button></a>
         <?php else: ?>
-          <a href="logado_alterar_indisponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn green">Estar Disponivel</button></a>
+          <a href="logado_alterar_indisponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn green">Disponível</button></a>
         <?php endif; ?>
 
 
