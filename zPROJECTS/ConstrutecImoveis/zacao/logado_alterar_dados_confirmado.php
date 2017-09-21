@@ -33,9 +33,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST'):
   if (isset($_POST['varanda'])) {  $imovel['varanda'] = "1"; }
   else { $imovel['varanda'] = "0";  }
 
-  if (isset($_POST['status'])) { $imovel['status'] = 'disponivel'; } 
-  else { $imovel['status'] = 'indisponivel'; }
-
   $id = $url->vars()[0];
   $endereco_id = $url->vars()[1];
   CRUD::update('imovel', $imovel, 'id = ?', [$id]);

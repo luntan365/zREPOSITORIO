@@ -92,7 +92,7 @@ $dados = CRUD::select('endereco e, imovel i', '*', $where, $where_dados);
           <form class="" action="logado_alterar_valor/<?php echo $value['id']; ?>" method="post" enctype="multipart/form-data">
 
           <div class="input-field col s2">
-            <input id="cd_valor" name="valor" type="number" required step="0.01" oninput="if(this.value.length>10) this.value = this.value.slice(0, 10);" >
+            <input id="cd_valor" name="valor" type="number"   min="0" required step="0.01" oninput="if(this.value.length>10) this.value = this.value.slice(0, 10);" >
             <label for="cd_valor">Novo Valor R$</label>
           </div>
           <button type="submit" name="submit" class="btn purple">Alterar Valor</button>
@@ -101,7 +101,7 @@ $dados = CRUD::select('endereco e, imovel i', '*', $where, $where_dados);
         <a href="logado_alterar_dados/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn blue">Alterar Dados</button></a>
 
         <?php if ($value['status']=='indisponivel'): ?>
-          <a href="logado_alterar_disponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn orange">Alugada</button></a>
+          <a href="logado_alterar_disponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn orange">Alugado</button></a>
         <?php else: ?>
           <a href="logado_alterar_indisponivel/<?php echo $value['id']; ?>"><button type="button" name="button" class="btn green">Disponível</button></a>
         <?php endif; ?>

@@ -26,7 +26,7 @@ $id = $url->vars()[0];
     </div>
 
     <div class="input-field col s3">
-      <input id="cd_valor" name="valor" type="number" required step="0.01"  tabindex="2" oninput="if(this.value.length>10) this.value = this.value.slice(0, 10);" value="<?php echo $value['valor']; ?>">
+      <input id="cd_valor" name="valor" type="number"  min="0" required step="0.01"  tabindex="2" oninput="if(this.value.length>10) this.value = this.value.slice(0, 10);" value="<?php echo $value['valor']; ?>">
       <label for="cd_valor">Valor R$</label>
     </div>
 
@@ -52,17 +52,17 @@ $id = $url->vars()[0];
     </div>
 
     <div class="input-field col s2 offset-s1">
-      <input id="cd_quarto" name="quarto" type="number" tabindex="4" oninput="if(this.value.length>3) this.value = this.value.slice(0, 3);" value="<?php if ($value['quarto'] > 0) { echo $value['quarto']; } ?>">
+      <input id="cd_quarto" name="quarto" type="number"  min="0" tabindex="4" oninput="if(this.value.length>3) this.value = this.value.slice(0, 3);" value="<?php if ($value['quarto'] > 0) { echo $value['quarto']; } ?>">
       <label for="cd_quarto">Quarto</label>
     </div>
 
     <div class="input-field col s2">
-      <input id="cd_suite" name="suite" type="number"  tabindex="5" oninput="if(this.value.length>3) this.value = this.value.slice(0, 3);" value="<?php if ($value['suite'] > 0) { echo $value['suite']; } ?>">
+      <input id="cd_suite" name="suite" type="number"  min="0"  tabindex="5" oninput="if(this.value.length>3) this.value = this.value.slice(0, 3);" value="<?php if ($value['suite'] > 0) { echo $value['suite']; } ?>">
       <label for="cd_suite">Suite</label>
     </div>
 
     <div class="input-field col s2">
-      <input id="cd_banheiro" name="banheiro" type="number" tabindex="6" oninput="if(this.value.length>3) this.value = this.value.slice(0, 3);" value="<?php if ($value['banheiro'] > 0) { echo $value['banheiro']; } ?>">
+      <input id="cd_banheiro" name="banheiro" type="number"  min="0" tabindex="6" oninput="if(this.value.length>3) this.value = this.value.slice(0, 3);" value="<?php if ($value['banheiro'] > 0) { echo $value['banheiro']; } ?>">
       <label for="cd_banheiro">Banheiro Social</label>
     </div>
 
@@ -85,7 +85,7 @@ $id = $url->vars()[0];
     </div>
 
     <div class="input-field col s2 offset-s1">
-      <input id="cd_garagem" name="garagem" type="number"  tabindex="7" oninput="if(this.value.length>3) this.value = this.value.slice(0, 3);" value="<?php if ($value['garagem'] > 0) { echo $value['garagem']; } ?>">
+      <input id="cd_garagem" name="garagem" type="number"  min="0"  tabindex="7" oninput="if(this.value.length>3) this.value = this.value.slice(0, 3);" value="<?php if ($value['garagem'] > 0) { echo $value['garagem']; } ?>">
       <label for="cd_garagem">Capacidade Garagem</label>
     </div>
 
