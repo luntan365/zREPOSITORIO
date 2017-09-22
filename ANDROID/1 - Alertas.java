@@ -6,12 +6,9 @@
  public void clicarTela(View view) {
 
         //=============Toast===================================
-
         Toast t = Toast.makeText(getApplicationContext(), "Mensagem de alerta do Toast", Toast.LENGTH_SHORT);
         t.show();
-		
-		
-		
+
 
         //==========AlertDialog================================
 
@@ -27,7 +24,7 @@
             }
         });
 
-        adc.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+        adc.setNegativeButton("Nao", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getApplicationContext(), "NAO", Toast.LENGTH_SHORT).show();
