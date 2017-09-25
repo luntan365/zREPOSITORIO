@@ -7,8 +7,8 @@ SQLiteDatabase sqlite = null;
 
            sqlite.execSQL("DELETE FROM pessoa WHERE nome = 'litt' ");
 
-           sqlite.execSQL("INSERT INTO pessoa (nome, idade) values ('dejota', 28)");
-           sqlite.execSQL("INSERT INTO pessoa (nome, idade) values ('litt', 25)");
+           sqlite.execSQL("INSERT INTO pessoa (nome, idade) VALUES ('dejota', 28)");
+           sqlite.execSQL("INSERT INTO pessoa (nome, idade) VALUES ('litt', 25)");
 
            cursor = sqlite.rawQuery("SELECT * FROM pessoa", null);
            int idxId = cursor.getColumnIndex("id");

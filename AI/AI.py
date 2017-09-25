@@ -18,8 +18,8 @@ class AI(object):
             pass
         self.iniciar()
 
-    def iniciar(self):        
-        inicio = time.time()        
+    def iniciar(self):
+        inicio = time.time()
         while not self.achou:
             self.busca()
         fim = time.time()
@@ -31,7 +31,7 @@ class AI(object):
             if self.achou:
                 return
             self.criar_Filhos(filho)
-            self.antigos_filhos = self.novos_filhos
+        self.antigos_filhos = self.novos_filhos
         self.novos_filhos = []
         pass
 
@@ -40,8 +40,8 @@ class AI(object):
             jogada, movimento = self.mover(no.jogada, index_mover)
             jogada_num = self.array_for_number(jogada)
             if jogada_num not in self.todas_jogadas:
-                # print(no.movimentos)
-                # self.exibir(jogada)
+                print(no.movimentos)
+                self.exibir(jogada)
                 self.todas_jogadas.append(jogada_num)
                 movimentos_pai = no.movimentos[:]
                 novo_no = No(jogada, movimento, movimentos_pai)
