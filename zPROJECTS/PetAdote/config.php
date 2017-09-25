@@ -10,3 +10,4 @@ define('DIR_RAIZ', __DIR__);
 require_once 'class/AutoLoad.class.php';
 
 $crud = new CRUD;
+

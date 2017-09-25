@@ -15,7 +15,7 @@ define('PASS', 'usbw');
 define('HOST_TESTE', 'localhost');
 define('DATABASE_TESTE', 'construtec_imoveis');
 define('USER_TESTE', 'root');
-define('PASS_TESTE', 'usbw');
+define('PASS_TESTE', 'root');
 
 //VARIAVEIS DE ACESSO GLOBAL
 define('DOMINIO',(!empty($_SERVER['HTTPS'])?'https':'http').'://'.$_SERVER['HTTP_HOST'].'/');

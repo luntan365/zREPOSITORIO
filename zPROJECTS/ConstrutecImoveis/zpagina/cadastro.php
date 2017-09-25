@@ -12,7 +12,7 @@
 
     <div class="input-field col s5">
 
-      <input id="cd_rua" onfocus="" name="rua" type="text" maxlength="200" required tabindex="1" value="<?php if (isset($_SESSION['cadastro']['rua'])) { echo $_SESSION['cadastro']['rua']; } ?>">
+      <input id="cd_rua" name="rua" type="text" maxlength="200" required tabindex="1" value="<?php if (isset($_SESSION['cadastro']['rua'])) { echo $_SESSION['cadastro']['rua']; } ?>">
       <label for="cd_rua">Rua</label>
     </div>
 
