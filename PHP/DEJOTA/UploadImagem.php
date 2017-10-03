@@ -4,7 +4,7 @@ class UploadImagem {
 
   private $src;
 
-  function __construct($nameTag, $destino, $largura=null, $altura=null){
+  function __construct($nameTag, $destino, $dimensao_max=300, $largura=null, $altura=null){
 
     if ( isset($_FILES[$nameTag]['name']) && $_FILES[$nameTag]['error'] == 0 ) {
 
@@ -14,13 +14,13 @@ class UploadImagem {
           $nome = $_FILES[ $nameTag ][ 'name' ];
           $extensao = strtolower(pathinfo($nome, PATHINFO_EXTENSION));
 
-          if (strstr('.jpg;.jpeg;.gif;.png;.webp', $extensao)) {
+          if (strstr('.jpg;.jpeg;.gif;.png', $extensao)) {
 
               $novoNome = uniqid(time());
               $this->criar_direotrio($destino);
-              $this->src = $this->redimensionar($diretorio, $destino, $novoNome, $extensao, $largura, $altura);
+              $this->src = $this->redimensionar($diretorio, $destino, $novoNome, $extensao, $dimensao_max, $largura, $altura);
 
-          } else { throw new Exception('Enviar apenas imagens jpg, jpeg, gif ou png.'); }
+          } else { throw new Exception('Enviar apenas imagens jpg, jpeg, png ou gif.'); }
       } else { throw new Exception('Envie arquivo de no máximo 2 Megabytes.'); }
     } else {  throw new Exception('Nenhuma imagem enviada.'); }
   }
@@ -37,30 +37,47 @@ class UploadImagem {
   //=======================================================================
 
 
-  private function redimensionar($diretorio_fonte, $diretorio_destino, $nome_aquivo, $extensao, $largura=null, $altura=null){
-    @ini_set('default_charset', 'UTF-8');
+  private function redimensionar($diretorio_fonte, $diretorio_destino, $nome_aquivo, $extensao, $dimensao_max=300, $largura=null, $altura=null){
 
     $src = $diretorio_destino.'/'.$nome_aquivo.'.'.$extensao;
 
       switch ($extensao):
-        case 'jpeg': $imagem_temp = imagecreatefromjpeg($diretorio_fonte);  break;
         case 'jpg':
-          copy($diretorio_fonte, $diretorio_fonte.'.'.$extensao); unlink($diretorio_fonte);
-          $imagem_temp = imagecreatefromjpeg($diretorio_fonte.'.'.$extensao); break;
+          copy($diretorio_fonte, $diretorio_fonte.'.'.$extensao);
+          unlink($diretorio_fonte);
+          $imagem_temp = imagecreatefromjpeg($diretorio_fonte.'.'.$extensao);
+          break;
+        case 'jpeg': $imagem_temp = imagecreatefromjpeg($diretorio_fonte);  break;
         case 'png':  $imagem_temp = imagecreatefrompng($diretorio_fonte);   break;
         case 'gif':  $imagem_temp = imagecreatefromgif($diretorio_fonte);   break;
-        case 'webp':  $imagem_temp = imagecreatefromwebp($diretorio_fonte);   break;
-        default: copy($diretorio_fonte, $src); unlink($diretorio_fonte);  break;
-        // throw new Exception('Use formatos de imagem: jpg, jpeg, png ou gif');
+        default: throw new Exception('Use imagens com seguintes formatos: jpg, jpeg, png ou gif.');
       endswitch;
 
       $largura_original = imagesx($imagem_temp);
       $altura_original = imagesy($imagem_temp);
-      $nova_largura = $largura ? $largura : $largura_original;
-      $nova_altura = floor($altura_original/$largura_original*$largura);
-      $nova_altura = $altura ? $altura : floor(($altura_original/$largura_original)*$largura);
 
+      if ($dimensao_max != null) {
 
+        if ($largura_original > $altura_original) {
+          $nova_largura = $dimensao_max;
+          $nova_altura = floor(($altura_original*$nova_largura)/$largura_original);
+        } else {
+          $nova_altura = $dimensao_max;
+          $nova_largura = floor(($largura_original*$nova_altura)/$altura_original);
+        }
+
+      } elseif ($largura != null && $altura == null) {
+        $nova_largura = $largura;
+        $nova_altura = floor(($altura_original*$nova_largura)/$largura_original);
+
+      } elseif ($largura == null && $altura != null) {
+        $nova_altura = $altura;
+        $nova_largura = floor(($largura_original*$nova_altura)/$altura_original);
+        
+      } elseif ($largura != null && $altura != null) {
+        $nova_largura = $largura;
+        $nova_altura = $altura;
+      }
 
       $imagem_redimensionada = imagecreatetruecolor($nova_largura, $nova_altura);
       imagecopyresampled($imagem_redimensionada, $imagem_temp, 0, 0, 0, 0, $nova_largura, $nova_altura, $largura_original, $altura_original);
