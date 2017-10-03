@@ -12,9 +12,9 @@ class UploadImagem {
       if ($_FILES[ $nameTag ][ 'size' ] <= $tamnhoMaximo) {
           $diretorio = $_FILES[ $nameTag ][ 'tmp_name' ];
           $nome = $_FILES[ $nameTag ][ 'name' ];
-          $extensao = strtolower(pathinfo( $nome, PATHINFO_EXTENSION));
+          $extensao = strtolower(pathinfo($nome, PATHINFO_EXTENSION));
 
-          if (strstr('.jpg;.jpeg;.gif;.png', $extensao)) {
+          if (strstr('.jpg;.jpeg;.gif;.png;.webp', $extensao)) {
 
               $novoNome = uniqid(time());
               $this->criar_direotrio($destino);
@@ -38,13 +38,20 @@ class UploadImagem {
 
 
   private function redimensionar($diretorio_fonte, $diretorio_destino, $nome_aquivo, $extensao, $largura=null, $altura=null){
+    @ini_set('default_charset', 'UTF-8');
+
+    $src = $diretorio_destino.'/'.$nome_aquivo.'.'.$extensao;
 
       switch ($extensao):
         case 'jpeg': $imagem_temp = imagecreatefromjpeg($diretorio_fonte);  break;
-        case 'jpg':  $imagem_temp = imagecreatefromjpeg($diretorio_fonte);  break;
+        case 'jpg':
+          copy($diretorio_fonte, $diretorio_fonte.'.'.$extensao); unlink($diretorio_fonte);
+          $imagem_temp = imagecreatefromjpeg($diretorio_fonte.'.'.$extensao); break;
         case 'png':  $imagem_temp = imagecreatefrompng($diretorio_fonte);   break;
         case 'gif':  $imagem_temp = imagecreatefromgif($diretorio_fonte);   break;
-        default: throw new Exception('Use formatos de imagem: jpg, jpeg, png ou gif');  break;
+        case 'webp':  $imagem_temp = imagecreatefromwebp($diretorio_fonte);   break;
+        default: copy($diretorio_fonte, $src); unlink($diretorio_fonte);  break;
+        // throw new Exception('Use formatos de imagem: jpg, jpeg, png ou gif');
       endswitch;
 
       $largura_original = imagesx($imagem_temp);
@@ -53,7 +60,7 @@ class UploadImagem {
       $nova_altura = floor($altura_original/$largura_original*$largura);
       $nova_altura = $altura ? $altura : floor(($altura_original/$largura_original)*$largura);
 
-      $src = $diretorio_destino.'/'.$nome_aquivo.'.'.$extensao;
+
 
       $imagem_redimensionada = imagecreatetruecolor($nova_largura, $nova_altura);
       imagecopyresampled($imagem_redimensionada, $imagem_temp, 0, 0, 0, 0, $nova_largura, $nova_altura, $largura_original, $altura_original);
