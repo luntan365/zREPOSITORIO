@@ -4,7 +4,7 @@ class UploadImagem {
 
   private $src;
 
-  function __construct($nameTag, $destino, $dimensao_max=300, $largura=null, $altura=null){
+  function __construct($nameTag, $destino, $dimensao_max=null, $largura=null, $altura=null){
 
     if ( isset($_FILES[$nameTag]['name']) && $_FILES[$nameTag]['error'] == 0 ) {
 
@@ -37,7 +37,7 @@ class UploadImagem {
   //=======================================================================
 
 
-  private function redimensionar($diretorio_fonte, $diretorio_destino, $nome_aquivo, $extensao, $dimensao_max=300, $largura=null, $altura=null){
+  private function redimensionar($diretorio_fonte, $diretorio_destino, $nome_aquivo, $extensao, $dimensao_max=null, $largura=null, $altura=null){
 
     $src = $diretorio_destino.'/'.$nome_aquivo.'.'.$extensao;
 
@@ -73,10 +73,14 @@ class UploadImagem {
       } elseif ($largura == null && $altura != null) {
         $nova_altura = $altura;
         $nova_largura = floor(($largura_original*$nova_altura)/$altura_original);
-        
+
       } elseif ($largura != null && $altura != null) {
         $nova_largura = $largura;
         $nova_altura = $altura;
+        
+      } else {
+        $nova_largura = $largura_original;
+        $nova_altura = $altura_original;
       }
 
       $imagem_redimensionada = imagecreatetruecolor($nova_largura, $nova_altura);
