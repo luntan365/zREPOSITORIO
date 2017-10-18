@@ -15,8 +15,9 @@ def inserir_numeros_aleatrios():
 # ===================================================================
 
 # 9 é espaço vazio
-# jogada_inicial = inserir_numeros_aleatrios()
+#jogada_inicial = inserir_numeros_aleatrios()
 jogada_inicial = [1,6,2,7,4,9,5,8,3]
+#jogada_inicial = [5,9,8,2,7,6,3,1,4]
 raiz = No(jogada_inicial)
 ai = AI(raiz=raiz)
 

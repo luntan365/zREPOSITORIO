@@ -46,7 +46,8 @@ def conseguiu(jogo8):
        
     
 # inico jogo
-jogo = inserir_numeros_aleatrios()
+# jogo = inserir_numeros_aleatrios()
+jogo = [1,6,2,7,4,9,5,8,3]
 while True:
     exibir(jogo)
     mover(jogo)
