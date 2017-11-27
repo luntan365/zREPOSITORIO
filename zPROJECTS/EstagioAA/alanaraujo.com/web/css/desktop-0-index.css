@@ -1,0 +1,101 @@
+@font-face {
+    font-family: Roboto;
+    src: url("/web/font/Roboto-Regular.ttf");
+}
+*, *:before, *:after {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  border-style: none;
+  outline: none;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+  font-size: 14px;
+}
+/* remover barra rolagem do corpo */
+body::-webkit-scrollbar { width: 0px; }
+/* barra de roloagem dos componente internos do corpo */
+::-webkit-scrollbar { width: 6px; background-color: #EEE; }
+::-webkit-scrollbar-button {  height: 0px; }
+::-webkit-scrollbar-thumb {  background-color: #AAA; }
+
+/* GERAL */
+/*ROXO: #512395; AZULESCURO: *#1D2247;*/
+body, #top, #menu, #bot  { background-color: #1D2247; }
+#mid { background-color: #DDD;  }
+
+/*Componentes*/
+a { color: black; text-decoration: none; }
+textarea { resize: vertical; }
+input[type="text"], select, textarea {  border-bottom: 1px solid #AAA;  background-color: rgba(0,0,0,0); }
+input[type="text"]:focus, input[type="checkbox"]:focus, select:focus, textarea:focus {   border-bottom: 1px solid rgba(32,124,229,1);   box-shadow: 0px 4px 2px -2px rgba(32,124,229,0.5); }
+
+/*===================TOP===================*/
+#top { width: calc(100% - 200px); position: fixed; top: 0px; left: 200px; z-index: 5; }
+#top input { top: 100%; border-bottom: 1px solid #EEE; width: 250px; padding: 12px 25px 5px 10px; color: #FFF; font-size: 16px; }
+#top input { background-image: url("/web/img/icon/lupa.png"); background-repeat: no-repeat;  background-position: right bottom; background-size: 24px 24px; }
+#top input::placeholder { color: #EEE;  }
+
+/* menu entidade ativa*/
+#top { line-height: 0px; }
+#top ul li { display: inline-block; overflow: hidden; height: 50px; padding-top: 5px;  line-height: 1.2; color: #FFF; text-align: center; }
+#top ul .nome  { width: 220px; padding-top: 15px; }
+#top ul a li { width: 90px; text-align: center; }
+#top ul a li img { display: block; position: relative; left: 50%; transform: translateX(-50%);  height: 25px; width: auto; }
+#top ul a li:hover { background-color: rgba(255,255,255, 0.3); }
+
+
+/*===================RESULTADO PESQUISA===================*/
+#resultado-pesquisa-top { position: fixed; top: 50px; left: 200px; width: calc(100% - 200px); max-height: 60vh; overflow-y: auto; z-index: 10; }
+#resultado-pesquisa-top a { display: block;  padding: 10px; background-color: #FFF; color: #333; border-bottom: 1px solid #E7E7E7; }
+#resultado-pesquisa-top a:hover { background-color: #E7E7E7; color: #000; }
+
+/*===================MENU===================*/
+#menu {  position: fixed; top: 0; left: 0; width: 200px;  height: 100vh;  overflow-y: auto;  z-index: 11; }
+#menu > img {  width: 100%;  padding: 5px; }
+#menu a li {  color: #EEE;  font-size: 14px; }
+#menu ul a li { padding: 10px;  }
+#menu ul a li span { font-size: 16px; margin-left: 10px;  }
+#menu ul a li img {  width: 16px;  height: 16px; }
+#menu ul a li:hover { background-color: rgba(255,255,255,0.3); }
+#menu .ativo {  color: white;  background-color: #16A085; }
+
+
+/*===================MID===================*/
+#mid { width: 100%; min-height: calc(100vh - 36px); padding: 60px 10px 10px 210px; }
+
+/*===================BOTOES===================*/
+#mid .botoes { width: 100%; text-align: center; }
+#mid .botoes input {  padding: 10px; width: 24%; min-width: 200px; cursor: pointer; margin: 10px 0px; }
+#mid .botoes input:hover {  opacity: 0.7; }
+
+/*FLUTUANTE*/
+#mid .botao-float { position: relative; overflow: hidden; right: 0px; bottom: 0px; }
+#mid .botao-float a { position: relative; float: right; padding: 7px 12px; margin-right: 5px; }
+
+/*CORES DE BOTOES*/
+#mid .botao-confirma {  background-color: #16A085; color: #FFF; }
+#mid .botao-cancela {  background-color: #B30802; color: #FFF; }
+#mid .botao-neutro {  background-color: #199EC7; color: #FFF; }
+#mid .botao-gritando {  background-color: #FD1254; color: #FFF; }
+#mid .botao-entidade {  background-color: #E3000E; color: #FFF; }
+#mid .botao-pessoajuridica {  background-color: #1C57E1; color: #FFF; }
+#mid .botao-pessoafisica {  background-color: #27ae60; color: #FFF; }
+#mid .botao-categoria {  background-color: #F04903; color: #FFF; }
+#mid .botao-endereco {  background-color: #8F44AB; color: #FFF; }
+#mid .botao-contabancaria {  background-color: #9C410A; color: #FFF; }
+#mid .botao-contato {  background-color: #C2004E; color: #FFF; }
+
+/*===================NOTIFICACOES===================*/
+#mid .notificacoes {  max-width: 100%; color: #FFF; margin-bottom: 10px; }
+#mid .notificacoes a {  color: #FFF; text-decoration: underline; }
+#mid .notificacao-erro { background-color: #CF000F; }
+#mid .notificacao-sucesso {  background-color: #16A086; text-align: center; }
+#mid .notificacao-erro p, .notificacao-sucesso p { padding: 10px;}
+
+/*===================BOT===================*/
+#bot { width: calc(100% - 200px); position: relative; left: 200px;  text-align: center; }
+#bot p {  color: #EEE;  line-height: 3; font-size: 12px; }

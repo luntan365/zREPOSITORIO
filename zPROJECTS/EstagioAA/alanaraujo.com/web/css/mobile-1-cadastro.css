@@ -1,0 +1,71 @@
+#mid #fieldset_pessoa_fisica {
+  display: none;
+}
+#mid .caixa {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #FFF;
+  border: 1px solid  #AAA;
+  -webkit-box-shadow: 1px 1px 2px 2px rgba(170, 170, 170, 0.7);
+     -moz-box-shadow: 1px 1px 2px 2px rgba(170, 170, 170, 0.7);
+          box-shadow: 1px 1px 2px 2px rgba(170, 170, 170, 0.7);
+}
+#mid .caixa span {
+  display: block;
+  color: #16A085;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#mid .caixa .caixa-form {
+  width: 100%;
+}
+#mid .caixa .caixa-item-form {
+  padding: 4px;
+  width: 100%;
+}
+#mid .caixa .campo {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+#mid .caixa input[type="radio"], #mid .caixa input[type="checkbox"] {
+  margin-bottom: 20px;
+}
+
+
+/*SHOW DADOS DE CADASTRO*/
+
+#mid .caixa-show {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #FFF;
+  border: 1px solid  #AAA;
+  -webkit-box-shadow: 1px 1px 2px 2px rgba(170, 170, 170, 0.7);
+     -moz-box-shadow: 1px 1px 2px 2px rgba(170, 170, 170, 0.7);
+          box-shadow: 1px 1px 2px 2px rgba(170, 170, 170, 0.7);
+}
+#mid .caixa-show > span {
+  display: block;
+  color: #16A085;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#mid .caixa-show .caixa-item-show {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  padding: 5px;
+  width: 100%;
+}
+
+/*CORES DA ROTULOS*/
+#mid .caixa .caixa-rotulo-entidade, #mid .rotulo-entidade span { color: #E3000E; }
+#mid .caixa .caixa-rotulo-pessoajuridica, #mid .rotulo-pessoajuridica span { color: #1C57E1; }
+#mid .caixa .caixa-rotulo-pessoafisica, #mid .rotulo-pessoafisica span { color: #27AE60; }
+#mid .caixa .caixa-rotulo-categoria, #mid .rotulo-categoria span { color: #FD5B03; }
+#mid .caixa .caixa-rotulo-endereco, #mid .rotulo-endereco span { color: #8F44AB; }
+#mid .caixa .caixa-rotulo-contabancaria, #mid .rotulo-contabancaria span { color: #9C410A; }
+#mid .caixa .caixa-rotulo-contato, #mid .rotulo-contato span { color: #C2004E; }
