@@ -18,7 +18,7 @@ minhaPort = 50007
 numPortSocks = 2
 
 # Lista de sockets criados por função de cada socket
-socks_principais, le_socks, escreve_socks = [], [], []
+socks_principais, ler_socks, escreve_socks = [], [], []
 
 # Cria um socket para cada função
 for i in range(numPortSocks):
@@ -31,7 +31,7 @@ for i in range(numPortSocks):
 
     # O adiciona a lista de principais e leitoras
     socks_principais.append(portsock)
-    le_socks.append(portsock)
+    ler_socks.append(portsock)
 
     # Aumenta o valor da port para mudar o próximo socket
     minhaPort += 1
@@ -40,8 +40,8 @@ print('Loop de seleção de socket iniciado')
 
 while True:
     # Vemos todos os sockets legiveis e escreviveis e os selecionamos
-    legiveis, escreviveis, excessões = select(le_socks, escreve_socks, [])
-    
+    legiveis, escreviveis, excessões = select(ler_socks, escreve_socks, [])
+
     # Para cada socket legivel
     for sockobj in legiveis:
         # Se ele é um socket principal
@@ -51,21 +51,21 @@ while True:
             # Imprime as conexões
             print('Conecta:', endereço, id(novo_sock))
             # E o coloca no socket de leitura
-            le_socks.append(novo_sock)
-     
+            ler_socks.append(novo_sock)
+
         else:
             # Lemos o que está no socket
             data = sockobj.recv(1024)
 
             # Imprime a menssagem recebida
             print('\tRecebeu', data, 'em', id(sockobj))
-            
+
             # Se não recebermos nada
             if not data:
                 # Fechamos o socket
                 sockobj.close()
                 # E o removemos do socket de leitura
-                le_socks.remove(sockobj)
+                ler_socks.remove(sockobj)
             # Caso contrário
             else:
                 # Preparamos uma resposta a ser enviada
