@@ -1,0 +1,9 @@
+PHP :-> Laravel
+Ruby :-> Ruby on Rails
+Python :-> Djungle
+Java :->  Spring MVC
+C#  :-> ASP.NET
+JS :-> Angular-s, ReactJS, Vue.js, TypeScript
+
+CSS :-> SCSS, BOOTSTRAP, Materialize
+JS :-> JQUERY
