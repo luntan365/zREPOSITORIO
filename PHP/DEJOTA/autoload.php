@@ -2,10 +2,7 @@
   class AutoLoad {
 
     public function __construct(){
-      $this->autocarrega(DIRETORIO_RAIZ.'/system');
-      $this->autocarrega(DIRETORIO_RAIZ.'/util');
-      $this->autocarrega(DIRETORIO_RAIZ.'/orm');
-      $this->autocarrega(DIRETORIO_RAIZ.'/model');
+      $this->autocarrega(__DIR__);
     }
 
     private function autocarrega($diretorio){
